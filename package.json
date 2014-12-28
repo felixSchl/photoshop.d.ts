@@ -1,0 +1,31 @@
+{
+  "name": "photoshop.d.ts",
+  "version": "0.0.0",
+  "description": "Typescript declarations for photoshop",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "make": "tsc --module commonjs app.ts && node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/felixschl/photoshop.d.ts"
+  },
+  "keywords": [
+    "photoshop",
+    "typescript",
+    "javascript",
+    "api"
+  ],
+  "author": "Felix Schlitter",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/felixschl/photoshop.d.ts/issues"
+  },
+  "devDependencies": {
+    "lodash": "~2.4.1",
+    "bennu": "~17.2.2",
+    "fs-extra": "~0.13.0",
+    "wordwrap": "0.0.2"
+  }
+}
