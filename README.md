@@ -5,18 +5,11 @@ Photoshop.d.ts
 
 ## Getting Started
 
-To get started writing typesafe Photoshop scripts, fetch a copy of the `./dist/`
-subfolder targeting your version of Photoshop.
+> npm install photoshop.d.ts
 
-The folder contains several files:
+Add a reference to `./node_modules/photoshop.d.ts/dist/cs6/ps.d.ts`
 
-* `ps.d.ts` - **photoshop ts declaration**
-* `lib.d.ts` - (internal) stdlib suitable for photoshop
-* `ps.extendscript.d.ts` - (internal) extendscript ts declarations
-* `ps.types.d.ts` - (internal) interface definitions
-* `ps.constants.d.ts` - (internal) enum definitions
-
-Copy all files and reference only `ps.d.ts`.
+The other references will automatically resolve.
 
 ## Usage
 
