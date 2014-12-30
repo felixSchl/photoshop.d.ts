@@ -14,7 +14,6 @@ The other references will automatically resolve.
 ## Usage
 
 ```typescript
-
 ///<reference path="./ps.d.ts"/>
 
 var document = app.activeDocument; // Access global `app`
