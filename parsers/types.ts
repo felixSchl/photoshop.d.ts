@@ -68,7 +68,7 @@ var typeWhitelist = [ "xmpMetadata" ];
 /*
  * A set of known "false positives" types, used by "typeStart" parser.
  */
-var typeBlacklist = [ "Methods" ];
+var typeBlacklist = [ "Methods", "File" ];
 
 /*
  * Parses a typical identifier
