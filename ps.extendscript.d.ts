@@ -6,7 +6,7 @@ declare class Folder {
      * refer to an existing folder. If not supplied, a temporary name is
      * generated.
      */
-    new (path: string)
+    new (path?: string)
 
     /*
      * A Folder object for the folder that contains application data for all
