@@ -1,6 +1,6 @@
 {
   "name": "photoshop.d.ts",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Typescript declarations for photoshop",
   "main": "app.js",
   "scripts": {
