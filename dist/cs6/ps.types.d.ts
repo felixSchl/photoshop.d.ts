@@ -4472,13 +4472,19 @@ interface ExportOptionsSaveForWeb {
      * The tolerance amount within which to
      * snap close colors to web palette colors (default: 0).
      * Property Value type What it is (Continued)
+     * Adobe Photoshop CS6
+     * JavaScript Scripting Reference JavaScript Object Reference 108
+     * File
+     * Folder
+     * ExtendScript defines the JavaScript classes File and Folder to
+     * encapsulate file-system references in a
+     * platform-independent manner; see ‘JavaScript support in Adobe Photoshop
+     * CS6’ on page 32. For
+     * references details of these classes, see the JavaScript Tools Guide.
      * 
      */
     webSnap: number
 
-}
-
-interface File {
 }
 
 interface GalleryBannerOptions {
