@@ -6,7 +6,7 @@ declare class File {
      * The path need not refer to an existing file. If not supplied, a temporary
      * name is generated.
      */
-    new(path?: string)
+    constructor(path?: string)
 
     /*
      * The name of the file system. Read only. One of Windows, Macintosh, or
@@ -521,7 +521,7 @@ declare class Folder {
      * refer to an existing folder. If not supplied, a temporary name is
      * generated.
      */
-    new (path?: string)
+    constructor(path?: string)
 
     /*
      * A Folder object for the folder that contains application data for all
