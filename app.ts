@@ -30,8 +30,7 @@ var compileTypes = output =>
         .map(types => {
             console.log("Rendering types...");
             return renderTypescriptFile(
-                  [ "./ps.constants.d.ts"
-                  , "./ps.extendscript.d.ts" ]
+                  []
                 , renderers.renderTypes
                 , types
             );
@@ -65,8 +64,11 @@ var compileConstants = output =>
 var copyDistFiles = targetDir => {
     console.log("Copying files...");
     fs.copySync("ps.d.ts", targetDir+"/ps.d.ts")
-    fs.copySync("ps.extendscript.d.ts", targetDir+"/ps.extendscript.d.ts")
     fs.copySync("assets/lib.d.ts", targetDir+"/lib.d.ts")
+    fs.copySync("extendscript/es.d.ts", targetDir+"/es.d.ts")
+    fs.copySync("extendscript/es.dollar.d.ts", targetDir+"/es.dollar.d.ts")
+    fs.copySync("extendscript/es.file.d.ts", targetDir+"/es.file.d.ts")
+    fs.copySync("extendscript/es.global.d.ts", targetDir+"/es.global.d.ts")
 }
 
 var mkDistDir = (targetDir) => {
