@@ -4,8 +4,6 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-/// <reference path="./ps.constants.d.ts" />
-/// <reference path="./ps.extendscript.d.ts" />
 
 interface ActionDescriptor {
     /*
