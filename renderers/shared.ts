@@ -13,7 +13,7 @@ export var repeat = (x, n) => _.map(_.range(0, n), _ => x);
 export var strRepeat = (x, n) => repeat(x, n).join("");
 
 export var renderDocstring = (docs = "", indentLevel = 0) =>
-    _(lines(wrap(80 - indentLevel*tabSize - 2)(docs)))
+    _(lines(wrap(80 - indentLevel*tabSize - 2)(docs.replace(/\n/g, ' '))))
         .map((x:string) => x.trim())
         .map(x => " * " + x)
         .tap(xs => {
