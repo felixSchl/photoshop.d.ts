@@ -126,7 +126,7 @@ var methodsMarker =
  */
 var pageHeader = parse.sequence(
       text.string("Adobe Photoshop CS6")
-    , parse.many(text.space)
+
     , parse.sequence(
           text.string("JavaScript Scripting Reference")
         , parse.many(text.anyChar)
@@ -336,38 +336,6 @@ var property = identifier.map(escapeName).chain(name =>
                 )
             )
         )
-    )
-);
-
-/*
- * Parses many properties and their associated documentation.
- * The documentation of a property follows the property until the
- * start of the next property or until the start of the method declarations
- * or the start of a new type.
- */
-var properties = parse.rec<IProperty[]>(self =>
-    parse.optional(
-          []
-        , parse.attempt(
-            property.chain(prop =>
-                parse.rec(self =>
-                    parse.choice(
-                        parse.attempt(parse.look(parse.either(
-                              typeStart
-                            , property
-                        ))).chain(_ => parse.of([]))
-                        ,
-                        parse.anyToken.chain(x =>
-                            self.chain(xs =>
-                                parse.of([x].concat(xs))
-                            )
-                        )
-                    )
-                )
-                .map(xs => xs.join(""))
-                .chain(docs => parse.of(_.extend(prop, { "docs": docs })))
-            )
-        ).chain(x => self.chain(xs => parse.of([x].concat(xs))))
     )
 );
 
