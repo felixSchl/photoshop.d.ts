@@ -39,6 +39,27 @@ var inParenthesis = shared.inParenthesis;
 var startOfLine   = shared.startOfLine;
 
 /*
+ * + Remove page headers
+ * + Remove method and propery markers
+ * + Remove trailing newlines
+ */
+export var sanitizeDocs = (docstring) => {
+    return _.filter(
+          _.foldl(
+            [ /Adobe Photoshop (CC|CS6)[\r\n ]*JavaScript Scripting Reference[^0-9]*[0-9]*/g
+            , /Method Parameter type Returns What it does( \(Continued\)|)/g
+            , /Property Value type What it is( \(Continued\)|)/g
+            , /^[ ]*$/gm
+            ]
+            , (acc, val) => acc.replace(val, '')
+            , docstring
+          )
+          .split('\n')
+        , line => line != ''
+    ).join('\n');
+}
+
+/*
  * A set of reserved typescript keywords
  */
 var reservedKeywords = [ "with", "as" ];
@@ -465,6 +486,7 @@ var properties = parse.rec(self =>
                     )
                 )
                 .map(xs => xs.join(""))
+                .map(sanitizeDocs)
                 .chain(docs => parse.of(_.extend(prop, { "docs": docs })))
             )
         ).chain(x => self.chain(xs => parse.of([x].concat(xs))))
@@ -500,7 +522,8 @@ var methods = parse.rec(self =>
                         )
                     )
                 )
-                .map(xs => xs.join(""))
+                .map(xs => xs.join(''))
+                .map(sanitizeDocs)
                 .chain(docs => parse.of(_.extend(m, { "docs": docs })))
             )
         ).chain(x => self.chain(xs => parse.of([x].concat(xs))))
@@ -521,35 +544,38 @@ var type =
                       parse.attempt(propertiesMarker)
                     , parse.attempt(methodsMarker)
                     , parse.attempt(typeStart)
-                )).chain(docs =>
-                    parse.optional([]
-                        , parse.attempt(
+                  )
+            )
+            .map(sanitizeDocs)
+            .chain(docs =>
+                parse.optional([]
+                    , parse.attempt(
+                        parse.sequence(
+                              propertiesMarker
+                            , parse.many(text.space)
+                            , properties
+                        )
+                    )
+                )
+                .chain(props =>
+                    parse.optional([],
+                        parse.attempt(
                             parse.sequence(
-                                  propertiesMarker
-                                , parse.many(text.space)
-                                , properties
+                                  firstBefore(methodsMarker, typeStart)
+                                , parse.many(text.character(' '))
+                                , methods
                             )
                         )
                     )
-                    .chain(props =>
-                        parse.optional([],
-                            parse.attempt(
-                                parse.sequence(
-                                      firstBefore(methodsMarker, typeStart)
-                                    , parse.many(text.character(" "))
-                                    , methods
-                                )
-                            )
-                        )
-                        .chain(methods =>
-                            parse.of({
-                                  name:    name
-                                , docs:    docs
-                                , props:   props
-                                , methods: methods
-                            })
-                        )
+                    .chain(methods =>
+                        parse.of({
+                              name:    name
+                            , docs:    docs
+                            , props:   props
+                            , methods: methods
+                        })
                     )
+                )
             )
         )
     )
