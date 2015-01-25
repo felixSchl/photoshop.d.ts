@@ -6,13 +6,9 @@
 
 
 /*
- * Method to use for interpreting
- * selective color adjustment
- * specifications:
- * ABSOLUTE = % of the whole.
- * RELATIVE = % of the existing color
- * amount.
- * Pass to ArtLayer.selectiveColor().
+ * Method to use for interpreting selective color adjustment specifications:
+ * ABSOLUTE = % of the whole. RELATIVE = % of the existing color amount. Pass to
+ * ArtLayer.selectiveColor().
  */
 declare enum AdjustmentReference {
     ABSOLUTE,
@@ -20,12 +16,9 @@ declare enum AdjustmentReference {
 }
 
 /*
- * The point around which to transform
- * an object. This is the point that does
- * not move when an object is rotated or
- * resized using methods in ArtLayer,
- * LayerSet, and Selection, or when the
- * entire canvas is resized with
+ * The point around which to transform an object. This is the point that does
+ * not move when an object is rotated or resized using methods in ArtLayer,
+ * LayerSet, and Selection, or when the entire canvas is resized with
  * Document.resizeCanvas().
  */
 declare enum AnchorPosition {
@@ -41,10 +34,8 @@ declare enum AnchorPosition {
 }
 
 /*
- * Method to use to smooth edges by
- * softening the color transition between
- * edge pixels and background pixels.
- * Used in a TextItem.antiAliasMethod.
+ * Method to use to smooth edges by softening the color transition between edge
+ * pixels and background pixels. Used in a TextItem.antiAliasMethod.
  */
 declare enum AntiAlias {
     CRISP,
@@ -55,9 +46,7 @@ declare enum AntiAlias {
 }
 
 /*
- * The type of kerning to use for
- * characters. Used in
- * TextItem.autoKerning.
+ * The type of kerning to use for characters. Used in TextItem.autoKerning.
  */
 declare enum AutoKernType {
     MANUAL,
@@ -66,19 +55,12 @@ declare enum AutoKernType {
 }
 
 /*
- * The destination, if any, for
- * batch-processed files, specified in the
- * BatchOptions used with the
- * Application.batch() method:
- * FOLDER: Save modified versions of the
- * files to a new location (leaving the
- * originals unchanged).
- * NODESTINATIONTYPE: Leave all files
- * open.
- * SAVEANDCLOSE: Save changes and
- * close the files.
- * Adobe Photoshop CS6
- * JavaScript Scripting Reference Scripting Constants 198
+ * The destination, if any, for batch-processed files, specified in the
+ * BatchOptions used with the Application.batch() method: FOLDER: Save modified
+ * versions of the files to a new location (leaving the originals unchanged).
+ * NODESTINATIONTYPE: Leave all files open. SAVEANDCLOSE: Save changes and close
+ * the files. Adobe Photoshop CS6 JavaScript Scripting Reference Scripting
+ * Constants 198
  */
 declare enum BatchDestinationType {
     FOLDER,
@@ -87,9 +69,8 @@ declare enum BatchDestinationType {
 }
 
 /*
- * Specifies the quality of an image you
- * are converting to bitmap mode. Used
- * in BitmapConversionOptions.
+ * Specifies the quality of an image you are converting to bitmap mode. Used in
+ * BitmapConversionOptions.
  */
 declare enum BitmapConversionType {
     CUSTOMPATTERN,
@@ -100,8 +81,7 @@ declare enum BitmapConversionType {
 }
 
 /*
- * Specifies the shape of the dots (ink
- * deposits) in the halftone screen. Used
+ * Specifies the shape of the dots (ink deposits) in the halftone screen. Used
  * in BitmapConversionOptions.
  */
 declare enum BitmapHalfToneType {
@@ -114,11 +94,8 @@ declare enum BitmapHalfToneType {
 }
 
 /*
- * The number of bits per color channel.
- * Value of Document.bitsPerChannel;
- * pass to Documents.add(). Also used in
- * PDFOpenOptions and
- * CameraRAWOpenOptions.
+ * The number of bits per color channel. Value of Document.bitsPerChannel; pass
+ * to Documents.add(). Also used in PDFOpenOptions and CameraRAWOpenOptions.
  */
 declare enum BitsPerChannelType {
     EIGHT,
@@ -128,10 +105,8 @@ declare enum BitsPerChannelType {
 }
 
 /*
- * Controls how pixels in an image are
- * blended when a filter is applied. The
- * value of ArtLayer.blendMode and
- * LayerSet.blendMode.
+ * Controls how pixels in an image are blended when a filter is applied. The
+ * value of ArtLayer.blendMode and LayerSet.blendMode.
  */
 declare enum BlendMode {
     COLORBLEND,
@@ -163,15 +138,10 @@ declare enum BlendMode {
 }
 
 /*
- * The number of bits per channel (also
- * called pixel depth or color depth). The
- * number selected indicates the
- * exponent of 2. For example, a pixel
- * with a bit-depth of EIGHT has 28, or
- * 256, possible color values.
- * Used in BMPSaveOptions.
- * Constant type Values What it means
- * Adobe Photoshop CS6
+ * The number of bits per channel (also called pixel depth or color depth). The
+ * number selected indicates the exponent of 2. For example, a pixel with a
+ * bit-depth of EIGHT has 28, or 256, possible color values. Used in
+ * BMPSaveOptions. Constant type Values What it means Adobe Photoshop CS6
  * JavaScript Scripting Reference Scripting Constants 199
  */
 declare enum BMPDepthType {
@@ -192,8 +162,7 @@ declare enum BMPDepthType {
 }
 
 /*
- * The platform-specific order in which
- * multibyte values are read.
+ * The platform-specific order in which multibyte values are read.
  */
 declare enum ByteOrder {
     IBM,
@@ -201,11 +170,8 @@ declare enum ByteOrder {
 }
 
 /*
- * The default CameraRaw settings to
- * use: the camera settings, custom
- * settings, or the settings of the selected
- * image. Set in
- * CameraRAWOpenOptions.
+ * The default CameraRaw settings to use: the camera settings, custom settings,
+ * or the settings of the selected image. Set in CameraRAWOpenOptions.
  */
 declare enum CameraRAWSettingsType {
     CAMERA,
@@ -214,13 +180,8 @@ declare enum CameraRAWSettingsType {
 }
 
 /*
- * The camera RAW size type options:.
- * EXTRALARGE=5120 x 4096
- * LARGE=4096 x 2731
- * MAXIMUM=6144 X 4096
- * MEDIUM=3072 x 2048
- * MINIMUM=1536 x 1024
- * SMALL=2048 x 1365
+ * The camera RAW size type options:. EXTRALARGE=5120 x 4096 LARGE=4096 x 2731
+ * MAXIMUM=6144 X 4096 MEDIUM=3072 x 2048 MINIMUM=1536 x 1024 SMALL=2048 x 1365
  * Set in CameraRAWOpenOptions.
  */
 declare enum CameraRAWSize {
@@ -233,13 +194,9 @@ declare enum CameraRAWSize {
 }
 
 /*
- * The new color profile or mode for a
- * document, specified in
- * Document.changeMode().
- * Note: Color images must be changed
- * to GRAYSCALE mode before you
- * can change them to BITMAP
- * mode.
+ * The new color profile or mode for a document, specified in
+ * Document.changeMode(). Note: Color images must be changed to GRAYSCALE mode
+ * before you can change them to BITMAP mode.
  */
 declare enum ChangeMode {
     BITMAP,
@@ -252,17 +209,10 @@ declare enum ChangeMode {
 }
 
 /*
- * The type of a color channel:
- * COMPONENT: related to document color
- * mode.
- * MASKEDAREA: Alpha channel where
- * color indicates masked area.
- * SELECTEDAREA: Alpha channel where
- * color indicates selected are.
- * SPOTCOLOR: Alpha channel to store a
- * spot color.
- * Constant type Values What it means
- * Adobe Photoshop CS6
+ * The type of a color channel: COMPONENT: related to document color mode.
+ * MASKEDAREA: Alpha channel where color indicates masked area. SELECTEDAREA:
+ * Alpha channel where color indicates selected are. SPOTCOLOR: Alpha channel to
+ * store a spot color. Constant type Values What it means Adobe Photoshop CS6
  * JavaScript Scripting Reference Scripting Constants 200
  */
 declare enum ChannelType {
@@ -273,10 +223,8 @@ declare enum ChannelType {
 }
 
 /*
- * The way color should be blended in a
- * fill or stroke operation. Pass to
- * PathItem.fillPath(), Selection.fill(),
- * Selection.stroke()
+ * The way color should be blended in a fill or stroke operation. Pass to
+ * PathItem.fillPath(), Selection.fill(), Selection.stroke()
  */
 declare enum ColorBlendMode {
     BEHIND,
@@ -309,8 +257,7 @@ declare enum ColorBlendMode {
 }
 
 /*
- * The color model to use for a
- * SolidColor.
+ * The color model to use for a SolidColor.
  */
 declare enum ColorModel {
     CMYK,
@@ -322,8 +269,7 @@ declare enum ColorModel {
 }
 
 /*
- * The preferred color-selection tool, set
- * in Preferences.
+ * The preferred color-selection tool, set in Preferences.
  */
 declare enum ColorPicker {
     ADOBE,
@@ -333,8 +279,7 @@ declare enum ColorPicker {
 }
 
 /*
- * The type of color profile used to
- * manage this document, set in
+ * The type of color profile used to manage this document, set in
  * Document.colorProfileType.
  */
 declare enum ColorProfileType {
@@ -344,8 +289,7 @@ declare enum ColorProfileType {
 }
 
 /*
- * The color reduction algorithm option
- * for ExportOptionsSaveForWeb.
+ * The color reduction algorithm option for ExportOptionsSaveForWeb.
  */
 declare enum ColorReductionType {
     ADAPTIVE,
@@ -360,8 +304,7 @@ declare enum ColorReductionType {
 }
 
 /*
- * The type of color space to use in
- * CameraRAWOpenOptions.
+ * The type of color space to use in CameraRAWOpenOptions.
  */
 declare enum ColorSpaceType {
     ADOBERGB,
@@ -371,12 +314,9 @@ declare enum ColorSpaceType {
 }
 
 /*
- * The copyright status of a document.
- * Used in
- * DocumentPrintSettings.copyrighted.
- * Constant type Values What it means
- * Adobe Photoshop CS6
- * JavaScript Scripting Reference Scripting Constants 201
+ * The copyright status of a document. Used in
+ * DocumentPrintSettings.copyrighted. Constant type Values What it means Adobe
+ * Photoshop CS6 JavaScript Scripting Reference Scripting Constants 201
  */
 declare enum CopyrightedType {
     COPYRIGHTEDWORK,
@@ -385,8 +325,7 @@ declare enum CopyrightedType {
 }
 
 /*
- * The method to use for creating fields.
- * Pass to ArtLayer.applyDeInterlace().
+ * The method to use for creating fields. Pass to ArtLayer.applyDeInterlace().
  */
 declare enum CreateFields {
     DUPLICATION,
@@ -394,8 +333,7 @@ declare enum CreateFields {
 }
 
 /*
- * The style to use when cropping a page
- * in a PDF document. Set in
+ * The style to use when cropping a page in a PDF document. Set in
  * PDFOpenOptions.cropPage.
  */
 declare enum CropToType {
@@ -408,16 +346,10 @@ declare enum CropToType {
 }
 
 /*
- * The type of composite DCS file to
- * create with DCS1_SaveOptions or
- * DCS2_SaveOptions:
- * COLORCOMPOSITE: Creates a color
- * composite file in addition to DCS files.
- * GRAYSCALECOMPOSITE: Creates a
- * grayscale composite file in addition to
- * DCS files.
- * NOCOMPOSITE: Does not create a
- * composite file.
+ * The type of composite DCS file to create with DCS1_SaveOptions or
+ * DCS2_SaveOptions: COLORCOMPOSITE: Creates a color composite file in addition
+ * to DCS files. GRAYSCALECOMPOSITE: Creates a grayscale composite file in
+ * addition to DCS files. NOCOMPOSITE: Does not create a composite file.
  */
 declare enum DCSType {
     COLORCOMPOSITE,
@@ -426,8 +358,7 @@ declare enum DCSType {
 }
 
 /*
- * The source to use for the depth map.
- * Pass to ArtLayer.applyLensBlur().
+ * The source to use for the depth map. Pass to ArtLayer.applyLensBlur().
  */
 declare enum DepthMapSource {
     IMAGEHIGHLIGHT,
@@ -437,9 +368,7 @@ declare enum DepthMapSource {
 }
 
 /*
- * The value type of an action key,
- * returned by
- * ActionDescriptor.getType() and
+ * The value type of an action key, returned by ActionDescriptor.getType() and
  * ActionList.getType().
  */
 declare enum DescValueType {
@@ -459,9 +388,7 @@ declare enum DescValueType {
 }
 
 /*
- * Controls the type of dialogs
- * Photoshop displays when running
- * scripts.
+ * Controls the type of dialogs Photoshop displays when running scripts.
  */
 declare enum DialogModes {
     ALL,
@@ -470,16 +397,11 @@ declare enum DialogModes {
 }
 
 /*
- * ● The direction in which to flip the
- * document canvas, passed to
- * Document.flipCanvas().
- * ● The orientation of text in
- * TextItem.direction.
- * ● The direction of text warping in
- * TextItem.warpDirection.
- * Constant type Values What it means
- * Adobe Photoshop CS6
- * JavaScript Scripting Reference Scripting Constants 202
+ * ● The direction in which to flip the document canvas, passed to
+ * Document.flipCanvas(). ● The orientation of text in TextItem.direction. ● The
+ * direction of text warping in TextItem.warpDirection. Constant type Values
+ * What it means Adobe Photoshop CS6 JavaScript Scripting Reference Scripting
+ * Constants 202
  */
 declare enum Direction {
     HORIZONTAL,
@@ -487,10 +409,8 @@ declare enum Direction {
 }
 
 /*
- * Describes how the displacement map
- * fits the image if the image is not the
- * same size as the map. Pass to
- * ArtLayer.applyDisplace().
+ * Describes how the displacement map fits the image if the image is not the
+ * same size as the map. Pass to ArtLayer.applyDisplace().
  */
 declare enum DisplacementMapType {
     STRETCHTOFIT,
@@ -498,9 +418,7 @@ declare enum DisplacementMapType {
 }
 
 /*
- * The type of dithering to use in
- * GIFSaveOptions,
- * IndexedConversionOptions and
+ * The type of dithering to use in GIFSaveOptions, IndexedConversionOptions and
  * ExportOptionsSaveForWeb.
  */
 declare enum Dither {
@@ -511,8 +429,7 @@ declare enum Dither {
 }
 
 /*
- * The type of positioning to use in
- * DocPosition
+ * The type of positioning to use in DocPosition
  */
 declare enum DocPositionStyle {
     PRINTCENTERED,
@@ -520,8 +437,7 @@ declare enum DocPositionStyle {
 }
 
 /*
- * The fill type of a new document,
- * passed to Documents.add().
+ * The fill type of a new document, passed to Documents.add().
  */
 declare enum DocumentFill {
     BACKGROUNDCOLOR,
@@ -530,8 +446,7 @@ declare enum DocumentFill {
 }
 
 /*
- * The color mode of a open document,
- * Document.mode. See also
+ * The color mode of a open document, Document.mode. See also
  * Document.changeMode().
  */
 declare enum DocumentMode {
@@ -546,12 +461,9 @@ declare enum DocumentMode {
 }
 
 /*
- * The preferred level of detail in th
- * history log, set in Preferences:
- * CONCISE: Save a concise history log.
- * DETAILED: Save a detailed history log.
- * SESSIONONLY: Save history log only for
- * the session.
+ * The preferred level of detail in th history log, set in Preferences: CONCISE:
+ * Save a concise history log. DETAILED: Save a detailed history log.
+ * SESSIONONLY: Save history log only for the session.
  */
 declare enum EditLogItemsType {
     CONCISE,
@@ -560,12 +472,9 @@ declare enum EditLogItemsType {
 }
 
 /*
- * The object’s position in the Layers
- * palette.
- * Note: Not all values are valid for all
- * object types. See the specific
- * object description to make sure
- * you are using a valid value.
+ * The object’s position in the Layers palette. Note: Not all values are valid
+ * for all object types. See the specific object description to make sure you
+ * are using a valid value.
  */
 declare enum ElementPlacement {
     INSIDE,
@@ -576,8 +485,7 @@ declare enum ElementPlacement {
 }
 
 /*
- * The type of fields to eliminate. Pass to
- * ArtLayer.applyDeInterlace().
+ * The type of fields to eliminate. Pass to ArtLayer.applyDeInterlace().
  */
 declare enum EliminateFields {
     EVENFIELDS,
@@ -585,11 +493,9 @@ declare enum EliminateFields {
 }
 
 /*
- * The type of export for
- * Document.exportDocument().
- * This is equivalent to choosing File >
- * Export > Paths To Illustrator, or File
- * > Save For Web and Devices.
+ * The type of export for Document.exportDocument(). This is equivalent to
+ * choosing File > Export > Paths To Illustrator, or File > Save For Web and
+ * Devices.
  */
 declare enum ExportType {
     ILLUSTRATORPATHS,
@@ -597,12 +503,9 @@ declare enum ExportType {
 }
 
 /*
- * The policy and format for appending
- * an extension to the filename when
- * saving with Document.saveAs().
- * Constant type Values What it means
- * Adobe Photoshop CS6
- * JavaScript Scripting Reference Scripting Constants 203
+ * The policy and format for appending an extension to the filename when saving
+ * with Document.saveAs(). Constant type Values What it means Adobe Photoshop
+ * CS6 JavaScript Scripting Reference Scripting Constants 203
  */
 declare enum Extension {
     LOWERCASE,
@@ -611,9 +514,8 @@ declare enum Extension {
 }
 
 /*
- * File naming options for the
- * BatchOptions used with the
- * Application.batch() method.
+ * File naming options for the BatchOptions used with the Application.batch()
+ * method.
  */
 declare enum FileNamingType {
     DDMM,
@@ -637,9 +539,8 @@ declare enum FileNamingType {
 }
 
 /*
- * The preferred type size to use for font
- * previews in the type tool font menus ,
- * set in Preferences.
+ * The preferred type size to use for font previews in the type tool font menus
+ * , set in Preferences.
  */
 declare enum FontPreviewType {
     HUGE,
@@ -651,8 +552,7 @@ declare enum FontPreviewType {
 }
 
 /*
- * The preferred type size to use for
- * panels and dialogs, set in Preferences.
+ * The preferred type size to use for panels and dialogs, set in Preferences.
  */
 declare enum FontSize {
     LARGE,
@@ -661,16 +561,10 @@ declare enum FontSize {
 }
 
 /*
- * The type of colors to be included the
- * color table regardless of their usage.
- * Used in GIFSaveOptions and
- * IndexedConversionOptions.
- * BLACKWHITE: Pure black and pure
- * white.
- * NONE: None
- * PRIMARIES: Red, green, blue, cyan,
- * magenta, yellow, black, and white.
- * WEB: the 216 web-safe colors.
+ * The type of colors to be included the color table regardless of their usage.
+ * Used in GIFSaveOptions and IndexedConversionOptions. BLACKWHITE: Pure black
+ * and pure white. NONE: None PRIMARIES: Red, green, blue, cyan, magenta,
+ * yellow, black, and white. WEB: the 216 web-safe colors.
  */
 declare enum ForcedColors {
     BLACKWHITE,
@@ -680,15 +574,10 @@ declare enum ForcedColors {
 }
 
 /*
- * The option with which to save a JPEG
- * file, in JPEGSaveOptions.
- * OPTIMIZEDBASELINE: Optimized color
- * and a slightly reduced file size.
- * PROGRESSIVE: Displays a series of
- * increasingly detailed scans as the
- * image downloads.
- * STANDARDBASELINE: Format
- * recognized by most web browsers.
+ * The option with which to save a JPEG file, in JPEGSaveOptions.
+ * OPTIMIZEDBASELINE: Optimized color and a slightly reduced file size.
+ * PROGRESSIVE: Displays a series of increasingly detailed scans as the image
+ * downloads. STANDARDBASELINE: Format recognized by most web browsers.
  */
 declare enum FormatOptions {
     OPTIMIZEDBASELINE,
@@ -697,11 +586,8 @@ declare enum FormatOptions {
 }
 
 /*
- * The type of proportions to constrain
- * for images. Used in
- * GalleryImagesOptions.
- * Constant type Values What it means
- * Adobe Photoshop CS6
+ * The type of proportions to constrain for images. Used in
+ * GalleryImagesOptions. Constant type Values What it means Adobe Photoshop CS6
  * JavaScript Scripting Reference Scripting Constants 204
  */
 declare enum GalleryConstrainType {
@@ -711,12 +597,9 @@ declare enum GalleryConstrainType {
 }
 
 /*
- * The fonts to use for the Web photo
- * gallery captions and other text. Used
- * in GalleryBannerOptions,
- * GalleryImagesOptions, and
- * GalleryThumbnailOptions.
- * Also used in PicturePackageOptions.
+ * The fonts to use for the Web photo gallery captions and other text. Used in
+ * GalleryBannerOptions, GalleryImagesOptions, and GalleryThumbnailOptions. Also
+ * used in PicturePackageOptions.
  */
 declare enum GalleryFontType {
     ARIAL,
@@ -726,10 +609,8 @@ declare enum GalleryFontType {
 }
 
 /*
- * The color to use for text displayed over
- * gallery images as an antitheft
- * deterrent. Used in
- * GallerySecurityOptions.
+ * The color to use for text displayed over gallery images as an antitheft
+ * deterrent. Used in GallerySecurityOptions.
  */
 declare enum GallerySecurityTextColorType {
     BLACK,
@@ -738,11 +619,8 @@ declare enum GallerySecurityTextColorType {
 }
 
 /*
- * The position of the text displayed over
- * gallery images as an antitheft
- * deterrent. Used in
- * GallerySecurityOptions.
- * Also used in PicturePackageOptions.
+ * The position of the text displayed over gallery images as an antitheft
+ * deterrent. Used in GallerySecurityOptions. Also used in PicturePackageOptions.
  */
 declare enum GallerySecurityTextPositionType {
     CENTERED,
@@ -753,11 +631,8 @@ declare enum GallerySecurityTextPositionType {
 }
 
 /*
- * The orientation of the text displayed
- * over gallery images as an antitheft
- * deterrent. Used in
- * GallerySecurityOptions.
- * Also used in PicturePackageOptions.
+ * The orientation of the text displayed over gallery images as an antitheft
+ * deterrent. Used in GallerySecurityOptions. Also used in PicturePackageOptions.
  */
 declare enum GallerySecurityTextRotateType {
     CLOCKWISE45,
@@ -768,13 +643,9 @@ declare enum GallerySecurityTextRotateType {
 }
 
 /*
- * The content to use for text displayed
- * over gallery images as an antitheft
- * deterrent. Used in
- * GallerySecurityOptions.
- * Note: All types draw from the image’s
- * file information except
- * CUSTOMTEXT.
+ * The content to use for text displayed over gallery images as an antitheft
+ * deterrent. Used in GallerySecurityOptions. Note: All types draw from the
+ * image’s file information except CUSTOMTEXT.
  */
 declare enum GallerySecurityType {
     CAPTION,
@@ -787,8 +658,7 @@ declare enum GallerySecurityType {
 }
 
 /*
- * The size of thumbnail images in the
- * web photo gallery. Used in
+ * The size of thumbnail images in the web photo gallery. Used in
  * GalleryThumbnailOptions.
  */
 declare enum GalleryThumbSizeType {
@@ -799,8 +669,7 @@ declare enum GalleryThumbSizeType {
 }
 
 /*
- * Geometric options for shapes, such as
- * the iris shape in the Lens Blur Filter.
+ * Geometric options for shapes, such as the iris shape in the Lens Blur Filter.
  * Pass to ArtLayer.applyLensBlur().
  */
 declare enum Geometry {
@@ -813,9 +682,8 @@ declare enum Geometry {
 }
 
 /*
- * The preferred line style for the
- * nonprinting grid displayed over
- * images, set in Preferences.
+ * The preferred line style for the nonprinting grid displayed over images, set
+ * in Preferences.
  */
 declare enum GridLineStyle {
     DASHED,
@@ -824,11 +692,9 @@ declare enum GridLineStyle {
 }
 
 /*
- * The preferred size of grid line spacing,
- * set in Preferences.
- * Constant type Values What it means
- * Adobe Photoshop CS6
- * JavaScript Scripting Reference Scripting Constants 205
+ * The preferred size of grid line spacing, set in Preferences. Constant type
+ * Values What it means Adobe Photoshop CS6 JavaScript Scripting Reference
+ * Scripting Constants 205
  */
 declare enum GridSize {
     LARGE,
@@ -838,9 +704,8 @@ declare enum GridSize {
 }
 
 /*
- * The preferred line style for
- * nonprinting guides displayed over
- * images, set in Preferences.
+ * The preferred line style for nonprinting guides displayed over images, set in
+ * Preferences.
  */
 declare enum GuideLineStyle {
     DASHED,
@@ -848,9 +713,7 @@ declare enum GuideLineStyle {
 }
 
 /*
- * The paths to export to an Illustrator
- * file using
- * Document.exportDocument().
+ * The paths to export to an Illustrator file using Document.exportDocument().
  */
 declare enum IllustratorPathType {
     ALLPATHS,
@@ -859,11 +722,8 @@ declare enum IllustratorPathType {
 }
 
 /*
- * The rendering intent to use when
- * converting from one color space to
- * another with
- * Document.convertProfile() or
- * Document.print()
+ * The rendering intent to use when converting from one color space to another
+ * with Document.convertProfile() or Document.print()
  */
 declare enum Intent {
     ABSOLUTECOLORIMETRIC,
@@ -873,8 +733,7 @@ declare enum Intent {
 }
 
 /*
- * The placement of paragraph text
- * within the bounding box. Used in
+ * The placement of paragraph text within the bounding box. Used in
  * TextItem.justification.
  */
 declare enum Justification {
@@ -888,8 +747,7 @@ declare enum Justification {
 }
 
 /*
- * The language to use for text. Used in
- * TextItem.language.
+ * The language to use for text. Used in TextItem.language.
  */
 declare enum Language {
     BRAZILLIANPORTUGUESE,
@@ -912,12 +770,9 @@ declare enum Language {
 }
 
 /*
- * Compression methods for data for
- * pixels in layers, when saving to TIFF
- * format. Used in TiffSaveOptions.
- * Constant type Values What it means
- * Adobe Photoshop CS6
- * JavaScript Scripting Reference Scripting Constants 206
+ * Compression methods for data for pixels in layers, when saving to TIFF
+ * format. Used in TiffSaveOptions. Constant type Values What it means Adobe
+ * Photoshop CS6 JavaScript Scripting Reference Scripting Constants 206
  */
 declare enum LayerCompression {
     RLE,
@@ -925,10 +780,8 @@ declare enum LayerCompression {
 }
 
 /*
- * The type of a layer object, in
- * ArtLayer.kind.
- * Note: You can create a text layer only
- * from an empty art layer.
+ * The type of a layer object, in ArtLayer.kind. Note: You can create a text
+ * layer only from an empty art layer.
  */
 declare enum LayerKind {
     BLACKANDWHITE,
@@ -957,8 +810,7 @@ declare enum LayerKind {
 }
 
 /*
- * The type of lens to use. Pass to
- * ArtLayer.applyLensFlare().
+ * The type of lens to use. Pass to ArtLayer.applyLensFlare().
  */
 declare enum LensType {
     MOVIEPRIME,
@@ -968,8 +820,7 @@ declare enum LensType {
 }
 
 /*
- * The type of magnification to use when
- * viewing an image. Used in
+ * The type of magnification to use when viewing an image. Used in
  * PresentationOptions.
  */
 declare enum MagnificationType {
@@ -978,14 +829,10 @@ declare enum MagnificationType {
 }
 
 /*
- * The color to use to fill anti-aliased
- * edges adjacent to transparent areas of
- * the image. When transparency is
- * turned off for an image, the matte
- * color is applied to transparent areas.
- * Used in GIFSaveOptions,
- * IndexedConversionOptions, and
- * JPEGSaveOptions.
+ * The color to use to fill anti-aliased edges adjacent to transparent areas of
+ * the image. When transparency is turned off for an image, the matte color is
+ * applied to transparent areas. Used in GIFSaveOptions,
+ * IndexedConversionOptions, and JPEGSaveOptions.
  */
 declare enum MatteType {
     BACKGROUND,
@@ -998,8 +845,7 @@ declare enum MatteType {
 }
 
 /*
- * The measurement to act upon. Pass to
- * MeasurementLog methods.
+ * The measurement to act upon. Pass to MeasurementLog methods.
  */
 declare enum MeasurementRange {
     ALLMEASUREMENTS,
@@ -1007,9 +853,7 @@ declare enum MeasurementRange {
 }
 
 /*
- * The source for recording
- * measurements. Pass to
- * Document.recordMeasurements().
+ * The source for recording measurements. Pass to Document.recordMeasurements().
  */
 declare enum MeasurementSource {
     MEASURESELECTION,
@@ -1018,14 +862,10 @@ declare enum MeasurementSource {
 }
 
 /*
- * The color profile to use for a new
- * document.
- * Pass to Documents.add().
- * Also used in ContactSheetOptions and
- * PicturePackageOptions.
- * Constant type Values What it means
- * Adobe Photoshop CS6
- * JavaScript Scripting Reference Scripting Constants 207
+ * The color profile to use for a new document. Pass to Documents.add(). Also
+ * used in ContactSheetOptions and PicturePackageOptions. Constant type Values
+ * What it means Adobe Photoshop CS6 JavaScript Scripting Reference Scripting
+ * Constants 207
  */
 declare enum NewDocumentMode {
     BITMAP,
@@ -1036,8 +876,7 @@ declare enum NewDocumentMode {
 }
 
 /*
- * Distribution method to use when
- * applying an Add Noise filter. Pass to
+ * Distribution method to use when applying an Add Noise filter. Pass to
  * ArtLayer.applyAddNoise().
  */
 declare enum NoiseDistribution {
@@ -1046,10 +885,8 @@ declare enum NoiseDistribution {
 }
 
 /*
- * Method to use to fill the empty space
- * left by offsetting a an image or
- * selection. Pass to
- * ArtLayer.applyOffset().
+ * Method to use to fill the empty space left by offsetting a an image or
+ * selection. Pass to ArtLayer.applyOffset().
  */
 declare enum OffsetUndefinedAreas {
     REPEATEDGEPIXELS,
@@ -1058,10 +895,8 @@ declare enum OffsetUndefinedAreas {
 }
 
 /*
- * The color profile to use when opening
- * an EPS or PDF document. Pass to
- * app.open() in EPSOpenOptions or
- * PDFOpenOptions.
+ * The color profile to use when opening an EPS or PDF document. Pass to
+ * app.open() in EPSOpenOptions or PDFOpenOptions.
  */
 declare enum OpenDocumentMode {
     CMYK,
@@ -1071,14 +906,10 @@ declare enum OpenDocumentMode {
 }
 
 /*
- * The format in which to open the
- * document, using app.open().
- * Note: PHOTOCD is deprecated. Kodak
- * PhotoCD is now found in the
- * Goodies folder on the Adobe
- * Photoshop CS6 Install DVD.
- * Note: The DICOM option is for the
- * Extended version only.
+ * The format in which to open the document, using app.open(). Note: PHOTOCD is
+ * deprecated. Kodak PhotoCD is now found in the Goodies folder on the Adobe
+ * Photoshop CS6 Install DVD. Note: The DICOM option is for the Extended version
+ * only.
  */
 declare enum OpenDocumentType {
     ALIASPIX,
@@ -1116,8 +947,7 @@ declare enum OpenDocumentType {
 }
 
 /*
- * The target operating system in
- * BMPSaveOptions.
+ * The target operating system in BMPSaveOptions.
  */
 declare enum OperatingSystem {
     OS2,
@@ -1125,15 +955,9 @@ declare enum OperatingSystem {
 }
 
 /*
- * Page orientation for
- * PhotoCDOpenOptions, deprecated in
- * Photoshop CS3.
- * Note: Kodak PhotoCD is now found in
- * the Goodies folder on the
- * Adobe Photoshop CS6 Install
- * DVD.
- * Constant type Values What it means
- * Adobe Photoshop CS6
+ * Page orientation for PhotoCDOpenOptions, deprecated in Photoshop CS3. Note:
+ * Kodak PhotoCD is now found in the Goodies folder on the Adobe Photoshop CS6
+ * Install DVD. Constant type Values What it means Adobe Photoshop CS6
  * JavaScript Scripting Reference Scripting Constants 208
  */
 declare enum Orientation {
@@ -1142,12 +966,9 @@ declare enum Orientation {
 }
 
 /*
- * The preferred pointer for the following
- * tools: Eraser, Pencil, Paintbrush,
- * Healing Brush, Rubber Stamp, Pattern
- * Stamp, Smudge, Blur, Sharpen, Dodge,
- * Burn, Sponge.
- * Set in Preferences.
+ * The preferred pointer for the following tools: Eraser, Pencil, Paintbrush,
+ * Healing Brush, Rubber Stamp, Pattern Stamp, Smudge, Blur, Sharpen, Dodge,
+ * Burn, Sponge. Set in Preferences.
  */
 declare enum OtherPaintingCursors {
     PRECISEOTHER,
@@ -1155,12 +976,9 @@ declare enum OtherPaintingCursors {
 }
 
 /*
- * The preferred pointer for the following
- * tools: Marquee, Lasso, Polygonal
- * Lasso, Magic Wand, Crop, Slice, Patch
- * Eyedropper, Pen, Gradient, Line, Paint
- * Bucket, Magnetic Lasso, Magnetic Pen,
- * Freeform Pen, Measure, Color Sampler.
+ * The preferred pointer for the following tools: Marquee, Lasso, Polygonal
+ * Lasso, Magic Wand, Crop, Slice, Patch Eyedropper, Pen, Gradient, Line, Paint
+ * Bucket, Magnetic Lasso, Magnetic Pen, Freeform Pen, Measure, Color Sampler.
  * Set in Preferences.
  */
 declare enum PaintingCursors {
@@ -1170,9 +988,7 @@ declare enum PaintingCursors {
 }
 
 /*
- * The palette type to use in
- * GIFSaveOptions and
- * IndexedConversionOptions.
+ * The palette type to use in GIFSaveOptions and IndexedConversionOptions.
  */
 declare enum PaletteType {
     EXACT,
@@ -1201,9 +1017,7 @@ declare enum PathKind {
 }
 
 /*
- * The PDF version to make the
- * document compatible with. Used in
- * PDFSaveOptions.
+ * The PDF version to make the document compatible with. Used in PDFSaveOptions.
  */
 declare enum PDFCompatibility {
     PDF13,
@@ -1214,11 +1028,8 @@ declare enum PDFCompatibility {
 }
 
 /*
- * The type of compression to use when
- * saving a document in PDF format.
- * Used in PDFSaveOptions.
- * Constant type Values What it means
- * Adobe Photoshop CS6
+ * The type of compression to use when saving a document in PDF format. Used in
+ * PDFSaveOptions. Constant type Values What it means Adobe Photoshop CS6
  * JavaScript Scripting Reference Scripting Constants 209
  */
 declare enum PDFEncoding {
@@ -1240,8 +1051,7 @@ declare enum PDFEncoding {
 }
 
 /*
- * The down sample method to use.
- * Used in PDFSaveOptions.
+ * The down sample method to use. Used in PDFSaveOptions.
  */
 declare enum PDFResample {
     NONE,
@@ -1251,9 +1061,7 @@ declare enum PDFResample {
 }
 
 /*
- * The PDF standard to make the
- * document compatible with. Used in
- * PDFSaveOptions.
+ * The PDF standard to make the document compatible with. Used in PDFSaveOptions.
  */
 declare enum PDFStandard {
     NONE,
@@ -1265,13 +1073,9 @@ declare enum PDFStandard {
 }
 
 /*
- * The color space for
- * PhotoCDOpenOptions, deprecated in
- * Photoshop CS3.
- * Note: Kodak PhotoCD is now found in
- * the Goodies folder on the
- * Adobe Photoshop CS6 Install
- * DVD.
+ * The color space for PhotoCDOpenOptions, deprecated in Photoshop CS3. Note:
+ * Kodak PhotoCD is now found in the Goodies folder on the Adobe Photoshop CS6
+ * Install DVD.
  */
 declare enum PhotoCDColorSpace {
     LAB16,
@@ -1281,19 +1085,10 @@ declare enum PhotoCDColorSpace {
 }
 
 /*
- * The pixel dimensions of the image in
- * PhotoCDOpenOptions, deprecated in
- * Photoshop CS3.
- * EXTRALARGE = 1024x1536
- * LARGE = 512x768
- * MAXIMUM = 2048x3072
- * MEDIUM = 256x384
- * MINIMUM = 64x96
- * SMALL = 128x192
- * Note: Kodak PhotoCD is now found in
- * the Goodies folder on the
- * Adobe Photoshop CS6 Install
- * DVD.
+ * The pixel dimensions of the image in PhotoCDOpenOptions, deprecated in
+ * Photoshop CS3. EXTRALARGE = 1024x1536 LARGE = 512x768 MAXIMUM = 2048x3072
+ * MEDIUM = 256x384 MINIMUM = 64x96 SMALL = 128x192 Note: Kodak PhotoCD is now
+ * found in the Goodies folder on the Adobe Photoshop CS6 Install DVD.
  */
 declare enum PhotoCDSize {
     EXTRALARGE,
@@ -1305,13 +1100,9 @@ declare enum PhotoCDSize {
 }
 
 /*
- * The number of bits per pixel to use
- * when compression a PICT file. Used in
- * PICTFileSaveOptions and
- * PICTResourceSaveOptions.
- * Note: Use 16 or 32 for RGB images;
- * use 2, 4, or 8 for bitmap and
- * grayscale images.
+ * The number of bits per pixel to use when compression a PICT file. Used in
+ * PICTFileSaveOptions and PICTResourceSaveOptions. Note: Use 16 or 32 for RGB
+ * images; use 2, 4, or 8 for bitmap and grayscale images.
  */
 declare enum PICTBitsPerPixels {
     EIGHT,
@@ -1322,10 +1113,8 @@ declare enum PICTBitsPerPixels {
 }
 
 /*
- * The type of compression to use when
- * saving an image as a PICT file. Used in
- * PICTFileSaveOptions and
- * PICTResourceSaveOptions.
+ * The type of compression to use when saving an image as a PICT file. Used in
+ * PICTFileSaveOptions and PICTResourceSaveOptions.
  */
 declare enum PICTCompression {
     JPEGHIGHPICT,
@@ -1336,11 +1125,8 @@ declare enum PICTCompression {
 }
 
 /*
- * The function or meaning of text in a
- * Picture Package. Used in
- * PicturePackageOptions.
- * Constant type Values What it means
- * Adobe Photoshop CS6
+ * The function or meaning of text in a Picture Package. Used in
+ * PicturePackageOptions. Constant type Values What it means Adobe Photoshop CS6
  * JavaScript Scripting Reference Scripting Constants 210
  */
 declare enum PicturePackageTextType {
@@ -1354,8 +1140,7 @@ declare enum PicturePackageTextType {
 }
 
 /*
- * The role a PathPoint plays in a
- * PathItem.
+ * The role a PathPoint plays in a PathItem.
  */
 declare enum PointKind {
     CORNERPOINT,
@@ -1363,11 +1148,9 @@ declare enum PointKind {
 }
 
 /*
- * The preferred measurement to use for
- * type points, set in
- * Preferences.pointSize:
- * POSTSCRIPT = 72 points/inch.
- * TRADITIONAL = 72.27 points/inch.
+ * The preferred measurement to use for type points, set in
+ * Preferences.pointSize: POSTSCRIPT = 72 points/inch. TRADITIONAL = 72.27
+ * points/inch.
  */
 declare enum PointType {
     POSTSCRIPT,
@@ -1375,8 +1158,7 @@ declare enum PointType {
 }
 
 /*
- * The method of polar distortion to use.
- * Pass to
+ * The method of polar distortion to use. Pass to
  * ArtLayer.applyPolarCoordinates().
  */
 declare enum PolarConversionType {
@@ -1385,12 +1167,8 @@ declare enum PolarConversionType {
 }
 
 /*
- * The type of image to use as a
- * low-resolution preview in the
- * destination application.
- * Used in DCS1_SaveOptions,
- * DCS2_SaveOptions, and
- * EPSSaveOptions.
+ * The type of image to use as a low-resolution preview in the destination
+ * application. Used in DCS1_SaveOptions, DCS2_SaveOptions, and EPSSaveOptions.
  */
 declare enum Preview {
     EIGHTBITTIFF,
@@ -1402,8 +1180,7 @@ declare enum Preview {
 }
 
 /*
- * The type of color handling to use for
- * ColorHandling
+ * The type of color handling to use for ColorHandling
  */
 declare enum PrintColorHandling {
     PRINTERMANAGED,
@@ -1412,8 +1189,7 @@ declare enum PrintColorHandling {
 }
 
 /*
- * Cache to be targeted in an
- * Application.purge() operation.
+ * Cache to be targeted in an Application.purge() operation.
  */
 declare enum PurgeTarget {
     ALLCACHES,
@@ -1423,10 +1199,8 @@ declare enum PurgeTarget {
 }
 
 /*
- * The preferred policy for checking
- * whether to maximize compatibility
- * when opening PSD files, set in
- * Preferences.maximizeCompatibility.
+ * The preferred policy for checking whether to maximize compatibility when
+ * opening PSD files, set in Preferences.maximizeCompatibility.
  */
 declare enum QueryStateType {
     ALWAYS,
@@ -1435,8 +1209,7 @@ declare enum QueryStateType {
 }
 
 /*
- * The blur method to use. Pass to
- * ArtLayer.applyRadialBlur().
+ * The blur method to use. Pass to ArtLayer.applyRadialBlur().
  */
 declare enum RadialBlurMethod {
     SPIN,
@@ -1444,8 +1217,7 @@ declare enum RadialBlurMethod {
 }
 
 /*
- * The smoothness or graininess of the
- * blurred image. Pass to
+ * The smoothness or graininess of the blurred image. Pass to
  * ArtLayer.applyRadialBlur().
  */
 declare enum RadialBlurQuality {
@@ -1455,8 +1227,7 @@ declare enum RadialBlurQuality {
 }
 
 /*
- * The layer element to rasterize, using
- * ArtLayer.rasterize().
+ * The layer element to rasterize, using ArtLayer.rasterize().
  */
 declare enum RasterizeType {
     ENTIRELAYER,
@@ -1468,11 +1239,9 @@ declare enum RasterizeType {
 }
 
 /*
- * The type of an ActionReference
- * object, returned by getForm().
- * Constant type Values What it means
- * Adobe Photoshop CS6
- * JavaScript Scripting Reference Scripting Constants 211
+ * The type of an ActionReference object, returned by getForm(). Constant type
+ * Values What it means Adobe Photoshop CS6 JavaScript Scripting Reference
+ * Scripting Constants 211
  */
 declare enum ReferenceFormType {
     CLASSTYPE,
@@ -1485,10 +1254,8 @@ declare enum ReferenceFormType {
 }
 
 /*
- * The method to use for image
- * interpolation. Passed to
- * Document.resizeImage(), and used as
- * the value of Preferences.interpolation.
+ * The method to use for image interpolation. Passed to Document.resizeImage(),
+ * and used as the value of Preferences.interpolation.
  */
 declare enum ResampleMethod {
     BICUBIC,
@@ -1500,8 +1267,7 @@ declare enum ResampleMethod {
 }
 
 /*
- * The size of undulations to use. Pass to
- * ArtLayer.applyRipple().
+ * The size of undulations to use. Pass to ArtLayer.applyRipple().
  */
 declare enum RippleSize {
     LARGE,
@@ -1510,10 +1276,8 @@ declare enum RippleSize {
 }
 
 /*
- * The application’s preferred behavior
- * when saving a document. See
- * Preferences.appendExtension and
- * imagePreviews
+ * The application’s preferred behavior when saving a document. See
+ * Preferences.appendExtension and imagePreviews
  */
 declare enum SaveBehavior {
     ALWAYSSAVE,
@@ -1522,27 +1286,12 @@ declare enum SaveBehavior {
 }
 
 /*
- * PICTFileFORMAT
- * PICTRESOURCEFORMAT
- * PIXAR
- * PNG
- * PORTABLEBITMAP
- * RAW
- * SCITEXCT
- * SGIRGB
- * SOFTIMAGE
- * TARGA
- * TIFF
- * WAVEFRONTRLA
- * WIRELESSBITMAP
- * The format in which to save a
- * document when exporting with
- * Document.exportDocument(). Pass in
- * ExportOptionsSaveForWeb.format, to
- * to specify the type of file to write. Only
- * the following are supported for
- * export: COMPUSERVEGIF, JPEG, PNG-8,
- * PNG-24, and BMP.
+ * PICTFileFORMAT PICTRESOURCEFORMAT PIXAR PNG PORTABLEBITMAP RAW SCITEXCT
+ * SGIRGB SOFTIMAGE TARGA TIFF WAVEFRONTRLA WIRELESSBITMAP The format in which
+ * to save a document when exporting with Document.exportDocument(). Pass in
+ * ExportOptionsSaveForWeb.format, to to specify the type of file to write. Only
+ * the following are supported for export: COMPUSERVEGIF, JPEG, PNG-8, PNG-24,
+ * and BMP.
  */
 declare enum SaveDocumentType {
     ALIASPIX,
@@ -1559,8 +1308,7 @@ declare enum SaveDocumentType {
 }
 
 /*
- * The type of encoding to use when
- * saving a file to DCS or EPS with
+ * The type of encoding to use when saving a file to DCS or EPS with
  * Document.saveAs().
  */
 declare enum SaveEncoding {
@@ -1573,8 +1321,7 @@ declare enum SaveEncoding {
 }
 
 /*
- * The preferred location of history log
- * data, set in Preferences.saveLogItems.
+ * The preferred location of history log data, set in Preferences.saveLogItems.
  */
 declare enum SaveLogItemsType {
     LOGFILE,
@@ -1583,11 +1330,9 @@ declare enum SaveLogItemsType {
 }
 
 /*
- * The policy for closing a document
- * with Document.close().
- * Constant type Values What it means
- * Adobe Photoshop CS6
- * JavaScript Scripting Reference Scripting Constants 212
+ * The policy for closing a document with Document.close(). Constant type Values
+ * What it means Adobe Photoshop CS6 JavaScript Scripting Reference Scripting
+ * Constants 212
  */
 declare enum SaveOptions {
     DONOTSAVECHANGES,
@@ -1596,19 +1341,12 @@ declare enum SaveOptions {
 }
 
 /*
- * The selection behavior when a
- * selection already exists:
- * DIMINISH: Remove the selection from
- * the already selected area.
- * EXTEND: Add the selection to an
- * already selected area.
- * INTERSECT: Make the selection only
- * the area where the new selection
- * intersects the already selected area.
- * REPLACE: Replace the selected area.
- * Used in PathItem.makeSelection(),
- * Selection.load(), Selection.select(), and
- * Selection.store().
+ * The selection behavior when a selection already exists: DIMINISH: Remove the
+ * selection from the already selected area. EXTEND: Add the selection to an
+ * already selected area. INTERSECT: Make the selection only the area where the
+ * new selection intersects the already selected area. REPLACE: Replace the
+ * selected area. Used in PathItem.makeSelection(), Selection.load(),
+ * Selection.select(), and Selection.store().
  */
 declare enum SelectionType {
     DIMINISH,
@@ -1618,11 +1356,8 @@ declare enum SelectionType {
 }
 
 /*
- * How to combine the shapes if the
- * destination path already has a
- * selection.
- * Set for SubPathInfo.operation, stored
- * in the resulting SubPathItem.
+ * How to combine the shapes if the destination path already has a selection.
+ * Set for SubPathInfo.operation, stored in the resulting SubPathItem.
  */
 declare enum ShapeOperation {
     SHAPEADD,
@@ -1632,11 +1367,9 @@ declare enum ShapeOperation {
 }
 
 /*
- * The method to use for smart blurring:
- * EDGEONLY, OVERLAYEDGES: Apply blur
- * only to edges of color transitions.
- * NORMAL: Apply blur to entire image.
- * Pass to ArtLayer.applySmartBlur().
+ * The method to use for smart blurring: EDGEONLY, OVERLAYEDGES: Apply blur only
+ * to edges of color transitions. NORMAL: Apply blur to entire image. Pass to
+ * ArtLayer.applySmartBlur().
  */
 declare enum SmartBlurMode {
     EDGEONLY,
@@ -1645,8 +1378,7 @@ declare enum SmartBlurMode {
 }
 
 /*
- * The blur quality to use. Pass to
- * ArtLayer.applySmartBlur().
+ * The blur quality to use. Pass to ArtLayer.applySmartBlur().
  */
 declare enum SmartBlurQuality {
     HIGH,
@@ -1655,8 +1387,7 @@ declare enum SmartBlurQuality {
 }
 
 /*
- * The color space for source when
- * printing with Document.print().
+ * The color space for source when printing with Document.print().
  */
 declare enum SourceSpaceType {
     DOCUMENT,
@@ -1664,8 +1395,7 @@ declare enum SourceSpaceType {
 }
 
 /*
- * The curve (or stretch shape) to use for
- * the distortion. Pass to
+ * The curve (or stretch shape) to use for the distortion. Pass to
  * ArtLayer.applySpherize().
  */
 declare enum SpherizeMode {
@@ -1675,8 +1405,7 @@ declare enum SpherizeMode {
 }
 
 /*
- * The style of strikethrough to use in
- * text. Used in TextItem.strikeThru.
+ * The style of strikethrough to use in text. Used in TextItem.strikeThru.
  */
 declare enum StrikeThruType {
     STRIKEBOX,
@@ -1685,8 +1414,7 @@ declare enum StrikeThruType {
 }
 
 /*
- * The placement of path or selection
- * boundary strokes. Pass to
+ * The placement of path or selection boundary strokes. Pass to
  * Selection.stroke().
  */
 declare enum StrokeLocation {
@@ -1696,11 +1424,8 @@ declare enum StrokeLocation {
 }
 
 /*
- * The resolution to use when saving an
- * image in Targa format. Used in
- * TargaSaveOptions.
- * Constant type Values What it means
- * Adobe Photoshop CS6
+ * The resolution to use when saving an image in Targa format. Used in
+ * TargaSaveOptions. Constant type Values What it means Adobe Photoshop CS6
  * JavaScript Scripting Reference Scripting Constants 213
  */
 declare enum TargaBitsPerPixels {
@@ -1710,8 +1435,7 @@ declare enum TargaBitsPerPixels {
 }
 
 /*
- * The capitalization style to use in text.
- * Used in TextItem.capitalization.
+ * The capitalization style to use in text. Used in TextItem.capitalization.
  */
 declare enum TextCase {
     ALLCAPS,
@@ -1720,10 +1444,8 @@ declare enum TextCase {
 }
 
 /*
- * The composition method to use to
- * optimize the specified hyphenation
- * and justification options. Used in
- * TextItem.textComposer.
+ * The composition method to use to optimize the specified hyphenation and
+ * justification options. Used in TextItem.textComposer.
  */
 declare enum TextComposer {
     ADOBEEVERYLINE,
@@ -1731,10 +1453,8 @@ declare enum TextComposer {
 }
 
 /*
- * The type of text, used in TextItem.kind.
- * PARAGRAPHTEXT: Text that wraps
- * within a bounding box.
- * POINTTEXT: Text that does not wrap.
+ * The type of text, used in TextItem.kind. PARAGRAPHTEXT: Text that wraps
+ * within a bounding box. POINTTEXT: Text that does not wrap.
  */
 declare enum TextType {
     PARAGRAPHTEXT,
@@ -1742,10 +1462,8 @@ declare enum TextType {
 }
 
 /*
- * The type of texture or glass surface
- * image to load for a texturizer or glass
- * filter. Pass to
- * ArtLayer.applyGlassEffect().
+ * The type of texture or glass surface image to load for a texturizer or glass
+ * filter. Pass to ArtLayer.applyGlassEffect().
  */
 declare enum TextureType {
     BLOCKS,
@@ -1756,8 +1474,7 @@ declare enum TextureType {
 }
 
 /*
- * The type of compression to use for
- * TIFF files. Used in TiffSaveOptions.
+ * The type of compression to use for TIFF files. Used in TiffSaveOptions.
  */
 declare enum TIFFEncoding {
     JPEG,
@@ -1767,8 +1484,7 @@ declare enum TIFFEncoding {
 }
 
 /*
- * The tool to use with
- * PathItem.strokePath().
+ * The tool to use with PathItem.strokePath().
  */
 declare enum ToolType {
     ARTHISTORYBRUSH,
@@ -1790,13 +1506,9 @@ declare enum ToolType {
 }
 
 /*
- * The method to use for transition from
- * one image to the next in a PDF
- * presentation. Used in
- * PresentationOptions.
- * Constant type Values What it means
- * Adobe Photoshop CS6
- * JavaScript Scripting Reference Scripting Constants 214
+ * The method to use for transition from one image to the next in a PDF
+ * presentation. Used in PresentationOptions. Constant type Values What it means
+ * Adobe Photoshop CS6 JavaScript Scripting Reference Scripting Constants 214
  */
 declare enum TransitionType {
     BLINDSHORIZONTAL,
@@ -1820,11 +1532,8 @@ declare enum TransitionType {
 }
 
 /*
- * Type of pixels to trim around an
- * image, passed to Document.trim().:
- * BOTTOMRIGHT = bottom right pixel
- * color.
- * TOPLEFT = top left pixel color.
+ * Type of pixels to trim around an image, passed to Document.trim().:
+ * BOTTOMRIGHT = bottom right pixel color. TOPLEFT = top left pixel color.
  */
 declare enum TrimType {
     BOTTOMRIGHT,
@@ -1833,8 +1542,7 @@ declare enum TrimType {
 }
 
 /*
- * The preferred unit for text character
- * measurements, set in Preferences.
+ * The preferred unit for text character measurements, set in Preferences.
  */
 declare enum TypeUnits {
     MM,
@@ -1843,12 +1551,9 @@ declare enum TypeUnits {
 }
 
 /*
- * The method to use to treat
- * undistorted areas or areas left blank in
- * an image to which the a filter in the
- * Distort category has been applied.
- * Pass to ArtLayer.applyDisplace(),
- * applyShear(), applyWave().
+ * The method to use to treat undistorted areas or areas left blank in an image
+ * to which the a filter in the Distort category has been applied. Pass to
+ * ArtLayer.applyDisplace(), applyShear(), applyWave().
  */
 declare enum UndefinedAreas {
     REPEATEDGEPIXELS,
@@ -1856,11 +1561,9 @@ declare enum UndefinedAreas {
 }
 
 /*
- * The placement of text underlining.
- * Used in TextItem.underline.
- * Note: UNDERLINELEFT and
- * UNDELINERIGHT are valid only when
- * direction = Direction.VERTICAL.
+ * The placement of text underlining. Used in TextItem.underline. Note:
+ * UNDERLINELEFT and UNDELINERIGHT are valid only when direction =
+ * Direction.VERTICAL.
  */
 declare enum UnderlineType {
     UNDERLINELEFT,
@@ -1869,8 +1572,7 @@ declare enum UnderlineType {
 }
 
 /*
- * The preferred measurement unit for
- * type and ruler increments, set in
+ * The preferred measurement unit for type and ruler increments, set in
  * Preferences.rulerUnits.
  */
 declare enum Units {
@@ -1884,8 +1586,7 @@ declare enum Units {
 }
 
 /*
- * The editorial urgency status of a
- * document, set in
+ * The editorial urgency status of a document, set in
  * DocumentPrintSettings.urgency.
  */
 declare enum Urgency {
@@ -1901,11 +1602,9 @@ declare enum Urgency {
 }
 
 /*
- * The warp style to use for text. Used in
- * TextItem.warpStyle.
- * Constant type Values What it means
- * Adobe Photoshop CS6
- * JavaScript Scripting Reference Scripting Constants 215
+ * The warp style to use for text. Used in TextItem.warpStyle. Constant type
+ * Values What it means Adobe Photoshop CS6 JavaScript Scripting Reference
+ * Scripting Constants 215
  */
 declare enum WarpStyle {
     ARC,
@@ -1927,8 +1626,7 @@ declare enum WarpStyle {
 }
 
 /*
- * The type of wave to use. Pass to
- * ArtLayer.applyWave().
+ * The type of wave to use. Pass to ArtLayer.applyWave().
  */
 declare enum WaveType {
     SINE,
@@ -1937,9 +1635,7 @@ declare enum WaveType {
 }
 
 /*
- * Lighting conditions that affect color
- * balance. Set in
- * CameraRAWOpenOptions.
+ * Lighting conditions that affect color balance. Set in CameraRAWOpenOptions.
  */
 declare enum WhiteBalanceType {
     ASSHOT,
@@ -1954,10 +1650,7 @@ declare enum WhiteBalanceType {
 }
 
 /*
- * The method of zigzagging to use. Pass
- * to ArtLayer.applyZigZag().
- * 
- * 
+ * The method of zigzagging to use. Pass to ArtLayer.applyZigZag().
  */
 declare enum ZigZagType {
     AROUNDCENTER,
