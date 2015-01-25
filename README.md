@@ -7,7 +7,11 @@ Photoshop.d.ts
 
 > npm install photoshop.d.ts
 
-Add a reference to `./node_modules/photoshop.d.ts/dist/cs6/ps.d.ts`
+Add a reference to your target version, e.g.:
+
+```typescript
+///<reference path="./node_modules/photoshop.d.ts/dist/cc/ps.d.ts"/>
+```
 
 The other references will automatically resolve.
 
@@ -30,23 +34,26 @@ chapters of the documentation. Once the **parser** has delivered a in-memory
 representation of the types and constants, the **emitter** will render types and
 constants as typescript files.
 
-Building **requires a TypeScript compiler**.
-
 ```
 > npm install
-> npm run make
+> grunt && node app.js
 ```
+
+## What's new?
+
+### v0.3.0
+
+* Add typings for Adobe Photoshop CC
+* Remove sample scripts from docs
+* Sanitize docs
 
 ## Caveats
 
-The project is up to a point where the parser does a pretty good job, altough
-some manual fix ups need to be made to the raw text document before parsing
-(remove typos, inconsistent array notations etc) that would be awkward and
-long-winded to write parsers for. The full list of these is currently to be
-found in `parsers/types.ts`.
+The project is up to a point where [the parsers][parsers] do a pretty good job,
+although some manual fix ups need to be made to the raw text documents before
+parsing (remove typos, inconsistent array notations etc) that would be awkward
+and long-winded to write parsers for. The full list of these is currently to be
+found in `parsers/types.ts`. Since the source docs rarely change, they are
+committed to this project and maintained here.
 
-Finally, the compiler creates a file with some 8500 lines of interfaces (inc.
-comments) and some 2000 lines of enums (inc. comments) - so I can only verify
-with a quick scan of the eye and a error-free compiling of the declaration files
-that the compile covers 100% of the docs and is accurate. I expect there be
-a need for fix ups.
+[parsers]: https://github.com/felixSchl/photoshop.d.ts/tree/master/parsers
