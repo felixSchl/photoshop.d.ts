@@ -744,37 +744,6 @@ number Run a menu item given the menu ID.
 Method Parameter type Returns What it does (Continued)
 Adobe Photoshop CS6
 JavaScript Scripting Reference JavaScript Object Reference 50
-Application sample scripts
-Application.jsx
-This script invokes an alert box to display Properties important to an application such as version number,
-the path to the application, the amount of memory available, and the number of documents open.
-When a user presses the OK button on the alert box, a second dialog opens, which asks users whether they
-would like the foreground and background colors set for the document presently open. If no document is
-open, the script opens a new document for the user.
-The script (with no document open) produces a progression of three dialogs.
-//Create a Welcome message
-// Use the name and version properties of the application object to
-// Append the application’s name and version to the Welcome message
-// use "\r" to insert a carriage return
-// use the combination operator += to append info to the message
-var message = "Welcome to " + app.name
-message += " version " + app.version + "\r\r"
-// find out where Adobe Photoshop CS6 is installed
-// and add the path to the message
-// add the optional parameter fsName to the path property
-// to display the file system name in the most common format
-message += "I’m installed in " + app.path.fsName + "\r\r"
-// see how much memory Adobe Photoshop CS6 has to play with
-message += "You have this much memory available for Adobe Photoshop CS6: " +
-app.freeMemory + "\r\r"
-// use the length property of the documents object to
-// see how many documents are open
-var documentsOpen = app.documents.length
-message += "You currently have " + documentsOpen + " document(s) open.\r\r"
-// display the message to the user
-alert(message)
-// answer will be true for a "Yes" answer and false for a "No" answer
-var answer = confirm("Set the foreground and background to my favorite colors?")
 showColorPicker
 ()
 boolean Returns false if dialog is cancelled,
@@ -797,58 +766,6 @@ ID.
 Method Parameter type Returns What it does (Continued)
 Adobe Photoshop CS6
 JavaScript Scripting Reference JavaScript Object Reference 51
-// set the colors
-if (answer) {
-// I don’t have a favorite color. Why did I ask you may wonder?
-app.foregroundColor.rgb.red = Math.random() * 255
-app.foregroundColor.rgb.green = Math.random() * 255
-app.foregroundColor.rgb.blue = Math.random() * 255
-app.backgroundColor.rgb.red = Math.random() * 255
-app.backgroundColor.rgb.green = Math.random() * 255
-app.backgroundColor.rgb.blue = Math.random() * 255
-}
-// Open a document
-if (app.documents.length == 0) {
-// use the application’s path and the offset to the samples folder
-var sampleDocToOpen = File(app.path + "/Samples/Fish.psd")
-// compose a message with the name of the file
-message = "Would you like me to open a sample for you? ("
-message += sampleDocToOpen.fsName
-message += ")"
-// ask the user another question
-answer = confirm(message)
-// open the document accordingly
-if (answer) {
-open(sampleDocToOpen)
-}
-}
-PDFPresentation.jsx
-This script presents a progression of images as an Adobe PDF slide show.
-// use all the files in the Samples folder
-var inputFolder = new Folder(app.path + "/Samples/")
-// see if we have something interesting
-if (inputFolder != null) {
-// get all the files found in this folder that are Adobe Photoshop CS6 (.psd
-format)
-var inputFiles = inputFolder.getFiles("*.psd")
-// output to the desktop
-var outputFile = File("~/Desktop/JavaScriptPresentation.pdf")
-// there are defaults but I like to set the options myself
-var options = new PresentationOptions
-options.presentation = true
-options.view = true
-options.autoAdvance = true
-options.interval = 5
-options.loop = true
-options.transition = TransitionType.RANDOM
-// create the presentation
-makePDFPresentation(inputFiles, outputFile, options)
-Adobe Photoshop CS6
-JavaScript Scripting Reference JavaScript Object Reference 52
-alert("Presentation file saved to: " + outputFile.fsName)
-}
-Adobe Photoshop CS6
-JavaScript Scripting Reference JavaScript Object Reference 53
 ArtLayer
 An object within a document that contains the visual elements of the image (equivalent to a layer in the
 Adobe Photoshop CS6 application).
@@ -1456,11 +1373,6 @@ Deletes the object.
 Method Parameter type Returns What it does (Continued)
 Adobe Photoshop CS6
 JavaScript Scripting Reference JavaScript Object Reference 62
-ArtLayer sample Script
-The following script opens all the files in the samples folder, creating one multi-layered document. Each
-layer is pasted into one of four quadrants and given 50% transparency. Finally the layers are sorted by
-name.
-ArtLayer.jsx
 resize
 ([horizontal]
 [, vertical]
@@ -1556,77 +1468,6 @@ Unlinks the layer.
 Method Parameter type Returns What it does (Continued)
 Adobe Photoshop CS6
 JavaScript Scripting Reference JavaScript Object Reference 63
-// Save the current preferences
-var startRulerUnits = app.preferences.rulerUnits
-var startTypeUnits = app.preferences.typeUnits
-var startDisplayDialogs = app.displayDialogs
-// Set Adobe Photoshop CS6 to use pixels and display no dialogs
-app.preferences.rulerUnits = Units.PIXELS
-app.preferences.typeUnits = TypeUnits.PIXELS
-app.displayDialogs = DialogModes.NO
-//Close all the open documents
-while (app.documents.length) {
-app.activeDocument.close()
-}
-// Create a new document to merge all the samples into
-var mergedDoc = app.documents.add(1000, 1000, 72, "Merged Samples",
-NewDocumentMode.RGB, DocumentFill.TRANSPARENT, 1)
-// Use the path to the application and append the samples folder
-var samplesFolder = Folder(app.path + "/Samples/")
-//Get all the files in the folder
-var fileList = samplesFolder.getFiles()
-// open each file
-for (var i = 0; i < fileList.length; i++) {
-// The fileList is folders and files so open only files
-if (fileList[i] instanceof File) {
-open(fileList[i])
-// use the document name for the layer name in the merged document
-var docName = app.activeDocument.name
-// flatten the document so we get everything and then copy
-app.activeDocument.flatten()
-app.activeDocument.selection.selectAll()
-app.activeDocument.selection.copy()
-// don’t save anything we did
-app.activeDocument.close(SaveOptions.DONOTSAVECHANGES)
-// make a random selection on the document to paste into
-// by dividing the document up in 4 quadrants and pasting
-// into one of them by selecting that area
-var topLeftH = Math.floor(Math.random() * 2)
-var topLeftV = Math.floor(Math.random() * 2)
-var docH = app.activeDocument.width.value / 2
-var docV = app.activeDocument.height.value / 2
-var selRegion = Array(Array(topLeftH * docH, topLeftV * docV),
-Array(topLeftH * docH + docH, topLeftV * docV),
-Array(topLeftH * docH + docH, topLeftV * docV + docV),
-Array(topLeftH * docH, topLeftV * docV + docV),
-Array(topLeftH * docH, topLeftV * docV))
-app.activeDocument.selection.select(selRegion)
-app.activeDocument.paste()
-// change the layer name and opacity
-app.activeDocument.activeLayer.name = docName
-app.activeDocument.activeLayer.fillOpacity = 50
-Adobe Photoshop CS6
-JavaScript Scripting Reference JavaScript Object Reference 64
-}
-}
-// sort the layers by name
-for (var x = 0; x < app.activeDocument.layers.length; x++) {
-for (var y = 0; y < app.activeDocument.layers.length - 1 - x; y++) {
-// Compare in a non-case sensitive way
-var doc1 = app.activeDocument.layers[y].name
-var doc2 = app.activeDocument.layers[y + 1].name
-if (doc1.toUpperCase() > doc2.toUpperCase()) {
-app.activeDocument.layers[y].move(app.activeDocument.layers[y+1],
-ElementPlacement.PLACEAFTER)
-}
-}
-}
-// Reset the application preferences
-app.preferences.rulerUnits = startRulerUnits
-app.preferences.typeUnits = startTypeUnits
-app.displayDialogs = startDisplayDialogs
-Adobe Photoshop CS6
-JavaScript Scripting Reference JavaScript Object Reference 65
 ArtLayers
 The collection of ArtLayer objects in a document or layer set.
 Access through the Document.artLayers or LayerSet.artLayers collection. For example:
@@ -1866,21 +1707,6 @@ Access through the Document.channels collection property. For example:
 var channelRef = app.activeDocument.channels.add()
 Properties
 Methods
-Channels sample script
-The following script opens a file if one is not already open, and then writes a histogram report
-(histogram.log) for the channels in the active document.
-Note: This script contains a switch construction that uses a break statement. The break statement
-requires an ending semicolon (;), as in the following sample:
-break;
-Histogram.jsx
-// Function to activate all the channels according to the documents mode
-// Takes a document reference for input
-function TurnOnDocumentHistogramChannels(inDocument) {
-// see how many channels we need to activate
-var visibleChannelCount = 0
-// based on the mode of the document
-switch (inDocument.mode) {
-case DocumentMode.BITMAP:
 Property Value type What it is
 length number Read-only. The number of elements in the channels
 collection.
@@ -1902,167 +1728,6 @@ Removes all alpha channel objects
 from the channels collection.
 Adobe Photoshop CS6
 JavaScript Scripting Reference JavaScript Object Reference 75
-case DocumentMode.GRAYSCALE:
-case DocumentMode.INDEXEDCOLOR:
-visibleChannelCount = 1
-break;
-case DocumentMode.DUOTONE:
-visibleChannelCount = 2
-break;
-case DocumentMode.RGB:
-case DocumentMode.LAB:
-visibleChannelCount = 3
-break;
-case DocumentMode.CMYK:
-visibleChannelCount = 4
-break;
-case DocumentMode.MULTICHANNEL:
-default:
-visibleChannelCount = inDocument.channels.length + 1
-break;
-}
-// now get the channels to activate into a local array
-var aChannelArray = new Array()
-// index for the active channels array
-var aChannelIndex = 0
-for(var channelIndex = 0; channelIndex < inDocument.channels.length;
-channelIndex++) {
-if (channelIndex < visibleChannelCount) {
-aChannelArray[aChannelIndex++] = inDocument.channels[channelIndex]
-}
-}
-// now activate them
-inDocument.activeChannels = aChannelArray
-}
-// Save the current preferences
-var startRulerUnits = app.preferences.rulerUnits
-var startTypeUnits = app.preferences.typeUnits
-var startDisplayDialogs = app.displayDialogs
-// Set Adobe Photoshop CS6 to use pixels and display no dialogs
-app.preferences.rulerUnits = Units.PIXELS
-app.preferences.typeUnits = TypeUnits.PIXELS
-app.displayDialogs = DialogModes.NO
-// if there are no documents open then try to open a sample file
-if (app.documents.length == 0) {
-open(File(app.path + "/Samples/Fish.psd"))
-}
-// get a reference to the working document
-var docRef = app.activeDocument
-Adobe Photoshop CS6
-JavaScript Scripting Reference JavaScript Object Reference 76
-// create the output file
-// first figure out which kind of line feeds we need
-if ($.os.search(/windows/i) != -1) {
-fileLineFeed = "Windows"
-} else {
-fileLineFeed = "Macintosh"
-}
-// create the output file accordingly
-fileOut = new File("~/Desktop/Histogram.log")
-fileOut.lineFeed = fileLineFeed
-fileOut.open("w", "TEXT", "????")
-// write out a header
-fileOut.write("Histogram report for " + docRef.name)
-// find out how many pixels I have
-var totalCount = docRef.width.value * docRef.height.value
-// more info to the out file
-fileOut.write(" with a total pixel count of " + totalCount + "\n")
-// channel indexer
-var channelIndex = 0
-// remember which channels are currently active
-var myActiveChannels = app.activeDocument.activeChannels
-// document histogram only works in these modes
-if (docRef.mode == DocumentMode.RGB ||
-docRef.mode == DocumentMode.INDEXEDCOLOR ||
-docRef.mode == DocumentMode.CMYK) {
-// activate the main channels so we can get the documents histogram
-TurnOnDocumentHistogramChannels(docRef)
-// Output the documents histogram
-OutputHistogram(docRef.histogram, "Luminosity", fileOut)
-}
-// local reference to work from
-var myChannels = docRef.channels
-// loop through each channel and output the histogram
-for (var channelIndex = 0; channelIndex < myChannels.length; channelIndex++) {
-// the channel has to be visible to get a histogram
-myChannels[channelIndex].visible= true
-// turn off all the other channels
-for (var secondaryIndex = 0; secondaryIndex < myChannels.length;
-secondaryIndex++) {
-if (channelIndex != secondaryIndex) {
-myChannels[secondaryIndex].visible= false
-}
-}
-// Use the function to dump the histogram
-OutputHistogram(myChannels[channelIndex].histogram,
-myChannels[channelIndex].name, fileOut)
-Adobe Photoshop CS6
-JavaScript Scripting Reference JavaScript Object Reference 77
-}
-// close down the output file
-fileOut.close()
-alert("Histogram file saved to: " + fileOut.fsName)
-// reset the active channels
-docRef.activeChannels = myActiveChannels
-// Reset the application preferences
-app.preferences.rulerUnits = startRulerUnits
-app.preferences.typeUnits = startTypeUnits
-app.displayDialogs = startDisplayDialogs
-// Utility function that takes a histogram and name
-// and dumps to the output file
-function OutputHistogram(inHistogram, inHistogramName, inOutFile) {
-// find ouch which count has the largest number
-// I scale everything to this number for the output
-var largestCount = 0
-// a simple indexer I can reuse
-var histogramIndex = 0
-// see how many samples we have total
-var histogramCount = 0
-// search through all and find the largest single item
-for (histogramIndex = 0; histogramIndex < inHistogram.length;
-histogramIndex++) {
-histogramCount += inHistogram[histogramIndex]
-if (inHistogram[histogramIndex] > largestCount)
-largestCount = inHistogram[histogramIndex]
-}
-// These should match
-if (histogramCount != totalCount) {
-alert("Something bad is happening!")
-}
-// see how much each "X" is going to count as
-var pixelsPerX = largestCount / 100
-// output this data to the file
-inOutFile.write("One X = " + pixelsPerX + " pixels.\n")
-// output the name of this histogram
-inOutFile.write(inHistogramName + "\n")
-// loop through all the items and output in the following format
-// 001
-// 002
-for (histogramIndex = 0; histogramIndex < inHistogram.length;
-histogramIndex++) {
-// I need an extra "0" for this line item to keep everything in line
-if (histogramIndex < 10)
-inOutFile.write("0")
-Adobe Photoshop CS6
-JavaScript Scripting Reference JavaScript Object Reference 78
-// I need an extra "0" for this line item to keep everything in line
-if (histogramIndex < 100)
-inOutFile.write("0")
-// output the index to file
-inOutFile.write(histogramIndex)
-// some spacing to make it look nice
-inOutFile.write(" ")
-// figure out how many X’s I need
-var outputX = inHistogram[histogramIndex] / largestCount * 100
-// output the X’s
-for (var a = 0; a < outputX; a++)
-inOutFile.write("X")
-inOutFile.write("\n")
-}
-inOutFile.write("\n")
-}
-Adobe Photoshop CS6
-JavaScript Scripting Reference JavaScript Object Reference 79
 CMYKColor
 Defines a CMYK color, used in the SolidColor object.
 See also GrayColor, HSBColor, LabColor, NoColor, RGBColor
@@ -2644,79 +2309,6 @@ Default is true for all Boolean parameters.
 Method Parameter type Returns What it does (Continued)
 Adobe Photoshop CS6
 JavaScript Scripting Reference JavaScript Object Reference 94
-Document sample script
-The following script creates a document that contains two images (a sunflower and a duck) obtained from
-the Adobe Photoshop CS6 Samples folder and employs the following steps:
-● Determines which image is larger.
-● Resizes the smaller image to match the larger image.
-● Creates a merged document twice as high as either image in order to hold both images.
-● Selects part of the document and pastes the sunflower into the selection.
-● Inverts the selection and pastes the duck into the lower part of the document.
-● Positions the sunflower over the duck.
-Document.jsx
-// Save the current preferences
-var startRulerUnits = app.preferences.rulerUnits
-var startTypeUnits = app.preferences.typeUnits
-var startDisplayDialogs = app.displayDialogs
-// Set Adobe Photoshop CS6 to use pixels and display no dialogs
-app.preferences.rulerUnits = Units.PIXELS
-app.preferences.typeUnits = TypeUnits.PIXELS
-app.displayDialogs = DialogModes.NO
-// first close all the open documents
-while (app.documents.length) {
-app.activeDocument.close()
-}
-// Open the sunflower and duck files from the samples folder
-var flowerDoc = open(File(app.path + "/Samples/Sunflower.psd"))
-var duckDoc = open(File(app.path + "/Samples/Ducky.tif"))
-// Find out which document is larger
-// Resize the smaller document the to the larger document’s size
-// The resize requires the document be the active/front document
-if ((flowerDoc.width.value * flowerDoc.height.value) >
-(duckDoc.width.value * duckDoc.height.value)) {
-app.activeDocument = duckDoc
-duckDoc.resize(flowerDoc.width, flowerDoc.height)
-}
-else {
-app.activeDocument = flowerDoc
-flowerDoc.resizeImage(duckDoc.width, duckDoc.height)
-}
-// Create a new document twice as high as two files
-var mergedDoc = app.documents.add(duckDoc.width, duckDoc.height * 2,
-duckDoc.resolution, "FlowerOverDuck")
-// Copy the flower to the top; make it the active document so we can manipulate it
-app.activeDocument = flowerDoc
-flowerDoc.activeLayer.copy()
-//Paste the flower to the merged document, making the merged document active
-app.activeDocument = mergedDoc
-// Select a square area at the top of the new document
-Adobe Photoshop CS6
-JavaScript Scripting Reference JavaScript Object Reference 95
-var selRegion = Array(Array(0, 0),
-Array(mergedDoc.width.value, 0),
-Array(mergedDoc.width.value, mergedDoc.height.value / 2),
-Array(0, mergedDoc.height.value / 2),
-Array(0, 0))
-// Create the selection
-mergedDoc.selection.select(selRegion)
-//Paste in the flower
-mergedDoc.paste(TRUE)
-// do the same thing for the duck
-app.activeDocument = duckDoc
-duckDoc.activeLayer.copy()
-app.activeDocument = mergedDoc
-mergedDoc.selection.select(selRegion)
-// Inverting the selection so the bottom of the document is now selected
-mergedDoc.selection.invert()
-// Paste the duck
-mergedDoc.paste(TRUE)
-// get rid of our originals without modifying them
-duckDoc.close(SaveOptions.DONOTSAVECHANGES)
-flowerDoc.close(SaveOptions.DONOTSAVECHANGES)
-// Reset the application preferences
-app.preferences.rulerUnits = startRulerUnits
-app.preferences.typeUnits = startTypeUnits
-app.displayDialogs = startDisplayDialogs
 Adobe Photoshop CS6
 JavaScript Scripting Reference JavaScript Object Reference 96
 DocumentPrintSettings
@@ -2811,33 +2403,6 @@ identify the document or its contents.
 ownerUrl string Read-write.
 Adobe Photoshop CS6
 JavaScript Scripting Reference JavaScript Object Reference 100
-DocumentInfo sample Script
-The following script sets document info (metadata) for all of the files in a specified folder and then saves
-the modified files as low-quality JPEG images in a new folder without changing the originals.
-● Ask the user to specify the folder that contains the original files and the output folder for the JPEG
-images, and then check that the folders exist.
-● Open each file and use the documentInfo object properties to tag it with the following metadata:
-● author: Adobe programmer
-● caption: Adobe Photo shoot
-● captionWriter: Adobe programmer
-● city: San Jose
-● copyrightNotice: Copyright (c) Adobe programmer Photography
-● copyrighted status: Copyrighted Work
-● country: USA
-● state: CA
-● Save the new documents in JPEG format with a low quality setting.
-DocumentInfo.jsx
-// Save the current preferences
-var startDisplayDialogs = app.displayDialogs
-// Set Adobe Photoshop CS6 to use pixels and display no dialogs
-app.displayDialogs = DialogModes.NO
-// ask the user for the input and output folders
-var inputFolder = Folder.selectDialog("Select a folder to tag")
-var outputFolder = Folder.selectDialog("Select a folder for the output files")
-// see if we got something interesting from the dialog
-if (inputFolder != null && outputFolder != null) {
-// get all the files found in this folder
-var fileList = inputFolder.getFiles()
 parent Document Read-only. The info object's container.
 provinceState string Read-write.
 source string Read-write.
@@ -2850,58 +2415,6 @@ urgency Urgency Read-write.
 Property Value type What it is (Continued)
 Adobe Photoshop CS6
 JavaScript Scripting Reference JavaScript Object Reference 101
-// save the outputs in JPEG
-var jpegOptions = new JPEGSaveOptions()
-// set the jpeg quality really low so the files are small
-jpegOptions.quality = 1
-// open each one in turn
-for (var i = 0; i < fileList.length; i++) {
-// The fileList includes both folders and files so open only files
-if (fileList[i] instanceof File && fileList[i].hidden == false) {
-// get a reference to the new document
-var docRef = open(fileList[i])
-// tag all of the documents with photo shoot information
-docRef.info.author = "Adobe programmer"
-docRef.info.caption = "Adobe Photo shoot"
-docRef.info.captionWriter = "Adobe programmer"
-docRef.info.city = "San Jose"
-docRef.info.copyrightNotice = "Copyright (c) Adobe programmer
-Photography"
-docRef.info.copyrighted = CopyrightedType.COPYRIGHTEDWORK
-docRef.info.country = "USA"
-docRef.info.provinceState = "CA"
-// change the date to a Adobe Photoshop CS6 date format
-// "YYYYMMDD"
-var theDate = new Date()
-// the year is from 1900 ????
-var theYear = (theDate.getYear() + 1900).toString()
-// convert the month from 0..12 to 00..12
-var theMonth = theDate.getMonth().toString()
-if (theDate.getMonth() < 10) {
-theMonth = "0" + theMonth
-}
-// convert the day from 0..31 to 00.31
-var theDay = theDate.getDate().toString()
-if (theDate.getDate() < 10) {
-theDay = "0" + theDay
-}
-// stick them all together
-docRef.info.creationDate = theYear + theMonth + theDay
-// flatten because we are saving to JPEG
-docRef.flatten()
-// go to 8 bit because we are saving to JPEG
-docRef.bitsPerChannel = BitsPerChannelType.EIGHT
-// save and close
-docRef.saveAs(new File(outputFolder + "/Output" + i + ".jpg"), jpegOptions)
-// don’t modify the original
-docRef.close(SaveOptions.DONOTSAVECHANGES)
-}
-}
-}
-// Reset the application preferences
-app.displayDialogs = startDisplayDialogs
-Adobe Photoshop CS6
-JavaScript Scripting Reference JavaScript Object Reference 102
 Documents
 The collection of open Document objects.
 Access this list through the Application.documents collection property, which is available through the app
@@ -3683,16 +3196,6 @@ var layerSetRef = app.activeDocument.layerSets.getByName("myParentSet");
 var childSet = layerSetRef.layerSets.getByName("myChildSet");
 Properties
 Methods
-LayerSets sample script
-The following script creates three layer sets, then nests a second layer set in each layer set, and then
-creates a text layer in each nested set that that displays the text "Layer in n Set Inside n Set", where n
-represents the ordinal number of the set (first, second, or third).
-Note: This script uses the ExtendScript $ debugging object. For further details, see the JavaScript Tools
-Guide.
-LayerSets.jsx
-$.level = 1
-//close all open documents
-while (app.documents.length) {
 Property Value type What it is
 length number Read-only. The number of elements in the LayerSets
 collection.
@@ -3717,44 +3220,6 @@ layers or layer sets they contain, from the
 document.
 Adobe Photoshop CS6
 JavaScript Scripting Reference JavaScript Object Reference 132
-app.activeDocument.close()
-}
-// create a working document
-var docRef = app.documents.add()
-// create an array to hold the layer sets
-var myLayerSets = new Array()
-// Create an array to hold the text
-var textArray = Array("First", "Second", "Third")
-//Create an indexer variable
-var i = 0
-// Create three layer sets at the top level
-for (i = 0; i < 3; i++) {
-myLayerSets[i] = new Array()
-myLayerSets[i][0] = docRef.layerSets.add()
-}
-// Rearrange the layer sets with the first one on top, second next, etc.
-myLayerSets[1][0].moveAfter(myLayerSets[0][0])
-myLayerSets[2][0].moveAfter(myLayerSets[1][0])
-// Create a layer set inside each layer set
-for (i = 0; i < 3; i++) {
-myLayerSets[i][0].name = textArray[i] + " Set"
-myLayerSets[i][1] = myLayerSets[i][0].layerSets.add()
-myLayerSets[i][1].name = "Inside " + textArray[i] + " Set"
-}
-// Create an array to hold the layers
-var myLayers = new Array()
-// Create a text layer with a description inside each layer set
-for (i = 0; i < 3; i++) {
-myLayers[i] = myLayerSets[i][1].artLayers.add()
-myLayers[i].kind = LayerKind.TEXT
-myLayers[i].textItem.contents = "Layer in " + textArray[i] + " Set Inside "
-+ textArray[i] + " Set"
-myLayers[i].textItem.position = Array(app.activeDocument.width * i * 0.33,
-app.activeDocument.height * (i + 1) * 0.25)
-myLayers[i].textItem.size = 12
-}
-Adobe Photoshop CS6
-JavaScript Scripting Reference JavaScript Object Reference 133
 MeasurementLog
 The measurement log for the application. Access through the Application.measurementLog property.
 Note: This feature is available in the Extended Version only.
@@ -3933,30 +3398,6 @@ doing the fill (default:
 true).
 Adobe Photoshop CS6
 JavaScript Scripting Reference JavaScript Object Reference 139
-PathItem sample script
-The following creates a path in three segments: two diagonal lines that form a V, and a curved line above
-the V that makes it look like a 2D ice cream cone.
-Paths.jsx
-// Save the current preferences
-var startRulerUnits = app.preferences.rulerUnits
-var startTypeUnits = app.preferences.typeUnits
-var startDisplayDialogs = app.displayDialogs
-// Set Adobe Photoshop CS6 to use pixels and display no dialogs
-app.preferences.rulerUnits = Units.PIXELS
-app.preferences.typeUnits = TypeUnits.PIXELS
-app.displayDialogs = DialogModes.NO
-// first close all the open documents
-while (app.documents.length) {
-app.activeDocument.close()
-}
-// create a document to work with
-var docRef = app.documents.add(5000, 7000, 72, "Simple Line")
-//line 1--it’s a straight line so the coordinates for anchor, left, and right
-//for each point have the same coordinates
-var lineArray = new Array()
-lineArray[0] = new PathPointInfo
-lineArray[0].kind = PointKind.CORNERPOINT
-lineArray[0].anchor = Array(100, 100)
 makeClippingPath
 ([flatness]) number [0.2..100]
 Makes this the clipping
@@ -3994,73 +3435,6 @@ the specified tool.
 Method Parameter type Returns What it does
 Adobe Photoshop CS6
 JavaScript Scripting Reference JavaScript Object Reference 140
-lineArray[0].leftDirection = lineArray[0].anchor
-lineArray[0].rightDirection = lineArray[0].anchor
-lineArray[1] = new PathPointInfo
-lineArray[1].kind = PointKind.CORNERPOINT
-lineArray[1].anchor = Array(150, 200)
-lineArray[1].leftDirection = lineArray[1].anchor
-lineArray[1].rightDirection = lineArray[1].anchor
-var lineSubPathArray = new Array()
-lineSubPathArray[0] = new SubPathInfo()
-lineSubPathArray[0].operation = ShapeOperation.SHAPEXOR
-lineSubPathArray[0].closed = false
-lineSubPathArray[0].entireSubPath = lineArray
-// line 2
-var lineArray2 = new Array()
-lineArray2[0] = new PathPointInfo
-lineArray2[0].kind = PointKind.CORNERPOINT
-lineArray2[0].anchor = Array(150, 200)
-lineArray2[0].leftDirection = lineArray2[0].anchor
-lineArray2[0].rightDirection = lineArray2[0].anchor
-lineArray2[1] = new PathPointInfo
-lineArray2[1].kind = PointKind.CORNERPOINT
-lineArray2[1].anchor = Array(200, 100)
-lineArray2[1].leftDirection = lineArray2[1].anchor
-lineArray2[1].rightDirection = lineArray2[1].anchor
-lineSubPathArray[1] = new SubPathInfo()
-lineSubPathArray[1].operation = ShapeOperation.SHAPEXOR
-lineSubPathArray[1].closed = false
-lineSubPathArray[1].entireSubPath = lineArray2
-//ice cream curve
-//it’s a curved line, so there are 3 points, not 2
-//coordinates for the middle point (lineArray3[1]) are different.
-//The left direction is positioned "above" the anchor on the screen.
-//The right direction is positioned "below" the anchor
-//You can change the coordinates for these points to see
-//how the curve works...
-var lineArray3 = new Array()
-lineArray3[0] = new PathPointInfo
-lineArray3[0].kind = PointKind.CORNERPOINT
-lineArray3[0].anchor = Array(200, 100)
-lineArray3[0].leftDirection = lineArray3[0].anchor
-lineArray3[0].rightDirection = lineArray3[0].anchor
-lineArray3[1] = new PathPointInfo
-lineArray3[1].kind = PointKind.CORNERPOINT
-lineArray3[1].anchor = Array(150, 50)
-lineArray3[1].leftDirection = Array(100, 50)
-lineArray3[1].rightDirection = Array(200, 50)
-lineArray3[2] = new PathPointInfo
-lineArray3[2].kind = PointKind.CORNERPOINT
-lineArray3[2].anchor = Array(100, 100)
-lineArray3[2].leftDirection = lineArray3[2].anchor
-lineArray3[2].rightDirection = lineArray3[2].anchor
-Adobe Photoshop CS6
-JavaScript Scripting Reference JavaScript Object Reference 141
-lineSubPathArray[2] = new SubPathInfo()
-lineSubPathArray[2].operation = ShapeOperation.SHAPEXOR
-lineSubPathArray[2].closed = false
-lineSubPathArray[2].entireSubPath = lineArray3
-//create the path item
-var myPathItem = docRef.pathItems.add("A Line", lineSubPathArray)
-// stroke it so we can see something
-myPathItem.strokePath(ToolType.BRUSH)
-// Reset the application preferences
-preferences.rulerUnits = startRulerUnits
-preferences.typeUnits = startTypeUnits
-displayDialogs = startDisplayDialogs
-Adobe Photoshop CS6
-JavaScript Scripting Reference JavaScript Object Reference 142
 PathItems
 The collection of PathItem objects in a document.
 Access through the Document.pathItems collection property. For example, this creates a new path item
@@ -4794,18 +4168,6 @@ Selects the entire layer.
 Method Parameter type Returns What it does (Continued)
 Adobe Photoshop CS6
 JavaScript Scripting Reference JavaScript Object Reference 168
-Selection sample script
-The following script creates a checkerboard using the following steps:
-● Create an 800 x 800 pixel document.
-● Divide the entire document into 100 x 100 pixel squares.
-● Select every other square in the first row, then shift the selection criteria to select the alternate squares
-in the following row. Repeat until every other square in the document is selected.
-● Fill the selected squares with the foreground color from the palette.
-● Invert the selection and fill the newly selected squares with the background color from the palette.
-● Deselect the squares to remove the selection outlines (the "marching ants").
-Selection.jsx
-// Save the current preferences
-var startRulerUnits = app.preferences.rulerUnits
 selectBorder
 (width) UnitValue
 Selects the selection border
@@ -4870,85 +4232,6 @@ to its current position.
 Method Parameter type Returns What it does (Continued)
 Adobe Photoshop CS6
 JavaScript Scripting Reference JavaScript Object Reference 169
-var startTypeUnits = app.preferences.typeUnits
-var startDisplayDialogs = app.displayDialogs
-// Set Adobe Photoshop CS6 to use pixels and display no dialogs
-app.preferences.rulerUnits = Units.PIXELS
-app.preferences.typeUnits = TypeUnits.PIXELS
-app.displayDialogs = DialogModes.NO
-//Close all the open documents
-while (app.documents.length) {
-app.activeDocument.close()
-}
-//Create variables for the 800 pixel board divided in even 100 x 100 squares
-var docSize = 800
-var cells = 8
-var cellSize = docSize / cells
-// create a new document
-var checkersDoc = app.documents.add(docSize, docSize, 72, "Checkers")
-// Create a variable to use for selecting the checker board
-// That allows me to shift the selection one square to the right
-//on every other row, and then shift back for the rows in between.
-var shiftIt = true
-// loop through vertically to create the first row
-for (var v = 0; v < docSize; v += cellSize) {
-// Switch the shift for a new row
-shiftIt = !shiftIt
-// loop through horizontally
-for (var h = 0; h < docSize; h += (cellSize * 2)) {
-// push over the cellSize to start with only
-if (shiftIt && h == 0) {
-h += cellSize
-}
-// Select a square
-selRegion = Array(Array(h, v),
-Array(h + cellSize, v),
-Array(h + cellSize, v + cellSize),
-Array(h, v + cellSize),
-Array(h, v))
-// In the first ineration of the loop, start the selection
-//In subsequent iterations, use the EXTEND constant value
-//of the select() method to add to the selection (in the loop’s else clause)
-if (h == 0 && v == 0) {
-checkersDoc.selection.select(selRegion)
-} else {
-checkersDoc.selection.select(selRegion, SelectionType.EXTEND)
-}
-// turn this off for faster execution
-// turn this on for debugging
-WaitForRedraw()
-}
-Adobe Photoshop CS6
-JavaScript Scripting Reference JavaScript Object Reference 170
-}
-// Fill the current selection with the foreground color
-checkersDoc.selection.fill(app.foregroundColor)
-//Invert the selection
-checkersDoc.selection.invert()
-// Fill the new selection with the background color
-checkersDoc.selection.fill(app.backgroundColor)
-// Clear the selection to get rid of the non-printing borders
-checkersDoc.selection.deselect()
-// Reset the application preferences
-app.preferences.rulerUnits = startRulerUnits
-app.preferences.typeUnits = startTypeUnits
-app.displayDialogs = startDisplayDialogs
-// A helper function for debugging
-// It also helps the user see what is going on
-// if you turn it off for this example you
-// get a flashing cursor for a number time
-function WaitForRedraw()
-{
-var eventWait = charIDToTypeID("Wait")
-var enumRedrawComplete = charIDToTypeID("RdCm")
-var typeState = charIDToTypeID("Stte")
-var keyState = charIDToTypeID("Stte")
-var desc = new ActionDescriptor()
-desc.putEnumerated(keyState, typeState, enumRedrawComplete)
-executeAction(eventWait, desc, DialogModes.NO)
-}
-Adobe Photoshop CS6
-JavaScript Scripting Reference JavaScript Object Reference 171
 SGIRGBSaveOptions
 Options for saving a document in SGIRGB format using the Document.saveAs() method.
 Note: The SGIRGB format is not installed automatically with Adobe Photoshop CS6.
