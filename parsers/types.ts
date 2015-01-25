@@ -125,8 +125,12 @@ var methodsMarker =
  * help identify top-level types.
  */
 var pageHeader = parse.sequence(
-      text.string("Adobe Photoshop CS6")
-
+      text.string("Adobe Photoshop ")
+    , parse.either(
+          parse.attempt(text.string("CC"))
+        , parse.attempt(text.string("CS6"))
+      )
+    , parse.many(text.space)
     , parse.sequence(
           text.string("JavaScript Scripting Reference")
         , parse.many(text.anyChar)

@@ -12,7 +12,22 @@ import text  = bennu.text;
 var    fs    = require("fs-extra");
 var    wrap  = require("wordwrap");
 
-var target = "cs6";
+var validTargets = [ "cc", "cs6" ];
+var target       = process.argv[2];
+if (_.contains(validTargets, target) == false) {
+    console.error(target
+        ? "Invalid target: `" + target + "`"
+        : "No target specified!"
+    );
+    console.error(
+        [ "Valid targets are:"
+        , _.map(validTargets, target => "`" + target + "`").join(", ")
+        ].join(' ')
+    );
+    process.exit(1);
+}
+
+console.log("Processing `Adobe Photoshop " + target.toUpperCase() +  "`...")
 
 import parsers   = require("./parsers/index");
 import renderers = require("./renderers/index");
