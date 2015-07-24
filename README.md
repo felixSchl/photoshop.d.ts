@@ -3,6 +3,7 @@ Photoshop.d.ts
 
 [![npm version](https://badge.fury.io/js/photoshop.d.ts.svg)](http://badge.fury.io/js/photoshop.d.ts)
 [![Build Status](https://travis-ci.org/felixSchl/photoshop.d.ts.svg)](https://travis-ci.org/felixSchl/photoshop.d.ts)
+![dependencies status](https://david-dm.org/felixschl/photoshop.d.ts.svg)
 
 > Type-safe Photoshop scripting
 
