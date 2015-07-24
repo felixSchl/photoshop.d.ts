@@ -1,0 +1,39 @@
+{
+  "env": {
+    "node": true,
+  },
+  "rules": {
+    "valid-jsdoc": [2, {
+        "prefer": { "return": "returns" },
+        "requireReturn": true,
+        "requireParamDescription": true,
+        "requireReturnDescription": false
+    }],
+    "camelcase": 1,
+    "no-multi-spaces": 0,
+    "comma-spacing": 1,
+    "comma-style": [2, "first"],
+    "consistent-return": 0,
+    "eol-last": 1,
+    "indent": [1, 4],
+    "no-use-before-define": [2, "nofunc"],
+    "no-process-exit": 0,
+    "no-trailing-spaces": 1,
+    "no-underscore-dangle": 0,
+    "no-unused-vars": 1,
+    "space-infix-ops": 1,
+    "quotes": [1, "single"],
+    "semi": [1, "always"],
+    "semi-spacing": 1,
+    "strict": [2, "global"],
+    "yoda": [1, "never"]
+  },
+  "globals": {
+    "describe": true,
+    "it": true,
+    "before": true,
+    "beforeEach": true,
+    "after": true,
+    "afterEach": true
+  }
+}

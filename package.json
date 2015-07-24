@@ -4,8 +4,7 @@
   "description": "Typescript declarations for photoshop",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "make": "tsc --module commonjs app.ts && node app.js"
+    "test": "grunt"
   },
   "repository": {
     "type": "git",
@@ -23,12 +22,13 @@
     "url": "https://github.com/felixschl/photoshop.d.ts/issues"
   },
   "devDependencies": {
-    "lodash": "~2.4.1",
     "bennu": "~17.2.2",
     "fs-extra": "~0.13.0",
-    "wordwrap": "0.0.2",
     "grunt": "^0.4.5",
+    "grunt-run": "^0.3.0",
     "grunt-ts": "^2.0.1",
-    "typescript": "1.3.0"
+    "lodash": "~2.4.1",
+    "typescript": "1.3.0",
+    "wordwrap": "0.0.2"
   }
 }
