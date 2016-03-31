@@ -3,36 +3,29 @@
 /// <reference path="./shared.ts"/>
 /// <reference path="./types.ts"/>
 
-import _         = require("lodash");
-import types     = require("./types");
-import constants = require("./constants");
-import shared    = require("./shared");
+import * as _         from 'lodash';
+import * as types     from './types';
+import * as constants from './constants';
+import { strRepeat }  from './shared';
 
-export var renderTypes     = xs => types.render(xs);
-export var renderConstants = xs => constants.render(xs);
+export const renderTypes     = types.render;
+export const renderConstants = constants.render;
 
-var strRepeat = shared.strRepeat;
+const renderHeader = () => [
+      strRepeat('/', 80)
+    , '//'
+    , '// This file was generated. Do not modify.'
+    , '//'
+    , strRepeat('/', 80)
+].join('\n')
 
-var renderHeader = () => [
-      strRepeat("/", 80)
-    , "//"
-    , "// This file was generated. Do not modify."
-    , "//"
-    , strRepeat("/", 80)
-].join("\n")
-
-export var renderTypescriptFile = (references, render, contents) =>
+export const renderTypescriptFile = (references, render, contents) =>
     _.flatten(
         [ renderHeader()
-        , ""
-        ,  _.map(references, path =>
-            _.template(
-                  "/// <reference path=\"${ path }\" />"
-                , { path: path }
-            )
-          )
-        , ""
+        , ''
+        ,  _.map(references, path => `/// <reference path="${path}" />`)
+        , ''
         , render(contents)
         ]
-    , true).join("\n")
+    , true).join('\n')
 
