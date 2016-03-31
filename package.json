@@ -4,7 +4,14 @@
   "description": "Typescript declarations for photoshop",
   "main": "app.js",
   "scripts": {
-    "test": "grunt"
+    "build": "npm run compile ./app.ts",
+    "test:cc": "npm run compile ./dist/cc/**",
+    "test:cs6": "npm run compile ./dist/cs6/**",
+    "test": "npm run test:cc && npm run test:cs6",
+    "pretest": "npm run build",
+    "compile": "tsc --module commonjs",
+    "start": "node app.js",
+    "convert": "npm start cc && npm start cs6"
   },
   "repository": {
     "type": "git",
@@ -24,9 +31,6 @@
   "devDependencies": {
     "bennu": "~17.2.2",
     "fs-extra": "~0.13.0",
-    "grunt": "^0.4.5",
-    "grunt-run": "^0.3.0",
-    "grunt-ts": "^2.0.1",
     "lodash": "~2.4.1",
     "typescript": "1.3.0",
     "wordwrap": "0.0.2"

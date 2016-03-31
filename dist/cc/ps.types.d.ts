@@ -2756,33 +2756,7 @@ interface DocumentInfo {
     typename: string
 
     /*
-     * // save the outputs in JPEG var jpegOptions = new JPEGSaveOptions() //
-     * set the jpeg quality really low so the files are small
-     * jpegOptions.quality = 1 // open each one in turn for (var i = 0; i <
-     * fileList.length; i++) { // The fileList includes both folders and files
-     * so open only files if (fileList[i] instanceof File && fileList[i].hidden
-     * == false) { // get a reference to the new document var docRef =
-     * open(fileList[i]) // tag all of the documents with photo shoot
-     * information docRef.info.author = "Adobe programmer" docRef.info.caption =
-     * "Adobe Photo shoot" docRef.info.captionWriter = "Adobe programmer"
-     * docRef.info.city = "San Jose" docRef.info.copyrightNotice = "Copyright
-     * (c) Adobe programmer Photography" docRef.info.copyrighted =
-     * CopyrightedType.COPYRIGHTEDWORK docRef.info.country = "USA"
-     * docRef.info.provinceState = "CA" // change the date to a Adobe Photoshop
-     * CC date format // "YYYYMMDD" var theDate = new Date() // the year is from
-     * 1900 ???? var theYear = (theDate.getYear() + 1900).toString() // convert
-     * the month from 0..12 to 00..12 var theMonth =
-     * theDate.getMonth().toString() if (theDate.getMonth() < 10) { theMonth =
-     * "0" + theMonth } // convert the day from 0..31 to 00.31 var theDay =
-     * theDate.getDate().toString() if (theDate.getDate() < 10) { theDay = "0" +
-     * theDay } // stick them all together docRef.info.creationDate = theYear +
-     * theMonth + theDay // flatten because we are saving to JPEG
-     * docRef.flatten() // go to 8 bit because we are saving to JPEG
-     * docRef.bitsPerChannel = BitsPerChannelType.EIGHT // save and close
-     * docRef.saveAs(new File(outputFolder + "/Output" + i + ".jpg"),
-     * jpegOptions) // don’t modify the original
-     * docRef.close(SaveOptions.DONOTSAVECHANGES) } } } // Reset the application
-     * preferences app.displayDialogs = startDisplayDialogs
+     * 
      */
     urgency: Urgency
 

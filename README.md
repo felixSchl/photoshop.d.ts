@@ -39,8 +39,7 @@ representation of the types and constants, the **emitter** will render types and
 constants as typescript files.
 
 ```
-> npm install
-> grunt && node app.js
+$ npm install && npm test
 ```
 
 ## What's new?
