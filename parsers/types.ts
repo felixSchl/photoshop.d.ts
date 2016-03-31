@@ -6,44 +6,19 @@
 /*
  * Parses the 2nd chapter of the Photoshop JavaScript reference into all
  * defined types and their properties and methods.
- *
- * TODO:
- * Write pre-parser to fix up broken syntax, or solve otherwise:
- * - Parse/Ignore top bit before first type declaration
- * - Ensure line-endings are only "\n"
- * - ArtLayer.adjustColorBalance is missing closing parenthesis
- * - MeasurementLog.exportMeasurements has superflous closing parenthesis
- * - Document.printSettings: DocumentPrintSettin\ngs (newline in "Settings")
- * - DocumentInfo.exif has non-standard "array of array [tag data]". Should be
- *   "array of array of string" and let the comment explain the details.
- * - ArtLayer.applyLensFlare has  non-standard array "array(UnitValue)". Should
- *   be "array of UnitValue".
- * - Document.crop has non-standard "array of 4 UnitValue". Should be "array of
- *   UnitValue".
- * - Document.save: object type has "(see description)" after it...
  */
 
-import _     = require("lodash");
-import bennu = require("bennu");
-import parse = bennu.parse;
-import lang  = bennu.lang;
-import text  = bennu.text;
-
-import shared     = require("./shared");
-var manyTill      = shared.manyTill;
-var upper         = shared.upper;
-var firstBefore   = shared.firstBefore;
-var inBraces      = shared.inBraces;
-var inBrackets    = shared.inBrackets;
-var inParenthesis = shared.inParenthesis;
-var startOfLine   = shared.startOfLine;
+import * as _ from 'lodash';
+import { parse, lang, text } from 'bennu';
+import { manyTill, upper, firstBefore, inBraces, inBrackets
+       , inParenthesis, startOfLine } from './shared';
 
 /*
  * + Remove page headers
  * + Remove method and propery markers
  * + Remove trailing newlines
  */
-export var sanitizeDocs = (docstring) => {
+export const sanitizeDocs = (docstring) => {
     return _.filter(
           _.foldl(
             [ /Adobe Photoshop (CC|CS6)[\r\n ]*JavaScript Scripting Reference[^0-9]*[0-9]*/g
@@ -62,11 +37,11 @@ export var sanitizeDocs = (docstring) => {
 /*
  * A set of reserved typescript keywords
  */
-var reservedKeywords = [ "with", "as" ];
+const reservedKeywords = [ 'with', 'as' ];
 
-var escapeName = name =>
+const escapeName = name =>
     _.contains(reservedKeywords, name)
-        ? name + "_"
+        ? name + '_'
         : name
 ;
 
@@ -74,30 +49,30 @@ var escapeName = name =>
  * Map javascript types to known typescript / javascript types
  * Ad-hoc fix for typos in docs
  */
-var typeMapping = {
-      "double":     "number"
-    , "nunber":     "number"
-    , "object":     "any"
-    , "UnitValueX": "UnitValue"
+const typeMapping = {
+      'double':     'number'
+    , 'nunber':     'number'
+    , 'object':     'any'
+    , 'UnitValueX': 'UnitValue'
 }
 
 /*
  * A set of known types
  */
-var typeWhitelist = [ "xmpMetadata" ];
+const typeWhitelist = [ 'xmpMetadata' ];
 
 /*
  * A set of known "false positives" types, used by "typeStart" parser.
  */
-var typeBlacklist = [ "Methods", "File" ];
+const typeBlacklist = [ 'Methods', 'File' ];
 
 /*
  * Parses a typical identifier
  */
-var identifier = parse.label("identifier"
+const identifier = parse.label('identifier'
     , text.letter.chain(first =>
         parse.eager(parse.many(text.match(/[a-zA-Z_0-9]/))).chain(rest =>
-            parse.always(first + rest.join(""))
+            parse.always(first + rest.join(''))
         )
     )
 );
@@ -105,18 +80,18 @@ var identifier = parse.label("identifier"
 /*
  * Parses the start of property declarations for a type.
  */
-var propertiesMarker =
+const propertiesMarker =
     parse.sequence(
-          text.string("Property Value type What it ")
-        , parse.choice(text.string("is"), text.string("does"))
+          text.string('Property Value type What it ')
+        , parse.choice(text.string('is'), text.string('does'))
     )
 ;
 
 /*
  * Parses the start of method declarations for a type.
  */
-var methodsMarker =
-    text.string("Method Parameter type Returns What it does")
+const methodsMarker =
+    text.string('Method Parameter type Returns What it does')
 ;
 
 /*
@@ -124,15 +99,15 @@ var methodsMarker =
  * Since each top-level type starts on a new page, we can use this parser to
  * help identify top-level types.
  */
-var pageHeader = parse.sequence(
-      text.string("Adobe Photoshop ")
+const pageHeader = parse.sequence(
+      text.string('Adobe Photoshop ')
     , parse.either(
-          parse.attempt(text.string("CC"))
-        , parse.attempt(text.string("CS6"))
+          parse.attempt(text.string('CC'))
+        , parse.attempt(text.string('CS6'))
       )
     , parse.many(text.space)
     , parse.sequence(
-          text.string("JavaScript Scripting Reference")
+          text.string('JavaScript Scripting Reference')
         , parse.many(text.anyChar)
       )
 );
@@ -146,16 +121,16 @@ var pageHeader = parse.sequence(
  * A blacklist is maintained to naiivly filter false positives from coming
  * through.
  */
-var typeStart = parse.sequence(
+const typeStart = parse.sequence(
       pageHeader
-    , text.character("\n")
+    , text.character('\n')
     , parse.look(
         parse.sequence(
             parse.choice(
                 parse.attempt(parse.eager(parse.cons(
                       text.match(/[A-Z]/)
                     , parse.many(text.match(/[a-zA-Z_0-9]/))
-                )).map(xs => xs.join("")))
+                )).map(xs => xs.join('')))
                 ,
                 identifier.chain(x =>
                     _.contains(typeWhitelist, x)
@@ -165,10 +140,10 @@ var typeStart = parse.sequence(
             )
             .chain(typename =>
                 _.contains(typeBlacklist, typename)
-                    ? parse.fail("Type in blacklist: " + typename)
+                    ? parse.fail(`Type in blacklist: ${typename}`)
                     : parse.of(typename)
             )
-            , text.character("\n")
+            , text.character('\n')
         )
     )
 );
@@ -179,7 +154,7 @@ var typeStart = parse.sequence(
  * - It may have a range, suffixed as `[0.. 1.. 100]`
  * - It may be an array, denoted as `array of`
  */
-var singleType =
+const singleType =
 
     // --------------------------------------------------
     // Parse the array type, given as `array of typename`
@@ -191,7 +166,7 @@ var singleType =
             parse.attempt(
                 parse.next(
                       parse.sequence(
-                          text.string("array of")
+                          text.string('array of')
                         , parse.many(text.space)
                       )
                     , parse.either(
@@ -199,7 +174,7 @@ var singleType =
                         , identifier
                       )
                 )
-            ).map(x => x + "[]")
+            ).map(x => x + '[]')
             ,
             identifier
         )
@@ -219,9 +194,9 @@ var singleType =
                 , lang.then(
                       inBrackets(manyTill(
                           parse.anyToken
-                        , text.character("]"))
+                        , text.character(']'))
                       )
-                    , parse.optional(text.character("."))
+                    , parse.optional(text.character('.'))
                   )
             ))
         )
@@ -229,7 +204,7 @@ var singleType =
             parse.next(
                 parse.optional(parse.attempt(parse.sequence(
                       parse.many(text.space)
-                    , text.string("points")
+                    , text.string('points')
                 )))
                 ,
                 parse.of({
@@ -247,7 +222,7 @@ var singleType =
  * however if a (n + 1)-nth match can be found, identify this as the return
  * type of the method.
  */
-var types = (n) => parse.label("types"
+const types = (n) => parse.label('types'
     , parse.sequence(
           parse.many(text.space)
         , parse.eager(lang.times(
@@ -279,7 +254,7 @@ var types = (n) => parse.label("types"
                             , parse.lookahead(upper)
                         ))
                     )
-                ).map(name => { name: name }))
+                ).map(name => ({ name: name })))
             )
             .chain(returnType =>
                 parse.of({
@@ -295,24 +270,24 @@ var types = (n) => parse.label("types"
  * Parses either "Read-Write" or "Read-Only"
  * Used by property parser
  */
-var readwrite = lang.then(
+const readwrite = lang.then(
     parse.either(
-          text.string("Read-write")
-        , text.string("Read-only")
+          text.string('Read-write')
+        , text.string('Read-only')
     )
-    , text.character(".")
+    , text.character('.')
 );
 
 /*
  * Parse one or more type names separated by an "or"
  */
-var multiType = parse.rec(self =>
+const multiType = parse.rec(self =>
     parse.either(
         parse.attempt(lang.then(
               singleType
             , parse.sequence(
                   parse.many(text.space)
-                , text.string("or")
+                , text.string('or')
                 , parse.many(text.space)
             )
         ).chain(x => self.chain(xs => parse.of([x].concat(xs)))))
@@ -325,7 +300,7 @@ var multiType = parse.rec(self =>
  * Parses a single property of shape:
  * name type Read-(Only|Write). ...
  */
-var property = identifier.map(escapeName).chain(name =>
+const property = identifier.map(escapeName).chain(name =>
     parse.sequence(
           parse.many(text.space)
         , multiType.chain(types =>
@@ -347,7 +322,7 @@ var property = identifier.map(escapeName).chain(name =>
  * Parses a set of parameters to a function.
  * Handles optional types enclosed in brackets, e.g. `[typename]`
  */
-var params = inParenthesis(lang.then(
+const params = inParenthesis(lang.then(
     parse.rec(self =>
         parse.optional(
             []
@@ -358,7 +333,7 @@ var params = inParenthesis(lang.then(
                         parse.next(
                             parse.optional(parse.sequence(
                                   parse.many(text.space)
-                                , text.character(",")
+                                , text.character(',')
                                 , parse.many(text.space)
                             ))
                             ,
@@ -371,20 +346,20 @@ var params = inParenthesis(lang.then(
                                   )))
                             )
                         )
-                    ).map(x => x + "?"))
+                    ).map(x => x + '?'))
                     ,
                     parse.attempt(
                         parse.next(
                               parse.optional(parse.attempt(parse.sequence(
                                     parse.many(text.space)
-                                  , text.character(",")
+                                  , text.character(',')
                                   , parse.many(text.space)
                               )))
                             , lang.then(
                                   identifier
                                 , parse.optional(parse.attempt(parse.sequence(
                                         parse.many(text.space)
-                                      , text.character(",")
+                                      , text.character(',')
                                       , parse.many(text.space)
                                   )))
                               )
@@ -407,15 +382,12 @@ var params = inParenthesis(lang.then(
  * A method is an identifier followed by a set of parameters enclosed in
  * parenthesis.
  */
-var method =
+const method =
     parse.sequence(
-          // -------------------
-          // TODO MAKE THIS WORK
-          // -------------------
           startOfLine
         , identifier.chain(name =>
             parse.sequence(
-                  text.character("\n")
+                  text.character('\n')
                 , params.chain(ps =>
                     types(ps.length).chain(ts => parse.of({
                           name:    name
@@ -437,14 +409,14 @@ var method =
  * end before another property declaration or before the start of a new
  * top-level type
  */
-var properties = parse.rec(self =>
+const properties = parse.rec(self =>
     parse.optional(
           []
         , parse.attempt(
             property.chain(prop =>
                 parse.rec(self =>
                     parse.choice(
-                        parse.attempt(parse.look(parse.choice(
+                        parse.attempt(parse.look(parse.choice<any>(
                               methodsMarker
                             , typeStart
                             , property
@@ -457,9 +429,9 @@ var properties = parse.rec(self =>
                         )
                     )
                 )
-                .map(xs => xs.join(""))
+                .map(xs => xs.join(''))
                 .map(sanitizeDocs)
-                .chain(docs => parse.of(_.extend(prop, { "docs": docs })))
+                .chain(docs => parse.of(_.extend(prop, { 'docs': docs })))
             )
         ).chain(x => self.chain(xs => parse.of([x].concat(xs))))
     )
@@ -473,7 +445,7 @@ var properties = parse.rec(self =>
  * We assume the documentation to start after the method declaration and end
  * before another method declaration or before the start of a new top-level type
  */
-var methods = parse.rec(self =>
+const methods = parse.rec(self =>
     parse.optional(
           []
         , parse.attempt(
@@ -496,7 +468,7 @@ var methods = parse.rec(self =>
                 )
                 .map(xs => xs.join(''))
                 .map(sanitizeDocs)
-                .chain(docs => parse.of(_.extend(m, { "docs": docs })))
+                .chain(docs => parse.of(_.extend(m, { 'docs': docs })))
             )
         ).chain(x => self.chain(xs => parse.of([x].concat(xs))))
     )
@@ -507,12 +479,12 @@ var methods = parse.rec(self =>
  * This parser will find the name, documentation, properties and methods
  * defined on the type.
  */
-var type =
+const type =
     identifier.chain(name =>
         parse.sequence(
             manyTill(
                   parse.anyToken
-                , parse.choice(
+                , parse.choice<any>(
                       parse.attempt(propertiesMarker)
                     , parse.attempt(methodsMarker)
                     , parse.attempt(typeStart)
@@ -557,12 +529,12 @@ var type =
  * The complete top-down parser for the second chapter to find all top-level
  * types, their documentation, properties and methods
  */
-var parseChapter2 = parse.sequence(
+const parseChapter2 = parse.sequence(
     parse.eager(parse.many(
         lang.then(
               parse.sequence(
                   pageHeader
-                , parse.many(text.character("\n"))
+                , parse.many(text.character('\n'))
                 , type
               )
             , parse.many(parse.choice(text.space, parse.eof))
@@ -570,8 +542,4 @@ var parseChapter2 = parse.sequence(
     ))
 );
 
-export var parser: parse.Parser<ITopLevelType[]> = parseChapter2;
-
-export var runTest = input => {
-    console.log(parse.run(methods, input));
-}
+export const parser: parse.Parser<ITopLevelType[]> = parseChapter2;

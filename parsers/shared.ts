@@ -2,20 +2,17 @@
 /// <reference path="../typings/lodash/lodash.d.ts"/>
 /// <reference path="../typings/bennu/bennu.d.ts"/>
 
-import _     = require("lodash");
-import bennu = require("bennu");
-import parse = bennu.parse;
-import lang  = bennu.lang;
-import text  = bennu.text;
+import * as _ from 'lodash';
+import { parse, lang, text } from 'bennu';
 
-export var manyTill = (p, end) => parse.rec(self =>
+export const manyTill = (p, end) => parse.rec(self =>
     parse.either(
           parse.attempt(parse.lookahead(end)).map(x => [])
         , p.chain(x => self.chain(xs => parse.of(x.concat(xs))))
     )
 );
 
-export var firstBefore = (parser, marker) => parse.rec(self =>
+export const firstBefore = (parser, marker) => parse.rec(self =>
     parse.choice(
           parse.attempt(parse.lookahead(marker))
             .chain(_ => parse.fail("Not found"))
@@ -24,27 +21,27 @@ export var firstBefore = (parser, marker) => parse.rec(self =>
     )
 );
 
-export var lower = parse.token(x => x === x.toLowerCase());
-export var upper = parse.token(x => x === x.toUpperCase());
+export const lower = parse.token(x => x === x.toLowerCase());
+export const upper = parse.token(x => x === x.toUpperCase());
 
-export var word = text.letter.chain(
+export const word = text.letter.chain(
     x => parse.eager(parse.many(text.letter)).chain(
         xs => parse.of(x + xs.join(""))
     )
 );
 
-export var betweenChar = (open, close, parser) =>
+export const betweenChar = (open, close, parser) =>
     lang.between(
           text.character(open)
         , text.character(close)
         , parser
     )
 ;
-export var inBraces      = (p) => betweenChar("{","}",p);
-export var inBrackets    = (p) => betweenChar("[","]",p);
-export var inParenthesis = (p) => betweenChar("(",")",p);
+export const inBraces      = (p) => betweenChar("{","}",p);
+export const inBrackets    = (p) => betweenChar("[","]",p);
+export const inParenthesis = (p) => betweenChar("(",")",p);
 
-export var startOfLine =
+export const startOfLine =
     parse.either(
         parse.attempt(text.character("\n"))
       , parse.attempt(parse.getPosition.chain(pos =>

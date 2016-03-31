@@ -3,12 +3,9 @@
 /// <reference path="./shared.ts"/>
 /// <reference path="./types.ts"/>
 
-import bennu = require("bennu")
+import * as bennu     from 'bennu';
+import * as types     from  './types';
+import * as constants from  './constants';
 
-import types     = require("./types");
-import constants = require("./constants");
-
-export var parseTypes     = input => bennu.parse.run(types.parser, input);
-export var parseConstants = input => bennu.parse.run(constants.parser, input);
-
-export var runTest = types.runTest;
+export const parseTypes     = input => bennu.parse.run(types.parser, input);
+export const parseConstants = input => bennu.parse.run(constants.parser, input);
