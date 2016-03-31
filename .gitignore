@@ -1,5 +1,4 @@
 node_modules/
-*.sw*
-**/**.sw*
 *.js
-/***/**.js*/
+*.sw[a-z]
+*.un~
