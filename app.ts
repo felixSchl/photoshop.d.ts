@@ -4,46 +4,44 @@
 /// <reference path="./parsers/index.ts"/>
 /// <reference path="./renderers/index.ts"/>
 
-import _     = require("lodash");
-import bennu = require("bennu");
-import parse = bennu.parse;
-import lang  = bennu.lang;
-import text  = bennu.text;
-var    fs    = require("fs-extra");
-var    wrap  = require("wordwrap");
+const _ = require('lodash');
+import { parse, lang, text } from 'bennu';
 
-var validTargets = [ "cc", "cs6" ];
-var target       = process.argv[2];
+const fs    = require('fs-extra');
+const wrap  = require('wordwrap');
+
+const validTargets = [ 'cc', 'cs6' ];
+const target       = process.argv[2];
 if (_.contains(validTargets, target) == false) {
     console.error(target
-        ? "Invalid target: `" + target + "`"
-        : "No target specified!"
+        ? `Invalid target: '${target}'`
+        : `No target specified!`
     );
     console.error(
-        [ "Valid targets are:"
-        , _.map(validTargets, target => "`" + target + "`").join(", ")
-        ].join(' ')
+        `Valid targets are: ${
+          _.map(validTargets, target => `'${target}'`).join(', ')
+        }`
     );
     process.exit(1);
 }
 
-console.log("Processing `Adobe Photoshop " + target.toUpperCase() +  "`...")
+console.log(`Processing 'Adobe Photoshop ${target.toUpperCase()}'...`)
 
-import parsers   = require("./parsers/index");
-import renderers = require("./renderers/index");
+import * as parsers   from './parsers/index';
+import * as renderers from './renderers/index';
 import renderTypescriptFile = renderers.renderTypescriptFile;
 
-var chapter2 = fs.readFileSync("assets/"+target+"/chapter-2.txt", "utf8");
-var chapter4 = fs.readFileSync("assets/"+target+"/chapter-4.txt", "utf8");
+const chapter2 = fs.readFileSync(`assets/${target}/chapter-2.txt`, 'utf8');
+const chapter4 = fs.readFileSync(`assets/${target}/chapter-4.txt`, 'utf8');
 
-var compileTypes = output =>
+const compileTypes = output =>
     _([chapter2])
         .map(input => {
-            console.log("Parsing types...");
+            console.log('Parsing types...');
             return parsers.parseTypes(input)
         })
         .map(types => {
-            console.log("Rendering types...");
+            console.log('Rendering types...');
             return renderTypescriptFile(
                   []
                 , renderers.renderTypes
@@ -51,19 +49,19 @@ var compileTypes = output =>
             );
         })
         .each(contents => {
-            console.log("Emitting types...");
+            console.log('Emitting types...');
             fs.writeFile(output, contents);
         })
     ;
 
-var compileConstants = output =>
+const compileConstants = output =>
     _([chapter4])
         .map(input => {
-            console.log("Parsing constants...");
+            console.log('Parsing constants...');
             return parsers.parseConstants(input)
         })
         .map(constants => {
-            console.log("Rendering constants...");
+            console.log('Rendering constants...');
             return renderTypescriptFile(
                   []
                 , renderers.renderConstants
@@ -71,33 +69,35 @@ var compileConstants = output =>
             );
         })
         .each(contents => {
-            console.log("Emitting constants...");
+            console.log('Emitting constants...');
             fs.writeFile(output, contents);
         })
     ;
 
-var copyDistFiles = targetDir => {
-    console.log("Copying files...");
-    fs.copySync("ps.d.ts", targetDir+"/ps.d.ts")
-    fs.copySync("assets/lib.d.ts", targetDir+"/lib.d.ts")
-    fs.copySync("extendscript/es.d.ts", targetDir+"/es.d.ts")
-    fs.copySync("extendscript/es.dollar.d.ts", targetDir+"/es.dollar.d.ts")
-    fs.copySync("extendscript/es.file.d.ts", targetDir+"/es.file.d.ts")
-    fs.copySync("extendscript/es.global.d.ts", targetDir+"/es.global.d.ts")
+const copyDistFiles = targetDir => {
+    console.log('Copying files...');
+    fs.copySync('ps.d.ts', `${targetDir}/ps.d.ts`)
+    fs.copySync('assets/lib.d.ts', `${targetDir}/lib.d.ts`)
+    fs.copySync('extendscript/es.d.ts', `${targetDir}/es.d.ts`)
+    fs.copySync('extendscript/es.dollar.d.ts', `${targetDir}/es.dollar.d.ts`)
+    fs.copySync('extendscript/es.file.d.ts', `${targetDir}/es.file.d.ts`)
+    fs.copySync('extendscript/es.global.d.ts', `${targetDir}/es.global.d.ts`)
 }
 
-var mkDistDir = (targetDir) => {
-    console.log("Making dir...");
-    try { fs.mkdirsSync(targetDir); } catch (e) {}
+const mkDistDir = (targetDir) => {
+    console.log('Making dir...');
+    try {
+      fs.mkdirsSync(targetDir);
+    } catch (e) {}
     return targetDir;
 }
 
 try {
-    var distDir = mkDistDir("dist/"+target);
-    compileTypes(distDir+"/ps.types.d.ts");
-    compileConstants(distDir+"/ps.constants.d.ts");
+    const distDir = mkDistDir(`dist/${target}`);
+    compileTypes(`${distDir}/ps.types.d.ts`);
+    compileConstants(`${distDir}/ps.constants.d.ts`);
     copyDistFiles(distDir)
 } catch(e) {
-    console.error("ERROR", e);
-    console.error("STACK", e.stack);
+    console.error('ERROR', e);
+    console.error('STACK', e.stack);
 }
