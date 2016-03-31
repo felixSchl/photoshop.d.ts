@@ -1,4 +1,5 @@
 node_modules/
+*.log
 *.js
 *.sw[a-z]
 *.un~
