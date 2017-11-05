@@ -43,7 +43,7 @@ const compileTypes = output =>
         .map(types => {
             console.log('Rendering types...');
             return renderTypescriptFile(
-                  []
+                  ["ps.constants.d.ts"]
                 , renderers.renderTypes
                 , types
             );

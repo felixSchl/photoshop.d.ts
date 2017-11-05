@@ -577,7 +577,7 @@ beep
 Causes a "beep" sound.
 bringToFront
 ()
-Makes Adobe Photoshop CS6 the
+void Makes Adobe Photoshop CS6 the
 active (front-most) application.
 charIDToTypeID
 (charID) string
@@ -4037,7 +4037,7 @@ does not copy it to the
 clipboard.
 contract
 (by) UnitValue
-Contracts (reduces) the
+void Contracts (reduces) the
 selection by the specified
 amount.
 copy

@@ -4,6 +4,7 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+/// <reference path="ps.constants.d.ts" />
 
 interface ActionDescriptor {
     /*
@@ -34,102 +35,102 @@ interface ActionDescriptor {
     /*
      * Gets the value of a key of type boolean.
      */
-    getBoolean(key: number): void
+    getBoolean(key: number): boolean
 
     /*
      * Gets the value of a key of type class.
      */
-    getClass(key: number): void
+    getClass(key: number): number
 
     /*
      * Gets raw byte data as a string value.
      */
-    getData(key: number): void
+    getData(key: number): string
 
     /*
      * Gets the value of a key of type double.
      */
-    getDouble(key: number): void
+    getDouble(key: number): number
 
     /*
      * Gets the enumeration type of a key.
      */
-    getEnumerationType(key: number): void
+    getEnumerationType(key: number): number
 
     /*
      * Gets the enumeration value of a key.
      */
-    getEnumerationValue(key: number): void
+    getEnumerationValue(key: number): number
 
     /*
      * Gets the value of a key of type integer.
      */
-    getInteger(key: number): void
+    getInteger(key: number): number
 
     /*
      * Gets the ID of the Nth key, provided by index.
      */
-    getKey(index: number): void
+    getKey(index: number): number
 
     /*
      * Gets the value of a key of type large integer.
      */
-    getLargeInteger(key: number): void
+    getLargeInteger(key: number): number
 
     /*
      * Gets the value of a key of type list.
      */
-    getList(key: number): void
+    getList(key: number): ActionList
 
     /*
      * Gets the class ID of an object in a key of type object.
      */
-    getObjectType(key: number): void
+    getObjectType(key: number): number
 
     /*
      * Gets the value of a key of type object.
      */
-    getObjectValue(key: number): void
+    getObjectValue(key: number): ActionDescriptor
 
     /*
      * Gets the value of a key of type File.
      */
-    getPath(key: number): void
+    getPath(key: number): File
 
     /*
      * Gets the value of a key of type ActionReference.
      */
-    getReference(key: number): void
+    getReference(key: number): ActionReference
 
     /*
      * Gets the value of a key of type string.
      */
-    getString(key: number): void
+    getString(key: number): string
 
     /*
      * Gets the type of a key.
      */
-    getType(key: number): void
+    getType(key: number): DescValueType
 
     /*
      * Gets the unit type of a key of type UnitDouble.
      */
-    getUnitDoubleType(key: number): void
+    getUnitDoubleType(key: number): number
 
     /*
      * Gets the value of a key of type UnitDouble.
      */
-    getUnitDoubleValue(key: number): void
+    getUnitDoubleValue(key: number): number
 
     /*
      * Checks whether the descriptor contains the provided key.
      */
-    hasKey(key: number): void
+    hasKey(key: number): boolean
 
     /*
      * Determines whether the descriptor is the same as another descriptor.
      */
-    isEqual(otherDesc: ActionDescriptor): void
+    isEqual(otherDesc: ActionDescriptor): boolean
 
     /*
      * Sets the value for a key whose type is boolean.
@@ -200,7 +201,7 @@ interface ActionDescriptor {
     /*
      * Gets the entire descriptor as a stream of bytes, for writing to disk.
      */
-    toStream(): void
+    toStream(): string
 
 }
 
@@ -223,87 +224,87 @@ interface ActionList {
     /*
      * Gets the value of a list element of type boolean.
      */
-    getBoolean(index: number): void
+    getBoolean(index: number): boolean
 
     /*
      * Gets the value of a list element of type class.
      */
-    getClass(index: number): void
+    getClass(index: number): number
 
     /*
      * Gets raw byte data as a string value.
      */
-    getData(index: number): void
+    getData(index: number): string
 
     /*
      * Gets the value of a list element of type double.
      */
-    getDouble(index: number): void
+    getDouble(index: number): number
 
     /*
      * Gets the enumeration type of a list element.
      */
-    getEnumerationType(index: number): void
+    getEnumerationType(index: number): number
 
     /*
      * Gets the enumeration value of a list element.
      */
-    getEnumerationValue(index: number): void
+    getEnumerationValue(index: number): number
 
     /*
      * Gets the value of a list element of type integer.
      */
-    getInteger(index: number): void
+    getInteger(index: number): number
 
     /*
      * Gets the value of a list element of type large integer.
      */
-    getLargeInteger(index: number): void
+    getLargeInteger(index: number): number
 
     /*
      * Gets the value of a list element of type list.
      */
-    getList(index: number): void
+    getList(index: number): ActionList
 
     /*
      * Gets the class ID of a list element of type object.
      */
-    getObjectType(index: number): void
+    getObjectType(index: number): number
 
     /*
      * Gets the value of a list element of type object.
      */
-    getObjectValue(index: number): void
+    getObjectValue(index: number): ActionDescriptor
 
     /*
      * Gets the value of a list element of type File.
      */
-    getPath(index: number): void
+    getPath(index: number): File
 
     /*
      * Gets the value of a list element of type ActionReference.
      */
-    getReference(index: number): void
+    getReference(index: number): ActionReference
 
     /*
      * Gets the value of a list element of type string.
      */
-    getString(index: number): void
+    getString(index: number): string
 
     /*
      * Gets the type of a list element.
      */
-    getType(index: number): void
+    getType(index: number): DescValueType
 
     /*
      * Gets the unit value type of a list element of type Double.
      */
-    getUnitDoubleType(index: number): void
+    getUnitDoubleType(index: number): number
 
     /*
      * Gets the unit value of a list element of type double.
      */
-    getUnitDoubleValue(index: number): void
+    getUnitDoubleValue(index: number): number
 
     /*
      * Appends a new value, true or false.
@@ -383,52 +384,52 @@ interface ActionReference {
      * provide additional pieces to the reference. This looks like another
      * reference, but it is actually part of the same reference.
      */
-    getContainer(): void
+    getContainer(): ActionReference
 
     /*
      * Gets a number representing the class of the object.
      */
-    getDesiredClass(): void
+    getDesiredClass(): number
 
     /*
      * Gets the enumeration type.
      */
-    getEnumeratedType(): void
+    getEnumeratedType(): number
 
     /*
      * Gets the enumeration value.
      */
-    getEnumeratedValue(): void
+    getEnumeratedValue(): number
 
     /*
      * Gets the form of this action reference.
      */
-    getForm(): void
+    getForm(): ReferenceFormType
 
     /*
      * Gets the identifier value for a reference whose form is identifier.
      */
-    getIdentifier(): void
+    getIdentifier(): number
 
     /*
      * Gets the index value for a reference in a list or array.
      */
-    getIndex(): void
+    getIndex(): number
 
     /*
      * Gets the name of a reference.
      */
-    getName(): void
+    getName(): string
 
     /*
      * Gets the offset of the object’s index value.
      */
-    getOffset(): void
+    getOffset(): number
 
     /*
      * Gets the property ID value.
      */
-    getProperty(): void
+    getProperty(): number
 
     /*
      * Puts a new class form and class type into the reference.
@@ -622,7 +623,7 @@ interface Application {
      * command). The inputFiles parameter specifies the sources for the files to
      * be manipulated by the batch command.
      */
-    batch(inputFiles: File[], action: string, from: string, options?: BatchOptions): void
+    batch(inputFiles: File[], action: string, from: string, options?: BatchOptions): string
 
     /*
      * Causes a "beep" sound.
@@ -630,14 +631,14 @@ interface Application {
     beep(): void
 
     /*
-     * Adobe Photoshop CS6 the active (front-most) application.
+     * Makes Adobe Photoshop CS6 the active (front-most) application.
      */
     bringToFront(): void
 
     /*
      * Converts from a four character code (character ID) to a runtime ID.
      */
-    charIDToTypeID(charID: string): void
+    charIDToTypeID(charID: string): number
 
     /*
      * Plays an action from the Actions palette. The action parameter is the
@@ -654,30 +655,30 @@ interface Application {
     /*
      * Plays an Action Manager event.
      */
-    executeAction(eventID: number, descriptor?: ActionDescriptor, displayDialogs?: DialogModes): void
+    executeAction(eventID: number, descriptor?: ActionDescriptor, displayDialogs?: DialogModes): ActionDescriptor
 
     /*
      * Obtains information about a predefined or recorded action.
      */
-    executeActionGet(reference: ActionReference): void
+    executeActionGet(reference: ActionReference): ActionDescriptor
 
     /*
      * Determines whether the feature specified by name is enabled. The
      * following features are supported as values for name: "photoshop/extended"
      * "photoshop/standard" "photoshop/trial"
      */
-    featureEnabled(name: string): void
+    featureEnabled(name: string): boolean
 
     /*
      * Retreives user objects in the Photoshop registry for the ID with value
      * key.
      */
-    getCustomOptions(key: string): void
+    getCustomOptions(key: string): ActionDescriptor
 
     /*
      * Returns true if Quicktime is installed.
      */
-    isQuicktimeAvailable(): void
+    isQuicktimeAvailable(): boolean
 
     /*
      * Loads a support file (as opposed to a Photoshop image document) from the
@@ -688,17 +689,17 @@ interface Application {
     /*
      * DEPRECATED for Adobe Photoshop CS4.
      */
-    makeContactSheet(inputFiles: File[], options?: ContactSheetOptions): void
+    makeContactSheet(inputFiles: File[], options?: ContactSheetOptions): string
 
     /*
      * DEPRECATED for Adobe Photoshop CS4.
      */
-    makePDFPresentation(inputFiles: File[], outputFiles: File, options?: PresentationOptions): void
+    makePDFPresentation(inputFiles: File[], outputFiles: File, options?: PresentationOptions): string
 
     /*
      * DEPRECATED for Adobe Photoshop CS4.
      */
-    makePhotoGallery(inputFolder: File, outputFolder: File, options?: GalleryOptions): void
+    makePhotoGallery(inputFolder: File, outputFolder: File, options?: GalleryOptions): string
 
     /*
      * DEPRECATED for Adobe Photoshop CS6. Use provided script:
@@ -707,12 +708,12 @@ interface Application {
      * displayDialog ); Merges multiple files into one, with user interaction
      * required.
      */
-    makePhotomerge(inputFiles: File[]): void
+    makePhotomerge(inputFiles: File[]): string
 
     /*
      * DEPRECATED for Adobe Photoshop CS4.
      */
-    makePicturePackage(inputFiles: File[], options?: PicturePackageOptions): void
+    makePicturePackage(inputFiles: File[], options?: PicturePackageOptions): string
 
     /*
      * Opens the specified document. Use the optional as parameter to specify
@@ -724,14 +725,14 @@ interface Application {
      * document. See the Application sample scripts for an example of using the
      * File object in the open method.
      */
-    open(document: File, as?: any, asSmartObject?: boolean): void
-    open(document: File, as?: OpenDocumentType, asSmartObject?: boolean): void
+    open(document: File, as?: any, asSmartObject?: boolean): Document
+    open(document: File, as?: OpenDocumentType, asSmartObject?: boolean): Document
 
     /*
      * Invokes the Photoshop Open dialog box for the user to select files.
      * Returns an array of File objects for the files selected in the dialog.
      */
-    openDialog(): void
+    openDialog(): File[]
 
     /*
      * Purges one or more caches.
@@ -766,12 +767,12 @@ interface Application {
     /*
      * Returns false if dialog is cancelled, true otherwise.
      */
-    showColorPicker(): void
+    showColorPicker(): boolean
 
     /*
      * Converts from a string ID to a runtime ID.
      */
-    stringIDToTypeID(stringID: string): void
+    stringIDToTypeID(stringID: string): number
 
     /*
      * Toggle palette visibility.
@@ -781,12 +782,12 @@ interface Application {
     /*
      * Converts from a runtime ID to a character ID.
      */
-    typeIDToCharID(typeID: number): void
+    typeIDToCharID(typeID: number): string
 
     /*
      * Converts from a runtime ID to a string ID.
      */
-    typeIDToStringID(typeID: number): void
+    typeIDToStringID(typeID: number): string
 
 }
 
@@ -1230,7 +1231,7 @@ interface ArtLayer {
      * Merges the layer down, removing the layer from the document; returns a
      * reference to the art layer that this layer is merged into.
      */
-    merge(): void
+    merge(): ArtLayer
 
     /*
      * Modifies a targeted (output) color channel using a mix of the existing
@@ -1340,12 +1341,12 @@ interface ArtLayers {
      * Creates a new art layer in the document and adds the new object to this
      * collection.
      */
-    add(): void
+    add(): ArtLayer
 
     /*
      * Get the first element in the artLayers collection with the provided name.
      */
-    getByName(name: string): void
+    getByName(name: string): ArtLayer
 
     /*
      * Removes all elements from the artLayers collection.
@@ -1706,7 +1707,7 @@ interface Channel {
     /*
      * Duplicates the channel.
      */
-    duplicate(targetDocument?: Document): void
+    duplicate(targetDocument?: Document): Channel
 
     /*
      * Merges a spot channel into the component channels.
@@ -1739,12 +1740,12 @@ interface Channels {
     /*
      * Creates a new channel object and adds it to this collection.
      */
-    add(): void
+    add(): Channel
 
     /*
      * Get the first element in the channels collection with the provided name.
      */
-    getByName(name: string): void
+    getByName(name: string): Channel
 
     /*
      * Removes all alpha channel objects from the channels collection.
@@ -1838,7 +1839,7 @@ interface ColorSamplers {
      * position parameter (x,y) represents the new horizontal and vertical
      * locations of the moved color sampler.
      */
-    add(position: UnitValue[]): void
+    add(position: UnitValue[]): ColorSampler
 
     /*
      * Removes all ColorSampler objects from the ColorSamplers collection.
@@ -1976,12 +1977,12 @@ interface CountItems {
      * position (x,y) represents the horizontal and vertical positions,
      * respectively, of the CountItem object.
      */
-    add(position: UnitValue[]): void
+    add(position: UnitValue[]): CountItem
 
     /*
      * Get the first element in the CountItems collection with the provided name.
      */
-    getByName(name: string): void
+    getByName(name: string): CountItem
 
     /*
      * Removes all CountItem objects from the CountItems collection.
@@ -2383,7 +2384,7 @@ interface Document {
      * provides the name for the duplicated document. The optional parameter
      * mergeLayersOnly indicates whether to only duplicate merged layers.
      */
-    duplicate(name?: string, mergeLayersOnly?: boolean): void
+    duplicate(name?: string, mergeLayersOnly?: boolean): Document
 
     /*
      * —or— ExportOptionsSaveForWeb Exports the paths in the document to an
@@ -2418,7 +2419,7 @@ interface Document {
      * argument is set to true and a selection is active, the contents are
      * pasted into the selection.
      */
-    paste(intoSelection?: boolean): void
+    paste(intoSelection?: boolean): ArtLayer
 
     /*
      * Prints the document. printSpace specifies the color space for the
@@ -2483,7 +2484,7 @@ interface Document {
     /*
      * Splits the document channels into separate images.
      */
-    splitChannels(): void
+    splitChannels(): Document[]
 
     /*
      * Provides a single entry in history states for the entire script provided
@@ -2791,12 +2792,12 @@ interface Documents {
      * pixelAspectRatio: Default is 1.0, a square aspect ratio.
      * bitsPerChannelType: Default is BitsPerChannelType.EIGHT.
      */
-    add(width?: UnitValue, height?: UnitValue, resolution?: number, name?: string, mode?: NewDocumentMode, initialFill?: DocumentFill, pixelAspectRatio?: number, bitsPerChannel?: BitsPerChannelType, colorProfileName?: string): void
+    add(width?: UnitValue, height?: UnitValue, resolution?: number, name?: string, mode?: NewDocumentMode, initialFill?: DocumentFill, pixelAspectRatio?: number, bitsPerChannel?: BitsPerChannelType, colorProfileName?: string): Document
 
     /*
      * Gets the first element in the documents collection with the provided name
      */
-    getByName(name: string): void
+    getByName(name: string): Document
 
 }
 
@@ -3472,12 +3473,12 @@ interface Guides {
     /*
      * Creates a new guide object and adds it to this collection.
      */
-    add(direction: Direction, coordinate: UnitValue): void
+    add(direction: Direction, coordinate: UnitValue): Guide
 
     /*
      * Gets the first element in the guides collection with the provided name
      */
-    getByName(name: string): void
+    getByName(name: string): Guide
 
 }
 
@@ -3524,7 +3525,7 @@ interface HistoryStates {
      * Get the first element in the HistoryStates collection with the provided
      * name.
      */
-    getByName(name: string): void
+    getByName(name: string): Guide
 
 }
 
@@ -3748,12 +3749,12 @@ interface LayerComps {
     /*
      * Creates a new layer composition object and adds it to this collection.
      */
-    add(name: string, comment: string, appearance: boolean, position: boolean, visibility: boolean): void
+    add(name: string, comment: string, appearance: boolean, position: boolean, visibility: boolean): LayerComp
 
     /*
      * Gets the first element in the collection with the provided name.
      */
-    getByName(name: string): void
+    getByName(name: string): LayerComp
 
     /*
      * Removes all member objects from the layerComps collection.
@@ -3781,7 +3782,7 @@ interface Layers {
     /*
      * Gets the first element in the layers collection with the provided name.
      */
-    getByName(name: string): void
+    getByName(name: string): Layer
 
     /*
      * Removes all layers from the collection.
@@ -3861,8 +3862,8 @@ interface LayerSet {
     /*
      * Creates a duplicate of the object.
      */
-    duplicate(relativeObject?: ArtLayer, insertionLocation?: ElementPlacement): void
-    duplicate(relativeObject?: LayerSet, insertionLocation?: ElementPlacement): void
+    duplicate(relativeObject?: ArtLayer, insertionLocation?: ElementPlacement): LayerSet
+    duplicate(relativeObject?: LayerSet, insertionLocation?: ElementPlacement): LayerSet
 
     /*
      * Links the layer set with another layer.
@@ -3873,7 +3874,7 @@ interface LayerSet {
      * Merges the layerset; returns a reference to the art layer created by this
      * method.
      */
-    merge(): void
+    merge(): ArtLayer
 
     /*
      * Moves the object.
@@ -3930,12 +3931,12 @@ interface LayerSets {
     /*
      * Creates a new layer set object and adds it to the collection.
      */
-    add(): void
+    add(): LayerSet
 
     /*
      * Gets the first element in the collection with the provided name.
      */
-    getByName(name: string): void
+    getByName(name: string): LayerSet
 
     /*
      * Removes all member layer sets, and any layers or layer sets they contain,
@@ -4053,7 +4054,7 @@ interface Notifiers {
      * objects. Tip: When specifying an event or event calss wtih a 4-character
      * ID code, omit the single quotes in your code.
      */
-    add(event: string, eventFile: File, eventClass?: string): void
+    add(event: string, eventFile: File, eventClass?: string): Notifier
 
     /*
      * Removes all member objects from the notifiers collection. You can also
@@ -4158,12 +4159,12 @@ interface PathItems {
      * entirePath, and those SubPathItem objects are added to the subPathItems
      * collection of the returned PathItem.
      */
-    add(name: string, entirePath: SubPathInfo[]): void
+    add(name: string, entirePath: SubPathInfo[]): PathItem
 
     /*
      * Get the first element in the pathItems collection with the provided name.
      */
-    getByName(name: string): void
+    getByName(name: string): PathItem
 
     /*
      * Removes all pathItem objects from the pathItems collection.
@@ -5174,7 +5175,7 @@ interface Selection {
     clear(): void
 
     /*
-     * (reduces) the selection by the specified amount.
+     * Contracts (reduces) the selection by the specified amount.
      */
     contract(by: UnitValue): void
 
@@ -5367,7 +5368,7 @@ interface SolidColor {
     /*
      * True if the SolidColor object is visually equal to the specified color.
      */
-    isEqual(color: SolidColor): void
+    isEqual(color: SolidColor): boolean
 
 }
 
@@ -5518,7 +5519,7 @@ interface TextFonts {
     /*
      * Gets the first element in the TextFonts collection with the provided name.
      */
-    getByName(name: string): void
+    getByName(name: string): TextFont
 
 }
 
