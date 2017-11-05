@@ -74,9 +74,10 @@ const renderMethod = (method, indentLevel = 0) =>
 const renderProperty = (property, indentLevel = 0) =>
     [ renderDocstring(property.docs, indentLevel)
     , _(lines(_.template(
-          '${name}: ${type}'
+          '${perms}${name}: ${type}'
         , { name: property.name
           , type: property.type.name
+          , perms: (property.perms == 'Read-only') ? 'readonly ': ''
           }
       )))
         .map(x => strRepeat(' ', tabSize*indentLevel) + x)

@@ -10,12 +10,12 @@ interface ActionDescriptor {
     /*
      * The number of keys contained in the descriptor.
      */
-    count: number
+    readonly count: number
 
     /*
      * The class name of the referenced actionDescriptor object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Clears the descriptor.
@@ -209,12 +209,12 @@ interface ActionList {
     /*
      * The number of commands that comprise the action.
      */
-    count: number
+    readonly count: number
 
     /*
      * The class name of the referenced ActionList object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Clears the list.
@@ -377,7 +377,7 @@ interface ActionReference {
     /*
      * The class name of the referenced Action object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Gets a reference contained in this reference. Container references
@@ -486,7 +486,7 @@ interface Application {
     /*
      * Information about the application.
      */
-    build: string
+    readonly build: string
 
     /*
      * The name of the current color settings, as selected with Edit > Color
@@ -506,12 +506,12 @@ interface Application {
      * allows you to access any open document, or to iterate through all open
      * documents.
      */
-    documents: Documents
+    readonly documents: Documents
 
     /*
      * The fonts installed on this system.
      */
-    fonts: TextFonts
+    readonly fonts: TextFonts
 
     /*
      * The default foreground color (used to paint, fill, and stroke
@@ -522,7 +522,7 @@ interface Application {
     /*
      * The amount of unused memory available to Adobe Photoshop CS6.
      */
-    freeMemory: number
+    readonly freeMemory: number
 
     /*
      * The language location of the application. An Adobe locale code consists
@@ -530,24 +530,24 @@ interface Application {
      * country code separated by an underscore. Case is significant. For
      * example, en_US, en_UK, ja_JP, de_DE, fr_FR.
      */
-    locale: string
+    readonly locale: string
 
     /*
      * A list of file image types Adobe Photoshop CS6 can open. measurementLog
      * MeasurementLog The log of measurements taken.
      */
-    macintoshFileTypes: string[]
+    readonly macintoshFileTypes: string[]
 
     /*
      * The application's name.
      */
-    name: string
+    readonly name: string
 
     /*
      * The collection of notifiers currently configured (in the Scripts Events
      * Manager menu in the Adobe Photoshop CS6 application).
      */
-    notifiers: Notifiers
+    readonly notifiers: Notifiers
 
     /*
      * True if all notifiers are enabled.
@@ -557,7 +557,7 @@ interface Application {
     /*
      * The full path to the location of the Adobe Photoshop CS6 application.
      */
-    path: File
+    readonly path: File
 
     /*
      * The dialog mode for playback mode, which controls what types of dialog
@@ -576,47 +576,47 @@ interface Application {
      * Preferences in the Adobe Photoshop CS6 application in Windows or
      * Photoshop > Preferences in Mac OS).
      */
-    preferences: Preferences
+    readonly preferences: Preferences
 
     /*
      * The full path to the Preferences folder.
      */
-    preferencesFolder: File
+    readonly preferencesFolder: File
 
     /*
      * Files in the Recent Files list.
      */
-    recentFiles: File[]
+    readonly recentFiles: File[]
 
     /*
      * The build date of the Scripting interface.
      */
-    scriptingBuildDate: string
+    readonly scriptingBuildDate: string
 
     /*
      * The version of the Scripting interface.
      */
-    scriptingVersion: string
+    readonly scriptingVersion: string
 
     /*
      * Runtime details of the application and system.
      */
-    systemInformation: string
+    readonly systemInformation: string
 
     /*
      * The class name of the referenced app object. Methods
      */
-    typename: string
+    readonly typename: string
 
     /*
      * The version of Adobe Photoshop application you are running.
      */
-    version: string
+    readonly version: string
 
     /*
      * A list of file image extensions Adobe Photoshop CS6 can open.
      */
-    windowsFileTypes: string[]
+    readonly windowsFileTypes: string[]
 
     /*
      * Runs the batch automation routine (similar to the File > Automate > Batch
@@ -806,7 +806,7 @@ interface ArtLayer {
      * An array of coordinates that describes the bounding rectangle of the
      * layer.
      */
-    bounds: UnitValue[]
+    readonly bounds: UnitValue[]
 
     /*
      * The interior opacity of the layer, a percentage value.
@@ -857,7 +857,7 @@ interface ArtLayer {
     /*
      * The layers linked to this layer. See ArtLayer.link.
      */
-    linkedLayers: ArtLayer[]
+    readonly linkedLayers: ArtLayer[]
 
     /*
      * The name.
@@ -872,7 +872,7 @@ interface ArtLayer {
     /*
      * The object's container.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * True if the pixels in the layer’s image cannot be edited using the
@@ -889,7 +889,7 @@ interface ArtLayer {
      * The text item that is associated with the layer. Valid only when kind =
      * LayerKind.TEXT.
      */
-    textItem: TextItem
+    readonly textItem: TextItem
 
     /*
      * True if editing is confined to the opaque portions of the layer.
@@ -899,7 +899,7 @@ interface ArtLayer {
     /*
      * The class name of the referenced artLayer object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * The density of the vector mask (between 0.0 and 250.0)
@@ -1325,17 +1325,17 @@ interface ArtLayers {
     /*
      * The number of elements in the artLayers collection.
      */
-    length: number
+    readonly length: number
 
     /*
      * The object's container.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * The class name of the referenced artLayers object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Creates a new art layer in the document and adds the new object to this
@@ -1417,7 +1417,7 @@ interface BatchOptions {
     /*
      * The class name of the referenced batchOptions object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * True to make the final file name Unix compatible (default: true). Valid
@@ -1475,7 +1475,7 @@ interface BitmapConversionOptions {
     /*
      * The class name of the referenced bitmapConversionOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -1510,7 +1510,7 @@ interface BMPSaveOptions {
     /*
      * The class name of the referenced BMPSaveOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -1639,7 +1639,7 @@ interface CameraRAWOpenOptions {
     /*
      * The class name of the referenced cameraRAWOpenOptions object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * The vignetting amount of the shot.
@@ -1671,7 +1671,7 @@ interface Channel {
      * histogram values, use the histogram property of the Document object
      * instead.
      */
-    histogram: number[]
+    readonly histogram: number[]
 
     /*
      * The type of the channel.
@@ -1692,12 +1692,12 @@ interface Channel {
     /*
      * The containing document.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * The class name of the referenced channel object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * True if the channel is visible.
@@ -1725,17 +1725,17 @@ interface Channels {
     /*
      * The number of elements in the channels collection.
      */
-    length: number
+    readonly length: number
 
     /*
      * The containing document.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * The class name of the referenced channels object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Creates a new channel object and adds it to this collection.
@@ -1773,7 +1773,7 @@ interface CMYKColor {
     /*
      * The class name of the referenced CMYKColor object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * The yellow color value (as percent).
@@ -1786,23 +1786,23 @@ interface ColorSampler {
     /*
      * The color of the color sampler.
      */
-    color: SolidColor
+    readonly color: SolidColor
 
     /*
      * The position of the color sampler in the document. The array (x,y)
      * represents the horizontal and vertical location of the count item.
      */
-    position: UnitValue[]
+    readonly position: UnitValue[]
 
     /*
      * The containing document.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * The class name of the referenced ColorSampler object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Moves the color sampler to a new location in the document. The position
@@ -1822,17 +1822,17 @@ interface ColorSamplers {
     /*
      * The number of elements in the ColorSamplers collection.
      */
-    length: number
+    readonly length: number
 
     /*
      * The containing document.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * The class name of the referenced ColorSamplers object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Creates a new color sampler object and adds it to this collection. The
@@ -1913,7 +1913,7 @@ interface ContactSheetOptions {
     /*
      * The class name of the referenced contactSheetOptions object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * True to auto space the images (default: true).
@@ -1937,17 +1937,17 @@ interface CountItem {
     /*
      * The position of the count item in the document.
      */
-    position: UnitValue[]
+    readonly position: UnitValue[]
 
     /*
      * The containing document.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * The class name of the referenced CountItem object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Deletes the CountItem object.
@@ -1960,17 +1960,17 @@ interface CountItems {
     /*
      * The number of elements in the CountItems collection.
      */
-    length: number
+    readonly length: number
 
     /*
      * The containing document.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * The class name of the referenced CountItems object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Creates a new count item object and adds it to this collection. Parameter
@@ -2031,7 +2031,7 @@ interface DCS1_SaveOptions {
     /*
      * The class name of the referenced DCS1_SaveOptions object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * True to include vector data. Valid only if the document includes vector
@@ -2092,7 +2092,7 @@ interface DCS2_SaveOptions {
     /*
      * The class name of the referenced DCS2_SaveOptions object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * True to include vector data. Valid only if the document includes vector
@@ -2131,7 +2131,7 @@ interface DICOMOpenOptions {
     /*
      * The class name of the referenced DICOMOpenOptions object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * The contrast of the image in Houndsfield units.
@@ -2169,12 +2169,12 @@ interface Document {
     /*
      * The art layers collection.
      */
-    artLayers: ArtLayers
+    readonly artLayers: ArtLayers
 
     /*
      * The background layer of the document.
      */
-    backgroundLayer: ArtLayer
+    readonly backgroundLayer: ArtLayer
 
     /*
      * The number of bits per channel.
@@ -2184,7 +2184,7 @@ interface Document {
     /*
      * The channels collection.
      */
-    channels: Channels
+    readonly channels: Channels
 
     /*
      * The name of the color profile. Valid only when colorProfileType =
@@ -2201,102 +2201,102 @@ interface Document {
     /*
      * The current color samplers associated with this document.
      */
-    colorSamplers: ColorSamplers
+    readonly colorSamplers: ColorSamplers
 
     /*
      * The color channels that make up the document; for instance, the Red,
      * Green, and Blue channels for an RGB document.
      */
-    componentChannels: Channel[]
+    readonly componentChannels: Channel[]
 
     /*
      * The current count items. Note: For additional information about count
      * items, see Adobe Photoshop CS6 help on the Count Tool.
      */
-    countItems: CountItems
+    readonly countItems: CountItems
 
     /*
      * The full path name of the document.
      */
-    fullName: File
+    readonly fullName: File
 
     /*
      * The guides collection.
      */
-    guides: Guides
+    readonly guides: Guides
 
     /*
      * The height of the document (unit value).
      */
-    height: UnitValue
+    readonly height: UnitValue
 
     /*
      * A histogram showing the number of pixels at each color intensity level
      * for the composite channel. The array c ontains 256 members. Valid only
      * when mode = DocumentMode.RGB, CMYK; or INDEXEDCOLOR.
      */
-    histogram: number[]
+    readonly histogram: number[]
 
     /*
      * The history states collection.
      */
-    historyStates: HistoryStates
+    readonly historyStates: HistoryStates
 
     /*
      * Metadata about the document.
      */
-    info: DocumentInfo
+    readonly info: DocumentInfo
 
     /*
      * The layer compositions collection.
      */
-    layerComps: LayerComps
+    readonly layerComps: LayerComps
 
     /*
      * The layers collection.
      */
-    layers: Layers
+    readonly layers: Layers
 
     /*
      * The layer set collection.
      */
-    layerSets: LayerSets
+    readonly layerSets: LayerSets
 
     /*
      * True if the document a is workgroup document.
      */
-    managed: boolean
+    readonly managed: boolean
 
     /*
      * The measurement scale for the document. Note: The measurement scale
      * feature is available in the Extended version only.
      */
-    measurementScale: MeasurementScale
+    readonly measurementScale: MeasurementScale
 
     /*
      * The color profile.
      */
-    mode: DocumentMode
+    readonly mode: DocumentMode
 
     /*
      * The document's name.
      */
-    name: string
+    readonly name: string
 
     /*
      * The application object that contains this document.
      */
-    parent: Application
+    readonly parent: Application
 
     /*
      * The path to the document.
      */
-    path: File
+    readonly path: File
 
     /*
      * The path items collection.
      */
-    pathItems: PathItems
+    readonly pathItems: PathItems
 
     /*
      * The (custom) pixel aspect ratio to use.
@@ -2306,7 +2306,7 @@ interface Document {
     /*
      * The print settings for the document.
      */
-    printSettings: DocumentPrintSettings
+    readonly printSettings: DocumentPrintSettings
 
     /*
      * True if the document is in Quick Mask mode.
@@ -2316,33 +2316,33 @@ interface Document {
     /*
      * The document’s resolution (in pixels per inch).
      */
-    resolution: number
+    readonly resolution: number
 
     /*
      * True if the document has been saved since the last change.
      */
-    saved: boolean
+    readonly saved: boolean
 
     /*
      * The selected area of the document.
      */
-    selection: Selection
+    readonly selection: Selection
 
     /*
      * The class name of the Document object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * The width of the document (unit value).
      */
-    width: UnitValue
+    readonly width: UnitValue
 
     /*
      * XMP metadata for the document. Camera RAW settings for the image are
      * stored here for example. Methods
      */
-    xmpMetadata: xmpMetadata
+    readonly xmpMetadata: xmpMetadata
 
     /*
      * Counts the number of objects in a document. Available in the Extended
@@ -2548,7 +2548,7 @@ interface DocumentPrintSettings {
     /*
      * Color handling.
      */
-    colorHandling: PrintColorHandling
+    readonly colorHandling: PrintColorHandling
 
     /*
      * The currently active printer.
@@ -2594,12 +2594,12 @@ interface DocumentPrintSettings {
     /*
      * The x position of the image on page.
      */
-    posX: UnitValue
+    readonly posX: UnitValue
 
     /*
      * The y position of the image on page.
      */
-    posY: UnitValue
+    readonly posY: UnitValue
 
     /*
      * The width of the print border.
@@ -2627,7 +2627,7 @@ interface DocumentPrintSettings {
     /*
      * Scale of image on page.
      */
-    scale: number
+    readonly scale: number
 
     /*
      * Include vector data. Methods
@@ -2702,7 +2702,7 @@ interface DocumentInfo {
      * Each array member is a tag pair, an array of [tag, tag_data]; for
      * example, [ "camera" "Cannon"].
      */
-    exif: string[][]
+    readonly exif: string[][]
 
     /*
      * 
@@ -2732,7 +2732,7 @@ interface DocumentInfo {
     /*
      * The info object's container.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * 
@@ -2762,7 +2762,7 @@ interface DocumentInfo {
     /*
      * The class name of the referenced info object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * 
@@ -2775,17 +2775,17 @@ interface Documents {
     /*
      * The number of elements in the documents collection.
      */
-    length: number
+    readonly length: number
 
     /*
      * The containing application.
      */
-    parent: Application
+    readonly parent: Application
 
     /*
      * The class name of the referenced documents object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Creates a new document object and adds it to this collection.
@@ -2830,7 +2830,7 @@ interface EPSOpenOptions {
     /*
      * The class name of the referenced EPSOpenOptions object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * The width of the image (unit value).
@@ -2885,7 +2885,7 @@ interface EPSSaveOptions {
     /*
      * The class name of the referenced EPSSaveOptions object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * True to include vector data. Valid only if the document includes vector
@@ -2910,7 +2910,7 @@ interface ExportOptionsIllustrator {
     /*
      * The class name of the referenced exportOptionsIllustrator object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -3006,7 +3006,7 @@ interface ExportOptionsSaveForWeb {
     /*
      * The class name of the referenced ExportOptionsSaveForWeb object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * The tolerance amount within which to snap close colors to web palette
@@ -3054,7 +3054,7 @@ interface GalleryBannerOptions {
     /*
      * The class name of the referenced galleryBannerOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -3087,7 +3087,7 @@ interface GalleryCustomColorOptions {
     /*
      * The class name of the referenced galleryCustomColorOptions object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * The color to use to indicate a visited link.
@@ -3173,7 +3173,7 @@ interface GalleryImagesOptions {
     /*
      * The class name of the referenced galleryImagesOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -3233,7 +3233,7 @@ interface GalleryOptions {
     /*
      * The class name of the referenced galleryOptions object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * True to use the short web page extension .htm. If false, use the web
@@ -3295,7 +3295,7 @@ interface GallerySecurityOptions {
     /*
      * The class name of the referenced gallerySecurityOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -3364,7 +3364,7 @@ interface GalleryThumbnailOptions {
     /*
      * The class name of the referenced GalleryThumbnailOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -3424,7 +3424,7 @@ interface GIFSaveOptions {
     /*
      * The class name of the referenced GIFSaveOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -3437,7 +3437,7 @@ interface GrayColor {
     /*
      * The class name of the referenced grayColor object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -3458,17 +3458,17 @@ interface Guides {
     /*
      * The number of elements in the guides collection.
      */
-    length: number
+    readonly length: number
 
     /*
      * The containing document.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * The class name of the referenced guides object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Creates a new guide object and adds it to this collection.
@@ -3486,22 +3486,22 @@ interface HistoryState {
     /*
      * The HistoryState object's name.
      */
-    name: string
+    readonly name: string
 
     /*
      * The containing document.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * True if the history state is a snapshot.
      */
-    snapshot: boolean
+    readonly snapshot: boolean
 
     /*
      * The class name of the referenced HistoryState object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -3509,17 +3509,17 @@ interface HistoryStates {
     /*
      * The number of elements in the HistoryStates collection.
      */
-    length: number
+    readonly length: number
 
     /*
      * The containing document.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * The class name of the referenced HistoryStates object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Get the first element in the HistoryStates collection with the provided
@@ -3548,7 +3548,7 @@ interface HSBColor {
     /*
      * The class name of the referenced HSBColor object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -3602,7 +3602,7 @@ interface IndexedConversionOptions {
     /*
      * The class name of the referenced IndexedConversionOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -3640,7 +3640,7 @@ interface JPEGSaveOptions {
     /*
      * The class name of the referenced JPEGSaveOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -3663,7 +3663,7 @@ interface LabColor {
     /*
      * The class name of the referenced LabColor object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -3696,12 +3696,12 @@ interface LayerComp {
     /*
      * True if the layer comp is currently selected.
      */
-    selected: boolean
+    readonly selected: boolean
 
     /*
      * The class name of the referenced layerComp object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * True to use layer visibility settings .
@@ -3734,17 +3734,17 @@ interface LayerComps {
     /*
      * The number of elements in the layerComps collection.
      */
-    length: number
+    readonly length: number
 
     /*
      * The containing document.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * The class name of the referenced layerComps object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Creates a new layer composition object and adds it to this collection.
@@ -3767,17 +3767,17 @@ interface Layers {
     /*
      * The number of elements in the layers collection.
      */
-    length: number
+    readonly length: number
 
     /*
      * The containing document or layer set.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * The class name of the referenced layers object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Gets the first element in the layers collection with the provided name.
@@ -3800,7 +3800,7 @@ interface LayerSet {
     /*
      * The art layers in this layer set.
      */
-    artLayers: ArtLayers
+    readonly artLayers: ArtLayers
 
     /*
      * The blend mode to use for the layer set.
@@ -3810,7 +3810,7 @@ interface LayerSet {
     /*
      * The bounding rectangle of the layer set.
      */
-    bounds: UnitValue[]
+    readonly bounds: UnitValue[]
 
     /*
      * The channels enabled for the layer set; must be a list of component
@@ -3821,18 +3821,18 @@ interface LayerSet {
     /*
      * The layers in this layer set.
      */
-    layers: Layers
+    readonly layers: Layers
 
     /*
      * Nested layer sets contained within this layer set. linkedLayers array of
      * ArtLayer and/
      */
-    layerSets: LayerSets
+    readonly layerSets: LayerSets
 
     /*
      * The layers linked to this layerSet object.
      */
-    or: LayerSet
+    readonly or: LayerSet
 
     /*
      * The name of this layer set.
@@ -3847,12 +3847,12 @@ interface LayerSet {
     /*
      * The containing document or layer set.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * The class name of the referenced LayerSet object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * True if the set is visible. Methods
@@ -3916,17 +3916,17 @@ interface LayerSets {
     /*
      * The number of elements in the LayerSets collection.
      */
-    length: number
+    readonly length: number
 
     /*
      * The containing document or layer set.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * The class name of the referenced layerSets object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Creates a new layer set object and adds it to the collection.
@@ -3981,7 +3981,7 @@ interface NoColor {
     /*
      * The class name of the referenced noColor object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -3990,7 +3990,7 @@ interface Notifier {
      * The event identifier, a four-character code or a unique string. For a
      * list of four-character codes, see Appendix A: Event ID Codes.
      */
-    event: string
+    readonly event: string
 
     /*
      * The class identifier, a four-character code or a unique string. When an
@@ -3999,23 +3999,23 @@ interface Notifier {
      * event ("Mk ") can apply to documents ("Dcmn"), channels ("Chnl") and
      * other objects.
      */
-    eventClass: string
+    readonly eventClass: string
 
     /*
      * The path to the file to execute when the event occurs and activates the
      * notifier.
      */
-    eventFile: File
+    readonly eventFile: File
 
     /*
      * The containing application.
      */
-    parent: Application
+    readonly parent: Application
 
     /*
      * The class name of the referenced object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Deletes this object. You can also remove a Notifier object from the
@@ -4031,17 +4031,17 @@ interface Notifiers {
     /*
      * The number of elements in the notifiers collection.
      */
-    length: number
+    readonly length: number
 
     /*
      * The notifiers object’s container
      */
-    parent: Application
+    readonly parent: Application
 
     /*
      * The class name of the referenced notifiers object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Creates a notifier object and adds it to this collection. event defines
@@ -4080,17 +4080,17 @@ interface PathItem {
     /*
      * The containing document.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * The contained sub-path objects.
      */
-    subPathItems: SubPathItems
+    readonly subPathItems: SubPathItems
 
     /*
      * The class name of the referenced pathItem object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Deselects this pathItem object.
@@ -4141,17 +4141,17 @@ interface PathItems {
     /*
      * The number of pathItem objects in the pathItems collection.
      */
-    length: number
+    readonly length: number
 
     /*
      * The pathItems object's container.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * The class name of the referenced pathItems object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Creates a new path item object and adds it to this collection. A new
@@ -4177,33 +4177,33 @@ interface PathPoint {
     /*
      * The X and Y coordinates of the anchor point of the curve.
      */
-    anchor: number[]
+    readonly anchor: number[]
 
     /*
      * The role (corner or smooth) this point plays in the containing path
      * segment.
      */
-    kind: PointKind
+    readonly kind: PointKind
 
     /*
      * The location of the left-direction endpoint (’in’ position).
      */
-    leftDirection: number[]
+    readonly leftDirection: number[]
 
     /*
      * The containing subpath object.
      */
-    parent: SubPathItem
+    readonly parent: SubPathItem
 
     /*
      * The location of the right-direction endpoint (’out’ position).
      */
-    rightDirection: number[]
+    readonly rightDirection: number[]
 
     /*
      * The class name of the referenced PathPoint object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -4237,7 +4237,7 @@ interface PathPointInfo {
      * line.strokePath(ToolType.PENCIL); line.remove(); };
      * drawLine(app.activeDocument, [100,100], [200,200]);
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -4245,17 +4245,17 @@ interface PathPoints {
     /*
      * The number of elements in the collection.
      */
-    length: number
+    readonly length: number
 
     /*
      * The containing subpath object.
      */
-    parent: SubPathItem
+    readonly parent: SubPathItem
 
     /*
      * The class name of the referenced PathPoints object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -4306,7 +4306,7 @@ interface PDFOpenOptions {
     /*
      * The class name of the referenced PDFOpenOptions object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * When true, the page property refers to a page number; when false, it
@@ -4460,7 +4460,7 @@ interface PDFSaveOptions {
      * boolean DEPRECATED for Adobe Photoshop CS6. vectorData boolean DEPRECATED
      * for Adobe Photoshop CS6.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * True to open the saved PDF in Adobe Acrobat.
@@ -4498,7 +4498,7 @@ interface PhotoCDOpenOptions {
     /*
      * The class name of the referenced photoCDOpenOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -4531,7 +4531,7 @@ interface PhotoshopSaveOptions {
     /*
      * The class name of the referenced photoshopSaveOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -4559,7 +4559,7 @@ interface PICTFileSaveOptions {
     /*
      * The class name of the referenced PICTFileSaveOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -4597,7 +4597,7 @@ interface PICTResourceSaveOptions {
     /*
      * The class name of the referenced PICTResourceSaveOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -4669,7 +4669,7 @@ interface PicturePackageOptions {
     /*
      * The class name of the referenced PicturePackageOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -4682,7 +4682,7 @@ interface PixarSaveOptions {
     /*
      * The class name of the referenced PixarSaveOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -4700,7 +4700,7 @@ interface PNGSaveOptions {
     /*
      * The class name of the referenced PNGSaveOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -4952,7 +4952,7 @@ interface Preferences {
     /*
      * The class name of the referenced preferences object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * The preferred unit for text character measurements.
@@ -5043,7 +5043,7 @@ interface PresentationOptions {
     /*
      * The class name of the referenced PresentationOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -5093,7 +5093,7 @@ interface RawFormatOpenOptions {
     /*
      * The class name of the referenced RawFormatOpenOptions object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * The image width in pixels.
@@ -5116,7 +5116,7 @@ interface RawSaveOptions {
     /*
      * The class name of the referenced RawSaveOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -5144,7 +5144,7 @@ interface RGBColor {
     /*
      * The class name of the referenced RGBColor object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -5152,22 +5152,22 @@ interface Selection {
     /*
      * The bounding rectangle of the entire selection.
      */
-    bounds: UnitValue[]
+    readonly bounds: UnitValue[]
 
     /*
      * The object's container.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * True if the bounding rectangle is a solid.
      */
-    solid: boolean
+    readonly solid: boolean
 
     /*
      * The class name of the referenced selection object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Clears the selection and does not copy it to the clipboard.
@@ -5320,7 +5320,7 @@ interface SGIRGBSaveOptions {
     /*
      * The class name of the referenced SGIRGBSaveOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -5353,7 +5353,7 @@ interface SolidColor {
     /*
      * The nearest web color to the current color.
      */
-    nearestWebColor: RGBColor
+    readonly nearestWebColor: RGBColor
 
     /*
      * The RGB color mode.
@@ -5363,7 +5363,7 @@ interface SolidColor {
     /*
      * The class name of the referenced SolidColor object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * True if the SolidColor object is visually equal to the specified color.
@@ -5392,7 +5392,7 @@ interface SubPathInfo {
     /*
      * The class name of the referenced SubPathInfo object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -5400,29 +5400,29 @@ interface SubPathItem {
     /*
      * True if the path is closed.
      */
-    closed: boolean
+    readonly closed: boolean
 
     /*
      * How this object behaves when it intersects another SubPathItem object.
      * Specifies how to combine the shapes if the destination path already has a
      * selection.
      */
-    operation: ShapeOperation
+    readonly operation: ShapeOperation
 
     /*
      * The object's container.
      */
-    parent: PathItem
+    readonly parent: PathItem
 
     /*
      * The PathPoints collection.
      */
-    pathPoints: PathPoints
+    readonly pathPoints: PathPoints
 
     /*
      * The class name of the referenced SubPathItem object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -5430,17 +5430,17 @@ interface SubPathItems {
     /*
      * The number of elements in the collection.
      */
-    length: number
+    readonly length: number
 
     /*
      * The containing path item.
      */
-    parent: PathItem
+    readonly parent: PathItem
 
     /*
      * The class name of the referenced SubPathItems object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -5463,7 +5463,7 @@ interface TargaSaveOptions {
     /*
      * The class name of the referenced TargaSaveOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -5471,32 +5471,32 @@ interface TextFont {
     /*
      * The font family.
      */
-    family: string
+    readonly family: string
 
     /*
      * The name of the font.
      */
-    name: string
+    readonly name: string
 
     /*
      * The containing application.
      */
-    parent: Application
+    readonly parent: Application
 
     /*
      * The PostScript name of the font.
      */
-    postScriptName: string
+    readonly postScriptName: string
 
     /*
      * The font style.
      */
-    style: string
+    readonly style: string
 
     /*
      * The class name of the referenced TextFont object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -5504,17 +5504,17 @@ interface TextFonts {
     /*
      * The number of elements in the collection.
      */
-    length: number
+    readonly length: number
 
     /*
      * The containing application.
      */
-    parent: Application
+    readonly parent: Application
 
     /*
      * The class name of the referenced TextFonts object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * Gets the first element in the TextFonts collection with the provided name.
@@ -5838,7 +5838,7 @@ interface TextItem {
     /*
      * The class name of the referenced textItem object.
      */
-    typename: string
+    readonly typename: string
 
     /*
      * The text underlining options.
@@ -5970,7 +5970,7 @@ interface TiffSaveOptions {
     /*
      * The class name of the referenced TiffSaveOptions object.
      */
-    typename: string
+    readonly typename: string
 
 }
 
@@ -5981,7 +5981,7 @@ interface xmpMetadata {
     /*
      * The containing document.
      */
-    parent: Document
+    readonly parent: Document
 
     /*
      * A string containing the XMP metadata in XML (RDF) format. See the XMP
