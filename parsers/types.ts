@@ -254,7 +254,7 @@ const types = (n) => parse.label('types'
                             , parse.lookahead(upper)
                         ))
                     )
-                ).map(name => ({ name: name })))
+                ).map(name => name))
             )
             .chain(returnType =>
                 parse.of({
