@@ -3,7 +3,7 @@
 /// <reference path="../typings/lodash/lodash.d.ts"/>
 /// <reference path="../typings/bennu/bennu.d.ts"/>
 
-/*
+/**
  * Parses the 2nd chapter of the Photoshop JavaScript reference into all
  * defined types and their properties and methods.
  */
@@ -13,7 +13,7 @@ import { parse, lang, text } from 'bennu';
 import { manyTill, upper, firstBefore, inBraces, inBrackets
        , inParenthesis, startOfLine } from './shared';
 
-/*
+/**
  * + Remove page headers
  * + Remove method and propery markers
  * + Remove trailing newlines
@@ -34,7 +34,7 @@ export const sanitizeDocs = (docstring) => {
     ).join('\n');
 }
 
-/*
+/**
  * A set of reserved typescript keywords
  */
 const reservedKeywords = [ 'with', 'as' ];
@@ -45,7 +45,7 @@ const escapeName = name =>
         : name
 ;
 
-/*
+/**
  * Map javascript types to known typescript / javascript types
  * Ad-hoc fix for typos in docs
  */
@@ -56,17 +56,17 @@ const typeMapping = {
     , 'UnitValueX': 'UnitValue'
 }
 
-/*
+/**
  * A set of known types
  */
 const typeWhitelist = [ 'xmpMetadata' ];
 
-/*
+/**
  * A set of known "false positives" types, used by "typeStart" parser.
  */
 const typeBlacklist = [ 'Methods', 'File' ];
 
-/*
+/**
  * Parses a typical identifier
  */
 const identifier = parse.label('identifier'
@@ -77,7 +77,7 @@ const identifier = parse.label('identifier'
     )
 );
 
-/*
+/**
  * Parses the start of property declarations for a type.
  */
 const propertiesMarker =
@@ -87,14 +87,14 @@ const propertiesMarker =
     )
 ;
 
-/*
+/**
  * Parses the start of method declarations for a type.
  */
 const methodsMarker =
     text.string('Method Parameter type Returns What it does')
 ;
 
-/*
+/**
  * Parses the start of a new page in the PDF document.
  * Since each top-level type starts on a new page, we can use this parser to
  * help identify top-level types.
@@ -112,7 +112,7 @@ const pageHeader = parse.sequence(
       )
 );
 
-/*
+/**
  * Parses the start of a new top-level type, such as `ActionReference`.
  * A top-level type follows a page header as an capitalized word.
  * Note that there are exclusions to this rule, hence a lookup in a pre-defined
@@ -148,7 +148,7 @@ const typeStart = parse.sequence(
     )
 );
 
-/*
+/**
  * Parses a single referenced type
  * A type is any old identifier, with some special cases:
  * - It may have a range, suffixed as `[0.. 1.. 100]`
@@ -216,7 +216,7 @@ const singleType =
     )
 ;
 
-/*
+/**
  * Parses the (n + 1) types following a method.
  * At least n types need to be matched to match each argument to the method,
  * however if a (n + 1)-nth match can be found, identify this as the return
@@ -266,7 +266,7 @@ const types = (n) => parse.label('types'
    )
 );
 
-/*
+/**
  * Parses either "Read-Write" or "Read-Only"
  * Used by property parser
  */
@@ -278,7 +278,7 @@ const readwrite = lang.then(
     , text.character('.')
 );
 
-/*
+/**
  * Parse one or more type names separated by an "or"
  */
 const multiType = parse.rec(self =>
@@ -296,7 +296,7 @@ const multiType = parse.rec(self =>
     )
 );
 
-/*
+/**
  * Parses a single property of shape:
  * name type Read-(Only|Write). ...
  */
@@ -318,7 +318,7 @@ const property = identifier.map(escapeName).chain(name =>
     )
 );
 
-/*
+/**
  * Parses a set of parameters to a function.
  * Handles optional types enclosed in brackets, e.g. `[typename]`
  */
@@ -377,7 +377,7 @@ const params = inParenthesis(lang.then(
 )).map(names => _.map(names, escapeName))
 ;
 
-/*
+/**
  * Parse a single method on a top-level type.
  * A method is an identifier followed by a set of parameters enclosed in
  * parenthesis.
@@ -400,7 +400,7 @@ const method =
     )
 ;
 
-/*
+/**
  * Parse the properties on a top-level type.
  *
  * The trickiest part of this parser is to parse the documentation for a
@@ -437,7 +437,7 @@ const properties = parse.rec(self =>
     )
 );
 
-/*
+/**
  * Parse the methods on a top-level type.
  *
  * The trickiest part of this parser is to parse the documentation for a method,
@@ -474,7 +474,7 @@ const methods = parse.rec(self =>
     )
 );
 
-/*
+/**
  * Parse a single complete type, such as `ActionDescriptor`.
  * This parser will find the name, documentation, properties and methods
  * defined on the type.
@@ -525,7 +525,7 @@ const type =
     )
 ;
 
-/*
+/**
  * The complete top-down parser for the second chapter to find all top-level
  * types, their documentation, properties and methods
  */

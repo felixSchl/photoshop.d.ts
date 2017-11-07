@@ -3,7 +3,7 @@
 /// <reference path="../typings/lodash/lodash.d.ts"/>
 /// <reference path="../typings/bennu/bennu.d.ts"/>
 
-/*
+/**
  * Parses the chapter on Scripting constants from the Photoshop javascript
  * reference.
  */
