@@ -1289,12 +1289,10 @@ declare enum SaveBehavior {
 }
 
 /**
- * PICTFileFORMAT PICTRESOURCEFORMAT PIXAR PNG PORTABLEBITMAP RAW SCITEXCT
- * SGIRGB SOFTIMAGE TARGA TIFF WAVEFRONTRLA WIRELESSBITMAP The format in which
- * to save a document when exporting with Document.exportDocument(). Pass in
- * ExportOptionsSaveForWeb.format, to to specify the type of file to write. Only
- * the following are supported for export: COMPUSERVEGIF, JPEG, PNG-8, PNG-24,
- * and BMP.
+ * The format in which to save a document when exporting with
+ * Document.exportDocument(). Pass in ExportOptionsSaveForWeb.format, to to
+ * specify the type of file to write. Only the following are supported for
+ * export: COMPUSERVEGIF, JPEG, PNG-8, PNG-24, and BMP.
  */
 declare enum SaveDocumentType {
     ALIASPIX,
@@ -1307,7 +1305,20 @@ declare enum SaveDocumentType {
     PHOTOSHOPDCS_1,
     PHOTOSHOPDCS_2,
     PHOTOSHOPEPS,
-    PHOTOSHOPPDF
+    PHOTOSHOPPDF,
+    PICTFILEFORMAT,
+    PICTRESOURCEFORMAT,
+    PIXAR,
+    PNG,
+    PORTABLEBITMAP,
+    RAW,
+    SCITEXCT,
+    SGIRGB,
+    SOFTIMAGE,
+    TARGA,
+    TIFF,
+    WAVEFRONTRLA,
+    WIRELESSBITMAP
 }
 
 /**
