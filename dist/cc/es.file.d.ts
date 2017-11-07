@@ -1,5 +1,5 @@
 declare class File {
-    /*
+    /**
      * @param path string. The absolute or relative path to the file associated with
      * this object, specified in platform-specific or URI format. The value stored
      * in the object is the absolute path.
@@ -8,13 +8,13 @@ declare class File {
      */
     constructor(path?: string)
 
-    /*
+    /**
      * The name of the file system. Read only. One of Windows, Macintosh, or
      * Unix.
      */
     static fs: string
 
-    /*
+    /**
      * Decodes the specified string as required by RFC 2396.
      *
      * @param uri string The encoded string to decode.
@@ -33,7 +33,7 @@ declare class File {
      */
     static decode(uri: string): string
 
-    /*
+    /**
      * Encodes the specified string as required by RFC 2396. All special
      * characters are encoded in UTF-8 and stored as escaped characters starting
      * with the percent sign followed by two hexadecimal digits.
@@ -51,7 +51,7 @@ declare class File {
      */
     static encode(name: string): string
 
-    /*
+    /**
      * Checks whether a given encoding is available.
      *
      * @param name string The encoding name. Typical values are “ASCII,”
@@ -62,7 +62,7 @@ declare class File {
      */
     static isEncodingAvailable(name: string): boolean
 
-    /*
+    /**
      *
      * Opens the built-in platform-specific file-browsing dialog in which a user
      * can select an existing file or multiple files, and creates new File
@@ -89,7 +89,7 @@ declare class File {
      */
     static openDialog(prompt_?: string, filter?: string, multiSelect?: boolean): any
 
-    /*
+    /**
      * Opens the built-in platform-specific file-browsing dialog in which a user
      * can select an existing file location to which to save information, and
      * creates a new File object to represent the selected file location.
@@ -106,35 +106,35 @@ declare class File {
      */
     static saveDialog (prompt_?: string, filter?: string): File
 
-    /*
+    /**
      * The full path name for the referenced file in URI notation. Read only.
      */
     absoluteURI: string
 
-    /*
+    /**
      * When true, the object refers to a file system alias or shortcut. Read
      * only.
      */
     alias: boolean
 
-    /*
+    /**
      * The creation date of the referenced file, or null if the object does not
      * refer to a file on disk. Read only.
      */
     created: Date
 
-    /*
+    /**
      * In Mac OS, the file creator as a four-character string. In Windows or
      * UNIX, value is "????". Read only.
      */
     creator: string
 
-    /*
+    /**
      * The localized name of the referenced file, without the path. Read only.
      */
     displayName: string
 
-    /*
+    /**
      *
      * Gets or sets the encoding for subsequent read/write operations. If the
      * value is not recognized, uses the system default encoding.
@@ -146,13 +146,13 @@ declare class File {
      */
     encoding: string
 
-    /*
+    /**
      * When true, a read attempt caused the current position to be at the end of
      * the file, or the file is not open. Read only.
      */
     eof: boolean
 
-    /*
+    /**
      * A message describing the last file system error. Typically set by the
      * file system, but a script can set it. Setting this value clears any error
      * message and resets the error bit for opened files. Contains the empty
@@ -160,37 +160,37 @@ declare class File {
      */
     error: string
 
-    /*
+    /**
      * When true, this object refers to a file or file-system alias that
      * actually exists in the file system. Read only.
      */
     exists: boolean
 
-    /*
+    /**
      * The platform-specific full path name for the referenced file. Read only.
      */
     fsName: string
 
-    /*
+    /**
      * The full path name for the referenced file in URI notation. Read only.
      */
     fullName: string
 
-    /*
+    /**
      * When true, the file is not shown in the platform-specific file browser.
      * Read/write. If the object references a file-system alias or shortcut, the
      * flag is altered on the alias, not on the original file.
      */
     hidden: boolean
 
-    /*
+    /**
      * The size of the file in bytes. Can be set only for a file that is not
      * open, in which case it truncates or pads the file with 0-bytes to the new
      * length.
      */
     length: number
 
-    /*
+    /**
      * How line feed characters are written in the file system. One of:
      * Windows — Windows style
      * Macintosh — Mac OS style
@@ -198,49 +198,49 @@ declare class File {
      */
     lineFeed: string
 
-    /*
+    /**
      * A localized version of the file name portion of the absolute URI for the
      * referenced file, without the path specification. Read only.
      */
     localizedName: string
 
-    /*
+    /**
      * The date of the referenced file’s last modification, or null if the
      * object does not refer to a file on disk. Read only.
      */
     modified: Date
 
-    /*
+    /**
      * The file name portion of the absolute URI for the referenced file,
      * without the path specification. Read only.
      */
     name: string
 
-    /*
+    /**
      * The Folder object for the folder that contains this file. Read only.
      */
     parent: Folder
 
-    /*
+    /**
      * The path portion of the absolute URI for the referenced file, without the
      * file name. Read only.
      */
     path: string
 
-    /*
+    /**
      * When true, prevents the file from being altered or deleted. If the
      * referenced file is a file-system alias or shortcut, the flag is altered
      * on the alias, not on the original file.
      */
     readonly: boolean
 
-    /*
+    /**
      * The path name for the referenced file in URI notation, relative to the
      * current folder. Read only.
      */
     relativeURI: string
 
-    /*
+    /**
      * The file type as a four-character string.
      * In Mac OS, the Mac OS file type.
      * In Windows, "appl" for .EXE files, "shlb" for .DLL files and "TEXT" for
@@ -249,7 +249,7 @@ declare class File {
      */
     type: string
 
-    /*
+    /**
      * Changes the path specification of the referenced file.
      *
      * @param path string containing the new path, absolute or relative to the
@@ -259,14 +259,14 @@ declare class File {
      */
     changePath(path: string): string
 
-    /*
+    /**
      * Closes this open file.
      *
      * @return true on success, false if there are I/O errors.
      */
     close(): boolean
 
-    /*
+    /**
      * Copies this object’s referenced file to the specified target location.
      * Resolves any aliases to find the source file. If a file exists at the
      * target location, it is overwritten.
@@ -278,7 +278,7 @@ declare class File {
      */
     copy(target: string): boolean
 
-    /*
+    /**
      * Makes this file a file-system alias or shortcut to the specified file.
      * The referenced file for this object must not yet exist on disk.
      *
@@ -288,7 +288,7 @@ declare class File {
      */
     createAlias(path?: string): boolean
 
-    /*
+    /**
      * Opens this file using the appropriate application, as if it had been
      * double-clicked in a file browser.
      * You can use this method to run scripts, launch applications, and so on.
@@ -297,7 +297,7 @@ declare class File {
      */
     execute(): boolean
 
-    /*
+    /**
      * Retrieves the URI for this file, relative to the specified base path, in
      * URI notation. If no base path is supplied, the URI is relative to the
      * path of the current folder.
@@ -308,7 +308,7 @@ declare class File {
      */
     getRelativeURI(basePath?: string): string
 
-    /*
+    /**
      * Opens the referenced file for subsequent read/write operations. The
      * method resolves any aliases to find the file.
      *
@@ -344,7 +344,7 @@ declare class File {
      */
     open(mode: string, type?: string, creator?: string): boolean
 
-    /*
+    /**
      * Opens the built-in platform-specific file-browsing dialog, in which the
      * user can select an existing file or files, and creates new File objects
      * to represent the selected files. Differs from the class method
@@ -372,7 +372,7 @@ declare class File {
      */
     OpenDlg(prompt_?: string, filter?: string, multiSelect?: boolean): any
 
-    /*
+    /**
      * Reads the contents of the file starting at the current position.
      *
      * @param chars number An integer specifying the number of characters to
@@ -384,7 +384,7 @@ declare class File {
      */
     read(chars?: number): string
 
-    /*
+    /**
      * Reads a single text character from the file at the current position. Line
      * feeds are recognized as CR, LF, CRLF, or LFCR pairs. If the file is
      * encoded, multiple bytes might be read to create single Unicode
@@ -394,7 +394,7 @@ declare class File {
      */
     readch(): string
 
-    /*
+    /**
      * Reads a single line of text from the file at the current position, and
      * returns it in a string. Line feeds are recognized as CR, LF, CRLF, or
      * LFCR pairs. If the file is encoded, multiple bytes might be read to
@@ -404,7 +404,7 @@ declare class File {
      */
     readln(): string
 
-    /*
+    /**
      * Deletes the file associated with this object from disk, immediately,
      * without moving it to the system trash. Does not resolve aliases; instead,
      * deletes the referenced alias or shortcut file itself.
@@ -416,7 +416,7 @@ declare class File {
      */
     remove(): boolean
 
-    /*
+    /**
      * Renames the associated file. Does not resolve aliases, but renames the
      * referenced alias or shortcut file itself.
      *
@@ -426,7 +426,7 @@ declare class File {
      */
     rename(newName: string): boolean
 
-    /*
+    /**
      * If this object references an alias or shortcut, this method resolves that
      * alias and returns a new File object that references the file-system
      * element to which the alias resolves.
@@ -436,7 +436,7 @@ declare class File {
      */
     resolve(): File
 
-    /*
+    /**
      * Opens the built-in platform-specific file-browsing dialog, in which the
      * user can select an existing file location to which to save information,
      * and creates a new File object to represent the selected file.  Differs
@@ -456,7 +456,7 @@ declare class File {
      */
     saveDlg(prompt_?: string, preset?: string): File
 
-    /*
+    /**
      * Seeks to the specified position in the file. The new position cannot be
      * less than 0 or greater than the current file size.
      *
@@ -473,7 +473,7 @@ declare class File {
      */
     seek(pos: number, mode?: number): boolean
 
-    /*
+    /**
      * Retrieves the current position as a byte offset from the start of the
      * file.
      *
@@ -481,7 +481,7 @@ declare class File {
      */
     tell(): number
 
-    /*
+    /**
      * Writes the specified text to the file at the current position. For
      * encoded files, writing a single Unicode character may write multiple
      * bytes.
@@ -496,7 +496,7 @@ declare class File {
      */
     write(text: string, ...texts: string[]): boolean
 
-    /*
+    /**
      * Writes the specified text to the file at the current position, and
      * appends a Line Feed sequence in the style specified by the linefeed
      * property.For encoded files, writing a single Unicode character may write
@@ -515,7 +515,7 @@ declare class File {
 
 declare class Folder {
 
-    /*
+    /**
      * @param path string. The absolute or relative path to the folder
      * associated with this object, specified in URI format. The path need not
      * refer to an existing folder. If not supplied, a temporary name is
@@ -523,7 +523,7 @@ declare class Folder {
      */
     constructor(path?: string)
 
-    /*
+    /**
      * A Folder object for the folder that contains application data for all
      * users. Read only.
      *
@@ -534,13 +534,13 @@ declare class Folder {
      */
     static appData: Folder
 
-    /*
+    /**
      * In Mac OS, the Folder object for the folder that contains the bundle of
      * the running application. Read only.
      */
     static appPackage: Folder
 
-    /*
+    /**
      * A Folder object for the folder that contains application data for the
      * current user. Read only.
      *
@@ -551,13 +551,13 @@ declare class Folder {
      */
     static commonFiles: Folder
 
-    /*
+    /**
      * A Folder object for the current folder. Assign either a Folder object or
      * a string containing the new path name to set the current folder.
      */
     static current: Folder
 
-    /*
+    /**
      * A Folder object for the folder that contains the user’s desktop. Read
      * only.
      *
@@ -567,13 +567,13 @@ declare class Folder {
      */
     static desktop: Folder
 
-    /*
+    /**
      * The name of the file system. Read only. One of Windows, Macintosh, or
      * Unix.
      */
     static fs: string
 
-    /*
+    /**
      * A Folder object for the user’s default document folder. Read only.
      *
      * In Windows, C:\Documents and Settings\username\My Documents
@@ -582,13 +582,13 @@ declare class Folder {
      */
     static myDocuments: Folder
 
-    /*
+    /**
      * A Folder object for the folder containing the executable image of the
      * running application. Read only.
      */
     static startup: Folder
 
-    /*
+    /**
      * A Folder object for the folder containing the operating system files.
      * Read only.
      *
@@ -598,12 +598,12 @@ declare class Folder {
      */
     static system: Folder
 
-    /*
+    /**
      * A Folder object for the default folder for temporary files. Read only.
      */
     static temp: Folder
 
-    /*
+    /**
      * In Mac OS, a Folder object for the folder containing deleted items.
      *
      * In Windows, where the Recycle Bin is a database rather than a folder,
@@ -613,7 +613,7 @@ declare class Folder {
      */
     static trash: Folder
 
-    /*
+    /**
      * In Mac OS, a Folder object for the folder containing deleted items.
      *
      * In Windows, where the Recycle Bin is a database rather than a folder,
@@ -621,7 +621,7 @@ declare class Folder {
      */
     static userData: Folder
 
-    /*
+    /**
      * Decodes the specified string as required by RFC 2396.
      *
      * All special characters must be encoded in UTF-8 and stored as escaped
@@ -639,7 +639,7 @@ declare class Folder {
      */
     static decode(uri: string): string
 
-    /*
+    /**
      * Encodes the specified string as required by RFC 2396. All special
      * characters are encoded in UTF-8 and stored as escaped characters starting
      * with the percent sign followed by two hexadecimal digits.  For example,
@@ -657,7 +657,7 @@ declare class Folder {
     static encode(name: string): string
 
 
-    /*
+    /**
      * Checks whether a given encoding is available.
      *
      * @param string name  The encoding name. Typical values are “ASCII,”
@@ -668,7 +668,7 @@ declare class Folder {
      */
     static isEncodingAvailable(name: string): boolean
 
-    /*
+    /**
      * Opens the built-in platform-specific file-browsing dialog, and creates a
      * new File or Folder object for the selected file or folder. Differs from
      * the object method selectDlg() in that it does not preselect a folder.
@@ -683,29 +683,29 @@ declare class Folder {
      */
     static selectDialog(prompt?: string): any
 
-    /*
+    /**
      * The full path name for the referenced folder in URI notation. Read only.
      */
     absoluteURI: String
 
-    /*
+    /**
      * When true, the object refers to a file system alias or shortcut. Read
      * only.
      */
     alias: boolean
 
-    /*
+    /**
      * The creation date of the referenced folder, or null if the object does
      * not refer to a folder on disk. Read only.
      */
     created: Date
 
-    /*
+    /**
      * The localized name of the referenced folder, without the path. Read only.
      */
     displayName: string
 
-    /*
+    /**
      * A message describing the most recent file system error Typically set by
      * the file system, but a script can set it. Setting this value clears any
      * error message and resets the error bit for opened files. Contains the
@@ -713,60 +713,60 @@ declare class Folder {
      */
     error: string
 
-    /*
+    /**
      * When true, this object refers to a folder that currently exists in the
      * file system. Read only.
      */
     exists: boolean
 
-    /*
+    /**
      * The platform-specific name of the referenced folder as a full path name.
      * Read only.
      */
     fsName: string
 
-    /*
+    /**
      * The full path name for the referenced folder in URI notation. Read only.
      */
     fullName: string
 
-    /*
+    /**
      * A localized version of the folder name portion of the absolute URI for
      * the referenced file, without the path specification. Read only.
      */
     localizedName: string
 
-    /*
+    /**
      * The date of the referenced folder’s last modification, or null if the
      * object does not refer to a folder on disk. Read only.
      */
     modified: Date
 
-    /*
+    /**
      * The folder name portion of the absolute URI for the referenced file,
      * without the path specification. Read only.
      */
     name: string
 
-    /*
+    /**
      * The Folder object for the folder that contains this folder, or null if
      * this object refers to the root folder of a volume. Read only.
      */
     parent: Folder
 
-    /*
+    /**
      * The path portion of the absolute URI for the referenced folder, without
      * the folder name. Read only.
      */
     path: string
 
-    /*
+    /**
      * The path name for the referenced folder in URI notation, relative to the
      * current folder. Read only.
      */
     relativeURI: string
 
-    /*
+    /**
      * Changes the path specification of the referenced folder.
      *
      * @param path string containing the new path, absolute or relative to the
@@ -776,13 +776,13 @@ declare class Folder {
      */
     changePath(path: string): boolean
 
-    /*
+    /**
      * Creates a folder at the location given by this object’s path property.
      * @return true if the folder was created successfully.
      */
     create(): boolean
 
-    /*
+    /**
      * Opens this folder in the platform-specific file browser (as if it had
      * been double-clicked in the file browser).
      *
@@ -790,7 +790,7 @@ declare class Folder {
      */
     execute(): boolean
 
-    /*
+    /**
      * param mask string. A search mask for file names. A string that can
      * contain question mark (?) and asterisk (*) wild cards. Default is "*",
      * which matches all file names.  Can also be the name of a function that
@@ -811,7 +811,7 @@ declare class Folder {
      */
     getFiles(mask?: string): any[]
 
-    /*
+    /**
      * Retrieves the path for this folder relative to the specified base path or
      * the current folder, in URI notation.
      *
@@ -822,7 +822,7 @@ declare class Folder {
      */
     getRelativeURI(basePath?: string): string
 
-    /*
+    /**
      *
      * Deletes the empty folder associated with this object from disk,
      * immediately, without moving it to the system trash. Folders must be empty
@@ -836,7 +836,7 @@ declare class Folder {
      */
     remove(): boolean
 
-    /*
+    /**
      * Renames the associated folder. Does not resolve aliases; instead,
      * renames the referenced alias or shortcut file itself.
      *
@@ -846,7 +846,7 @@ declare class Folder {
      */
     rename(newName: string): boolean
 
-    /*
+    /**
      * If this object references an alias or shortcut, this method resolves that
      * alias.
      *
@@ -856,7 +856,7 @@ declare class Folder {
      */
     resolve(): Folder
 
-    /*
+    /**
      * Opens the built-in platform-specific file-browsing dialog, and creates
      * a new File or Folder object for the selected file or folder. Differs
      * from the class method selectDialog() in that it preselects

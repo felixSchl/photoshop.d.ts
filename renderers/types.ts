@@ -6,7 +6,7 @@
 const _ = require('lodash');
 import { renderDocstring, strRepeat, tabSize, lines } from './shared';
 
-/*
+/**
  * Derive all permutations of a list recursively.
  * Note: This function will only work on relatively small lists due to the
  *       lack of tco. FIXME: Use trampolines.
@@ -24,7 +24,7 @@ const permutate = <T>(xs:T[][]):any[] => {
     ;
 }
 
-/*
+/**
  * Derive the list of all method permutations for method overloading.
  */
 const getMethodPermutations = method =>

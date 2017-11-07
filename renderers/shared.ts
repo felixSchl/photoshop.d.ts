@@ -16,7 +16,7 @@ export const renderDocstring = (docs='', indentLevel=0) =>
         .map((x:string) => x.trim())
         .map(x => ' * ' + x)
         .tap(xs => {
-            const ys = ['/*'].concat(xs).concat([' */']);
+            const ys = ['/**'].concat(xs).concat([' */']);
             xs.length = 0;
             _.map(ys, y => xs.push(y));
         })

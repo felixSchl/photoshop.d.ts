@@ -1,6 +1,6 @@
 declare class $ {
 
-    /*
+    /**
      * The Internet name of the application’s default character encoding, such
      * as “CP1252” or “X-SHIFT-JIS”. Valid values are implementation- and
      * OS-dependent.
@@ -11,39 +11,39 @@ declare class $ {
      */
     static appEncoding: string
 
-    /*
+    /**
      * The version information for the current ExtendScript build. Read only.
      */
     static build: string
 
-    /*
+    /**
      * The date the current JavaScript engine was built. Read only.
      */
     static buildDate: Date
 
-    /*
+    /**
      * The character used in formatted numeric output for a decimal point, for
      * the current locale. Read only.
      */
     static decimalPoint: string
 
-    /*
+    /**
      * The name of the current JavaScript engine, if set. Read only.
      */
     static engineName: string
 
-    /*
+    /**
      * The most recent run-time error information, contained in a JavaScript
      * Error object.
      */
     static error: Error
 
-    /*
+    /**
      * The file name of the current script. Read only.
      */
     static fileName: string
 
-    /*
+    /**
      * Gets or sets low-level debug output flags. A logical AND of the following
      * bit flag values:
      * 0x0002 (2): Displays each line with its line number as it is executed.
@@ -63,13 +63,13 @@ declare class $ {
      */
     static flags: number
 
-    /*
+    /**
      * Provides access to the Global object, which contains the JavaScript
      * global namespace.
      */
     static global: Global
 
-    /*
+    /**
      * A high-resolution timer that measures the number of microseconds since
      * this property was last accessed. Value is initialized as early as
      * possible, so the first access returns the startup time for ExtendScript.
@@ -78,12 +78,12 @@ declare class $ {
      */
     static hiresTimer: number
 
-    /*
+    /**
      * The path for include files for the current script. Read only.
      */
     static includePath: string
 
-    /*
+    /**
      * The current debugging level, which enables or disables the JavaScript
      * debugger. Read only. One of:
      * 0: No debugging
@@ -92,13 +92,13 @@ declare class $ {
      */
     static level: number
 
-    /*
+    /**
      * The current line of the currently executing script; the first line is
      * number 1. Read only.
      */
     static line: number
 
-    /*
+    /**
      * Gets or sets the current locale. The string contains five characters in
      * the form LL_RR, where LL is an ISO 639 language specifier, and RR is an
      * ISO 3166 region specifier.
@@ -109,23 +109,23 @@ declare class $ {
      */
     static locale: string
 
-    /*
+    /**
      * Enable or disable the extended localization features of the built-in
      * toString method. See Localizing ExtendScript strings.
      */
     static localize: boolean
 
-    /*
+    /**
      * Gets or sets the ExtendScript memory cache size in bytes.
      */
     static memCache: number
 
-    /*
+    /**
      * The current operating system version information. Read only.
      */
     static os: string
 
-    /*
+    /**
      * An array of objects containing information about the display screens
      * attached to your computer. Each object has the properties left, top,
      * right, and bottom, which contain the four corners of the drawable area of
@@ -137,31 +137,31 @@ declare class $ {
      */
     static screens: any[]
 
-    /*
+    /**
      * The current stack trace.
      */
     static stack: string
 
-    /*
+    /**
      * When true, any attempt to write to a read-only property causes a runtime
      * error. Some objects do not permit the creation of new properties when
      * true.
      */
     static strict: boolean
 
-    /*
+    /**
      * The version number of the JavaScript engine as a three-part number and
      * description; for example: "3.92.95 (debug)" Read only.
      */
     static version: string
 
-    /*
+    /**
      * Displays the About box for the ExtendScript component, and returns the
      * text of the About box as a string.
      */
     static about(): string
 
-    /*
+    /**
      * Executes a breakpoint at the current position.
      *
      * @param condition string containing a JavaScript statement to be used as a
@@ -172,7 +172,7 @@ declare class $ {
      */
     static bp(condition?: string): void
 
-    /*
+    /**
      * Invokes the platform-specific color selection dialog, and returns the
      * selected color as a hexadecimal RGB value: 0xRRGGBB.
      *
@@ -181,7 +181,7 @@ declare class $ {
      */
     static colorPicker(name: number): number
 
-    /*
+    /**
      *
      * Loads a JavaScript script file from disk, evaluates it, and returns the
      * result of evaluation.
@@ -193,12 +193,12 @@ declare class $ {
      */
     static evalFile(path: string, timeout?: number): any
 
-    /*
+    /**
      * Initiates garbage collection in the JavaScript engine.
      */
     static gc(): void
 
-    /*
+    /**
      * Retrieves the value of the specified environment variable, or null if no
      * such variable is defined.
      *
@@ -206,7 +206,7 @@ declare class $ {
      */
     static getenv(envname: string): string
 
-    /*
+    /**
      * Sets the value of the specified environment variable, if no such variable
      * is defined.
      *
@@ -216,7 +216,7 @@ declare class $ {
      */
     static setenv(envname: string, value: string): void
 
-    /*
+    /**
      * Suspends the calling thread for the given number of milliseconds.
      * During a sleep period, checks at 100 millisecond intervals to see whether
      * the sleep should be terminated. This can happen if there is a break
@@ -226,14 +226,14 @@ declare class $ {
      */
     static sleep(milliseconds: number): void
 
-    /*
+    /**
      * Writes the specified text to the JavaScript Console.
      * @param text One or more strings to write, which are concatenated to form
      * a single string.
      */
     static write(text: any,  ...texts: any[]): void
 
-    /*
+    /**
      * Writes the specified text to the JavaScript Console and appends a
      * linefeed sequence.
      *
