@@ -1,0 +1,108 @@
+//
+// Classification of declaration types 
+//
+
+/**
+ * DOM objects with a "parent" property, without constructor.
+ */
+ArtLayer
+ArtLayers
+Channel
+Channels
+ColorSampler
+ColorSamplers
+CountItem
+CountItems
+Document
+DocumentInfo
+Documents
+Guide
+Guides
+HistoryState
+HistoryStates
+LayerComp
+LayerComps
+Layers
+LayerSet
+LayerSets
+Notifier
+Notifiers
+PathItem
+PathItems
+PathPoint
+PathPoints
+Preferences
+Selection
+SubPathItem
+SubPathItems
+TextFont
+TextFonts
+TextItem
+TextItems
+xmpMetadata
+
+/**
+ * DOM objects without "parent" property, without constructor.
+ * "Application" is the root of the DOM.
+ */
+Application
+MeasurementLog
+MeasurementScale
+
+/**
+ * Classes with explicit parameters in the constructor.
+ */
+File
+Folder
+UnitValue
+
+/**
+ * Classes with parameterless constructors. 
+ */
+ActionDescriptor
+ActionList
+ActionReference
+BatchOptions
+BitmapConversionOptions
+BMPSaveOptions
+CameraRAWOpenOptions
+CMYKColor
+ContactSheetOptions
+DCS1_SaveOptions
+DCS2_SaveOptions
+DICOMOpenOptions
+EPSOpenOptions
+EPSSaveOptions
+ExportOptionsIllustrator
+ExportOptionsSaveForWeb
+GalleryBannerOptions
+GalleryCustomColorOptions
+GalleryImagesOptions
+GallerySecurityOptions
+GalleryThumbnailOptions
+GIFSaveOptions
+GrayColor
+HSBColor
+IndexedConversionOptions
+JPEGSaveOptions
+LabColor
+NoColor
+PathPointInfo
+PDFOpenOptions
+PDFSaveOptions
+PhotoCDOpenOptions
+PhotoshopSaveOptions
+PICTFileSaveOptions
+PICTResourceSaveOptions
+PicturePackageOptions
+PixarSaveOptions
+PNGSaveOptions
+PresentationOptions
+RawFormatOpenOptions
+RawSaveOptions
+RGBColor
+SGIRGBSaveOptions
+SolidColor
+SubPathInfo
+TargaSaveOptions
+TiffSaveOptions

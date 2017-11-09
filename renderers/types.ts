@@ -77,7 +77,7 @@ const renderProperty = (property, indentLevel = 0) =>
           '${perms}${name}: ${type}'
         , { name: property.name
           , type: property.type.name
-          , perms: (property.perms == 'Read-only') ? 'readonly ': ''
+          , perms: (property.perms == 'Read-only') ? 'readonly ' : ''
           }
       )))
         .map(x => strRepeat(' ', tabSize*indentLevel) + x)
@@ -87,7 +87,17 @@ const renderProperty = (property, indentLevel = 0) =>
 
 const renderType = type =>
     _.flatten(
-    [ _.template('interface ${name} {', { name: type.name })
+    [ _.template(
+        '${declaration} ${name} {'
+        , { declaration: 
+            type.props.some(function(property) {return (property.name == 'parent')}) 
+            || (type.name == "Application")
+            || (type.name == "UnitValue")
+            || (type.name.indexOf("Measurement") !== -1) 
+            ? 'interface' : 'declare class'
+          , name: type.name
+        }
+    )
     , _.map(type.props,   m => renderProperty(m, 1) + '\n')
     , _.map(type.methods, m => renderMethod(m, 1)   + '\n')
     , '}'
