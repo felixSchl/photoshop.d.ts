@@ -520,7 +520,7 @@ significant. For example, en_US, en_UK, ja_JP, de_DE,
 fr_FR.
 macintoshFileTypes array of string Read-only. A list of file image types Adobe
 Photoshop CS6 can open.
-measurementLog MeasurementLog The log of measurements taken.
+measurementLog MeasurementLog Read-only. The log of measurements taken.
 name string Read-only. The application's name.
 notifiers Notifiers Read-only. The collection of notifiers currently
 configured (in the Scripts Events Manager menu in
@@ -3485,7 +3485,7 @@ or right direction points determines the arc of the curve. You use the left dire
 concave.
 Properties
 Property Value type What it is
-anchor array of number Read-only. The X and Y coordinates of the anchor point of the
+anchor array of array of number Read-only. The X and Y coordinates of the anchor point of the
 curve.
 kind PointKind Read-only. The role (corner or smooth) this point plays in the
 containing path segment.
@@ -3528,7 +3528,7 @@ stopPoint.leftDirection = stop;
 stopPoint.rightDirection = stop;
 stopPoint.kind = PointKind.CORNERPOINT;
 Property Value type What it is
-anchor array of number Read-write. The X and Y coordinates of the anchor point of
+anchor array of array of number Read-write. The X and Y coordinates of the anchor point of
 the curve.
 kind PointKind Read-write. The role (corner or smooth) this point plays in the
 containing path segment.
@@ -4154,7 +4154,7 @@ select
 [, type]
 [, feather]
 [, antiAlias])
-array of number
+array of array of number
 SelectionType
 number
 boolean

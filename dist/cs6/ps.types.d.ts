@@ -533,10 +533,14 @@ interface Application {
     readonly locale: string
 
     /**
-     * A list of file image types Adobe Photoshop CS6 can open. measurementLog
-     * MeasurementLog The log of measurements taken.
+     * A list of file image types Adobe Photoshop CS6 can open.
      */
     readonly macintoshFileTypes: string[]
+
+    /**
+     * The log of measurements taken.
+     */
+    readonly measurementLog: MeasurementLog
 
     /**
      * The application's name.
@@ -4177,7 +4181,7 @@ interface PathPoint {
     /**
      * The X and Y coordinates of the anchor point of the curve.
      */
-    readonly anchor: number[]
+    readonly anchor: number[][]
 
     /**
      * The role (corner or smooth) this point plays in the containing path
@@ -4211,7 +4215,7 @@ interface PathPointInfo {
     /**
      * The X and Y coordinates of the anchor point of the curve.
      */
-    anchor: number[]
+    anchor: number[][]
 
     /**
      * The role (corner or smooth) this point plays in the containing path
@@ -5259,7 +5263,7 @@ interface Selection {
      * Selects the specified region. The region parameter is an array of four
      * coordinates, [left, top, right, bottom].
      */
-    select(region: number[], type?: SelectionType, feather?: number, antiAlias?: boolean): void
+    select(region: number[][], type?: SelectionType, feather?: number, antiAlias?: boolean): void
 
     /**
      * Selects the entire layer.
