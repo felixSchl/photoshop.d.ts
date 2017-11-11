@@ -6,7 +6,7 @@
 
 /// <reference path="ps.constants.d.ts" />
 
-interface ActionDescriptor {
+declare class ActionDescriptor {
     /**
      * The number of keys contained in the descriptor.
      */
@@ -205,7 +205,7 @@ interface ActionDescriptor {
 
 }
 
-interface ActionList {
+declare class ActionList {
     /**
      * The number of commands that comprise the action.
      */
@@ -373,7 +373,7 @@ interface ActionList {
 
 }
 
-interface ActionReference {
+declare class ActionReference {
     /**
      * The class name of the referenced Action object.
      */
@@ -533,10 +533,14 @@ interface Application {
     readonly locale: string
 
     /**
-     * A list of file image types Adobe Photoshop CC can open. measurementLog
-     * MeasurementLog The log of measurements taken.
+     * A list of file image types Adobe Photoshop CC can open.
      */
     readonly macintoshFileTypes: string[]
+
+    /**
+     * The log of measurements taken.
+     */
+    readonly measurementLog: MeasurementLog
 
     /**
      * The application's name.
@@ -1361,7 +1365,7 @@ interface ArtLayers {
 
 }
 
-interface BatchOptions {
+declare class BatchOptions {
     /**
      * The type of destination for the processed files (default:
      * BatchDestinationType.NODESTINATION).
@@ -1439,7 +1443,7 @@ interface BatchOptions {
 
 }
 
-interface BitmapConversionOptions {
+declare class BitmapConversionOptions {
     /**
      * The angle (in degrees) at which to orient individual dots. See shape.
      * Valid only when method = BitmapConversionType.HALFTONESCREEN.
@@ -1485,7 +1489,7 @@ interface BitmapConversionOptions {
 
 }
 
-interface BMPSaveOptions {
+declare class BMPSaveOptions {
     /**
      * True to save the alpha channels.
      */
@@ -1520,7 +1524,7 @@ interface BMPSaveOptions {
 
 }
 
-interface CameraRAWOpenOptions {
+declare class CameraRAWOpenOptions {
     /**
      * The number of bits per channel.
      */
@@ -1727,7 +1731,7 @@ interface Channel {
 
 }
 
-interface Channels {
+declare class Channels {
     /**
      * Creates a new channel object and adds it to this collection.
      */
@@ -1745,7 +1749,7 @@ interface Channels {
 
 }
 
-interface CMYKColor {
+declare class CMYKColor {
     /**
      * The black color value (as percent).
      */
@@ -1839,7 +1843,7 @@ interface ColorSamplers {
 
 }
 
-interface ContactSheetOptions {
+declare class ContactSheetOptions {
     /**
      * True to place the images horizontally (left to right, then top to
      * bottom) first (default: true).
@@ -1982,7 +1986,7 @@ interface CountItems {
 
 }
 
-interface DCS1_SaveOptions {
+declare class DCS1_SaveOptions {
     /**
      * (default: DCSType.COLORCOMPOSITE).
      */
@@ -2032,7 +2036,7 @@ interface DCS1_SaveOptions {
 
 }
 
-interface DCS2_SaveOptions {
+declare class DCS2_SaveOptions {
     /**
      * The type of composite file to create (default: DCSType.NOCOMPOSITE).
      */
@@ -2093,7 +2097,7 @@ interface DCS2_SaveOptions {
 
 }
 
-interface DICOMOpenOptions {
+declare class DICOMOpenOptions {
     /**
      * True to make the patient information anonymous.
      */
@@ -2501,7 +2505,7 @@ interface Document {
 
 }
 
-interface DocumentPrintSettings {
+declare class DocumentPrintSettings {
     /**
      * Background color of page.
      */
@@ -2793,7 +2797,7 @@ interface Documents {
 
 }
 
-interface EPSOpenOptions {
+declare class EPSOpenOptions {
     /**
      * True to use antialias.
      */
@@ -2831,7 +2835,7 @@ interface EPSOpenOptions {
 
 }
 
-interface EPSSaveOptions {
+declare class EPSSaveOptions {
     /**
      * True to embed the color profile in this document.
      */
@@ -2887,7 +2891,7 @@ interface EPSSaveOptions {
 
 }
 
-interface ExportOptionsIllustrator {
+declare class ExportOptionsIllustrator {
     /**
      * The type of path to export (default: IllustratorPathType.DOCUMENTBOUNDS).
      */
@@ -2906,7 +2910,7 @@ interface ExportOptionsIllustrator {
 
 }
 
-interface ExportOptionsSaveForWeb {
+declare class ExportOptionsSaveForWeb {
     /**
      * Applies blur to the image to reduce artifacts (default: 0.0).
      */
@@ -3012,7 +3016,7 @@ interface ExportOptionsSaveForWeb {
 
 }
 
-interface GalleryBannerOptions {
+declare class GalleryBannerOptions {
     /**
      * The web photo gallery contact info.
      */
@@ -3050,7 +3054,7 @@ interface GalleryBannerOptions {
 
 }
 
-interface GalleryCustomColorOptions {
+declare class GalleryCustomColorOptions {
     /**
      * The color to use to indicate an active link.
      */
@@ -3088,7 +3092,7 @@ interface GalleryCustomColorOptions {
 
 }
 
-interface GalleryImagesOptions {
+declare class GalleryImagesOptions {
     /**
      * The size (in pixels) of the border that separates images (default: 0).
      */
@@ -3169,7 +3173,7 @@ interface GalleryImagesOptions {
 
 }
 
-interface GalleryOptions {
+declare class GalleryOptions {
     /**
      * True to add width and height attributes for images (default: true).
      */
@@ -3240,7 +3244,7 @@ interface GalleryOptions {
 
 }
 
-interface GallerySecurityOptions {
+declare class GallerySecurityOptions {
     /**
      * The web photo gallery security content (default:
      * GallerySecurityType.NONE).
@@ -3291,7 +3295,7 @@ interface GallerySecurityOptions {
 
 }
 
-interface GalleryThumbnailOptions {
+declare class GalleryThumbnailOptions {
     /**
      * The amount of border pixels you want around your thumbnail images
      * (default: 0).
@@ -3360,7 +3364,7 @@ interface GalleryThumbnailOptions {
 
 }
 
-interface GIFSaveOptions {
+declare class GIFSaveOptions {
     /**
      * The number of palette colors. Valid only when palette =
      * Palette.LOCALADAPTIVE, LOCALPERCEPTUAL, LOCALSELECTIVE, MACOSPALETTE,
@@ -3420,7 +3424,7 @@ interface GIFSaveOptions {
 
 }
 
-interface GrayColor {
+declare class GrayColor {
     /**
      * The gray value (default: 0.0).
      */
@@ -3433,7 +3437,7 @@ interface GrayColor {
 
 }
 
-interface Guide {
+declare class Guide {
     /**
      * Indicates whether the guide is vertical or horizontal.
      */
@@ -3521,7 +3525,7 @@ interface HistoryStates {
 
 }
 
-interface HSBColor {
+declare class HSBColor {
     /**
      * The brightness value.
      */
@@ -3544,7 +3548,7 @@ interface HSBColor {
 
 }
 
-interface IndexedConversionOptions {
+declare class IndexedConversionOptions {
     /**
      * The number of palette colors. Valid only when palette =
      * Palette.LOCALADAPTIVE, LOCALPERCEPTUAL, LOCALSELECTIVE, MACOSPALETTE,
@@ -3598,7 +3602,7 @@ interface IndexedConversionOptions {
 
 }
 
-interface JPEGSaveOptions {
+declare class JPEGSaveOptions {
     /**
      * True to embed the color profile in the document.
      */
@@ -3636,7 +3640,7 @@ interface JPEGSaveOptions {
 
 }
 
-interface LabColor {
+declare class LabColor {
     /**
      * The a-value.
      */
@@ -3969,7 +3973,7 @@ interface MeasurementScale {
 
 }
 
-interface NoColor {
+declare class NoColor {
     /**
      * The class name of the referenced noColor object.
      */
@@ -4169,7 +4173,7 @@ interface PathPoint {
     /**
      * The X and Y coordinates of the anchor point of the curve.
      */
-    readonly anchor: number[]
+    readonly anchor: number[][]
 
     /**
      * The role (corner or smooth) this point plays in the containing path
@@ -4199,11 +4203,11 @@ interface PathPoint {
 
 }
 
-interface PathPointInfo {
+declare class PathPointInfo {
     /**
      * The X and Y coordinates of the anchor point of the curve.
      */
-    anchor: number[]
+    anchor: number[][]
 
     /**
      * The role (corner or smooth) this point plays in the containing path
@@ -4251,7 +4255,7 @@ interface PathPoints {
 
 }
 
-interface PDFOpenOptions {
+declare class PDFOpenOptions {
     /**
      * True to use antialias.
      */
@@ -4309,7 +4313,7 @@ interface PDFOpenOptions {
 
 }
 
-interface PDFSaveOptions {
+declare class PDFSaveOptions {
     /**
      * True to save the alpha channels with the file.
      */
@@ -4461,7 +4465,7 @@ interface PDFSaveOptions {
 
 }
 
-interface PhotoCDOpenOptions {
+declare class PhotoCDOpenOptions {
     /**
      * The profile to use when reading the image.
      */
@@ -4494,7 +4498,7 @@ interface PhotoCDOpenOptions {
 
 }
 
-interface PhotoshopSaveOptions {
+declare class PhotoshopSaveOptions {
     /**
      * True to save the alpha channels.
      */
@@ -4527,7 +4531,7 @@ interface PhotoshopSaveOptions {
 
 }
 
-interface PICTFileSaveOptions {
+declare class PICTFileSaveOptions {
     /**
      * True to save the alpha channels.
      */
@@ -4555,7 +4559,7 @@ interface PICTFileSaveOptions {
 
 }
 
-interface PICTResourceSaveOptions {
+declare class PICTResourceSaveOptions {
     /**
      * True to save the alpha channels.
      */
@@ -4593,7 +4597,7 @@ interface PICTResourceSaveOptions {
 
 }
 
-interface PicturePackageOptions {
+declare class PicturePackageOptions {
     /**
      * The content information (default: PicturePackageTextType.NONE).
      */
@@ -4665,7 +4669,7 @@ interface PicturePackageOptions {
 
 }
 
-interface PixarSaveOptions {
+declare class PixarSaveOptions {
     /**
      * True to save the alpha channels.
      */
@@ -4678,7 +4682,7 @@ interface PixarSaveOptions {
 
 }
 
-interface PNGSaveOptions {
+declare class PNGSaveOptions {
     /**
      * The compression value (default: 0).
      */
@@ -4986,7 +4990,7 @@ interface Preferences {
 
 }
 
-interface PresentationOptions {
+declare class PresentationOptions {
     /**
      * True to auto advance images when when viewing the presentation (default:
      * true). Valid only when presentation = true.
@@ -5039,7 +5043,7 @@ interface PresentationOptions {
 
 }
 
-interface RawFormatOpenOptions {
+declare class RawFormatOpenOptions {
     /**
      * The number of bits for each channel. The only valid values are
      * BitsPerChannelType.EIGHT or BitsPerChannelType.SIXTEEN.
@@ -5094,7 +5098,7 @@ interface RawFormatOpenOptions {
 
 }
 
-interface RawSaveOptions {
+declare class RawSaveOptions {
     /**
      * True if alpha channels should be saved.
      */
@@ -5112,7 +5116,7 @@ interface RawSaveOptions {
 
 }
 
-interface RGBColor {
+declare class RGBColor {
     /**
      * The blue color value (default: 255).
      */
@@ -5251,7 +5255,7 @@ interface Selection {
      * Selects the specified region. The region parameter is an array of four
      * coordinates, [left, top, right, bottom].
      */
-    select(region: number[], type?: SelectionType, feather?: number, antiAlias?: boolean): void
+    select(region: number[][], type?: SelectionType, feather?: number, antiAlias?: boolean): void
 
     /**
      * Selects the entire layer.
@@ -5298,7 +5302,7 @@ interface Selection {
 
 }
 
-interface SGIRGBSaveOptions {
+declare class SGIRGBSaveOptions {
     /**
      * True to save the alpha channels.
      */
@@ -5316,7 +5320,7 @@ interface SGIRGBSaveOptions {
 
 }
 
-interface SolidColor {
+declare class SolidColor {
     /**
      * The CMYK color mode.
      */
@@ -5364,7 +5368,7 @@ interface SolidColor {
 
 }
 
-interface SubPathInfo {
+declare class SubPathInfo {
     /**
      * True if the path describes an enclosed area.
      */
@@ -5436,7 +5440,7 @@ interface SubPathItems {
 
 }
 
-interface TargaSaveOptions {
+declare class TargaSaveOptions {
     /**
      * True to save the alpha channels.
      */
@@ -5893,7 +5897,7 @@ interface TextItem {
 
 }
 
-interface TiffSaveOptions {
+declare class TiffSaveOptions {
     /**
      * True to save the alpha channels.
      */
