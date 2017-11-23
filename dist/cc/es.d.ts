@@ -5,3 +5,4 @@
 /// <reference path="./es.file.d.ts" />
 /// <reference path="./es.scriptui.d.ts" />
 /// <reference path="./es.tools.d.ts" />
+/// <reference path="./es.xmp.d.ts" />
