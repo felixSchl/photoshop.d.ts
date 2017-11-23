@@ -78,6 +78,7 @@ const copyDistFiles = targetDir => {
     console.log('Copying files...');
     fs.copySync('index.d.ts', `${targetDir}/index.d.ts`)
     fs.copySync('assets/lib.d.ts', `${targetDir}/lib.d.ts`)
+    fs.copySync('extendscript/es.communication.d.ts', `${targetDir}/es.communication.d.ts`)
     fs.copySync('extendscript/es.d.ts', `${targetDir}/es.d.ts`)
     fs.copySync('extendscript/es.dollar.d.ts', `${targetDir}/es.dollar.d.ts`)
     fs.copySync('extendscript/es.file.d.ts', `${targetDir}/es.file.d.ts`)
