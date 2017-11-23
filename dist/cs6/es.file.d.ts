@@ -12,7 +12,7 @@ declare class File {
      * The name of the file system. Read only. One of Windows, Macintosh, or
      * Unix.
      */
-    static fs: string
+    static readonly fs: string
 
     /**
      * Decodes the specified string as required by RFC 2396.
@@ -109,7 +109,7 @@ declare class File {
     /**
      * The full path name for the referenced file in URI notation. Read only.
      */
-    absoluteURI: string
+    readonly absoluteURI: string
 
     /**
      * When true, the object refers to a file system alias or shortcut. Read
@@ -121,18 +121,18 @@ declare class File {
      * The creation date of the referenced file, or null if the object does not
      * refer to a file on disk. Read only.
      */
-    created: Date
+    readonly created: Date
 
     /**
      * In Mac OS, the file creator as a four-character string. In Windows or
      * UNIX, value is "????". Read only.
      */
-    creator: string
+    readonly creator: string
 
     /**
      * The localized name of the referenced file, without the path. Read only.
      */
-    displayName: string
+    readonly displayName: string
 
     /**
      *
@@ -150,7 +150,7 @@ declare class File {
      * When true, a read attempt caused the current position to be at the end of
      * the file, or the file is not open. Read only.
      */
-    eof: boolean
+    readonly eof: boolean
 
     /**
      * A message describing the last file system error. Typically set by the
@@ -164,17 +164,17 @@ declare class File {
      * When true, this object refers to a file or file-system alias that
      * actually exists in the file system. Read only.
      */
-    exists: boolean
+    readonly exists: boolean
 
     /**
      * The platform-specific full path name for the referenced file. Read only.
      */
-    fsName: string
+    readonly fsName: string
 
     /**
      * The full path name for the referenced file in URI notation. Read only.
      */
-    fullName: string
+    readonly fullName: string
 
     /**
      * When true, the file is not shown in the platform-specific file browser.
@@ -202,30 +202,30 @@ declare class File {
      * A localized version of the file name portion of the absolute URI for the
      * referenced file, without the path specification. Read only.
      */
-    localizedName: string
+    readonly localizedName: string
 
     /**
      * The date of the referenced file’s last modification, or null if the
      * object does not refer to a file on disk. Read only.
      */
-    modified: Date
+    readonly modified: Date
 
     /**
      * The file name portion of the absolute URI for the referenced file,
      * without the path specification. Read only.
      */
-    name: string
+    readonly name: string
 
     /**
      * The Folder object for the folder that contains this file. Read only.
      */
-    parent: Folder
+    readonly parent: Folder
 
     /**
      * The path portion of the absolute URI for the referenced file, without the
      * file name. Read only.
      */
-    path: string
+    readonly path: string
 
     /**
      * When true, prevents the file from being altered or deleted. If the
@@ -238,7 +238,7 @@ declare class File {
      * The path name for the referenced file in URI notation, relative to the
      * current folder. Read only.
      */
-    relativeURI: string
+    readonly relativeURI: string
 
     /**
      * The file type as a four-character string.
@@ -247,7 +247,7 @@ declare class File {
      * any other file.
      * If the file does not exist, the value is "????". Read only.
      */
-    type: string
+    readonly type: string
 
     /**
      * Changes the path specification of the referenced file.
@@ -532,13 +532,13 @@ declare class Folder {
      *
      * In Mac OS, /Library/Application Support
      */
-    static appData: Folder
+    static readonly appData: Folder
 
     /**
      * In Mac OS, the Folder object for the folder that contains the bundle of
      * the running application. Read only.
      */
-    static appPackage: Folder
+    static readonly appPackage: Folder
 
     /**
      * A Folder object for the folder that contains application data for the
@@ -549,7 +549,7 @@ declare class Folder {
      *
      * * In Mac OS,/Library/Application Support
      */
-    static commonFiles: Folder
+    static readonly commonFiles: Folder
 
     /**
      * A Folder object for the current folder. Assign either a Folder object or
@@ -571,7 +571,7 @@ declare class Folder {
      * The name of the file system. Read only. One of Windows, Macintosh, or
      * Unix.
      */
-    static fs: string
+    static readonly fs: string
 
     /**
      * A Folder object for the user’s default document folder. Read only.
@@ -580,13 +580,13 @@ declare class Folder {
      *
      * In Mac OS, ~/Documents
      */
-    static myDocuments: Folder
+    static readonly myDocuments: Folder
 
     /**
      * A Folder object for the folder containing the executable image of the
      * running application. Read only.
      */
-    static startup: Folder
+    static readonly startup: Folder
 
     /**
      * A Folder object for the folder containing the operating system files.
@@ -596,12 +596,12 @@ declare class Folder {
      *
      * In Mac OS, /System
      */
-    static system: Folder
+    static readonly system: Folder
 
     /**
      * A Folder object for the default folder for temporary files. Read only.
      */
-    static temp: Folder
+    static readonly temp: Folder
 
     /**
      * In Mac OS, a Folder object for the folder containing deleted items.
@@ -611,7 +611,7 @@ declare class Folder {
      *
      * Read only.
      */
-    static trash: Folder
+    static readonly trash: Folder
 
     /**
      * In Mac OS, a Folder object for the folder containing deleted items.
@@ -686,7 +686,7 @@ declare class Folder {
     /**
      * The full path name for the referenced folder in URI notation. Read only.
      */
-    absoluteURI: String
+    readonly absoluteURI: String
 
     /**
      * When true, the object refers to a file system alias or shortcut. Read
@@ -698,12 +698,12 @@ declare class Folder {
      * The creation date of the referenced folder, or null if the object does
      * not refer to a folder on disk. Read only.
      */
-    created: Date
+    readonly created: Date
 
     /**
      * The localized name of the referenced folder, without the path. Read only.
      */
-    displayName: string
+    readonly displayName: string
 
     /**
      * A message describing the most recent file system error Typically set by
@@ -717,54 +717,54 @@ declare class Folder {
      * When true, this object refers to a folder that currently exists in the
      * file system. Read only.
      */
-    exists: boolean
+    readonly exists: boolean
 
     /**
      * The platform-specific name of the referenced folder as a full path name.
      * Read only.
      */
-    fsName: string
+    readonly fsName: string
 
     /**
      * The full path name for the referenced folder in URI notation. Read only.
      */
-    fullName: string
+    readonly fullName: string
 
     /**
      * A localized version of the folder name portion of the absolute URI for
      * the referenced file, without the path specification. Read only.
      */
-    localizedName: string
+    readonly localizedName: string
 
     /**
      * The date of the referenced folder’s last modification, or null if the
      * object does not refer to a folder on disk. Read only.
      */
-    modified: Date
+    readonly modified: Date
 
     /**
      * The folder name portion of the absolute URI for the referenced file,
      * without the path specification. Read only.
      */
-    name: string
+    readonly name: string
 
     /**
      * The Folder object for the folder that contains this folder, or null if
      * this object refers to the root folder of a volume. Read only.
      */
-    parent: Folder
+    readonly parent: Folder
 
     /**
      * The path portion of the absolute URI for the referenced folder, without
      * the folder name. Read only.
      */
-    path: string
+    readonly path: string
 
     /**
      * The path name for the referenced folder in URI notation, relative to the
      * current folder. Read only.
      */
-    relativeURI: string
+    readonly relativeURI: string
 
     /**
      * Changes the path specification of the referenced folder.
