@@ -82,7 +82,7 @@ const copyDistFiles = targetDir => {
     fs.copySync('extendscript/es.dollar.d.ts', `${targetDir}/es.dollar.d.ts`)
     fs.copySync('extendscript/es.file.d.ts', `${targetDir}/es.file.d.ts`)
     fs.copySync('extendscript/es.global.d.ts', `${targetDir}/es.global.d.ts`)
-    fs.copySync('extendscript/es.unitvalue.d.ts', `${targetDir}/es.unitvalue.d.ts`)
+    fs.copySync('extendscript/es.tools.d.ts', `${targetDir}/es.tools.d.ts`)
 }
 
 const mkDistDir = (targetDir) => {

@@ -8,6 +8,5 @@ interface Application {
      */
     system(command: string): void
 }
-declare var app: Application;
-declare var alert: (object: any) => void;
+declare var app: Application
 type Layer = ArtLayer | LayerSet
