@@ -86,6 +86,7 @@ const copyDistFiles = targetDir => {
     fs.copySync('extendscript/es.global.d.ts', `${targetDir}/es.global.d.ts`)
     fs.copySync('extendscript/es.scriptui.d.ts', `${targetDir}/es.scriptui.d.ts`)
     fs.copySync('extendscript/es.tools.d.ts', `${targetDir}/es.tools.d.ts`)
+    fs.copySync('extendscript/es.xml.d.ts', `${targetDir}/es.xml.d.ts`)
     fs.copySync('extendscript/es.xmp.d.ts', `${targetDir}/es.xmp.d.ts`)
 }
 
