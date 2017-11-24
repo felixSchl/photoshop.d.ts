@@ -78,11 +78,16 @@ const copyDistFiles = targetDir => {
     console.log('Copying files...');
     fs.copySync('index.d.ts', `${targetDir}/index.d.ts`)
     fs.copySync('assets/lib.d.ts', `${targetDir}/lib.d.ts`)
+    fs.copySync('extendscript/es.communication.d.ts', `${targetDir}/es.communication.d.ts`)
     fs.copySync('extendscript/es.d.ts', `${targetDir}/es.d.ts`)
     fs.copySync('extendscript/es.dollar.d.ts', `${targetDir}/es.dollar.d.ts`)
+    fs.copySync('extendscript/es.externallib.d.ts', `${targetDir}/es.externallib.d.ts`)
     fs.copySync('extendscript/es.file.d.ts', `${targetDir}/es.file.d.ts`)
     fs.copySync('extendscript/es.global.d.ts', `${targetDir}/es.global.d.ts`)
-    fs.copySync('extendscript/es.unitvalue.d.ts', `${targetDir}/es.unitvalue.d.ts`)
+    fs.copySync('extendscript/es.scriptui.d.ts', `${targetDir}/es.scriptui.d.ts`)
+    fs.copySync('extendscript/es.tools.d.ts', `${targetDir}/es.tools.d.ts`)
+    fs.copySync('extendscript/es.xml.d.ts', `${targetDir}/es.xml.d.ts`)
+    fs.copySync('extendscript/es.xmp.d.ts', `${targetDir}/es.xmp.d.ts`)
 }
 
 const mkDistDir = (targetDir) => {

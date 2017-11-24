@@ -14,23 +14,23 @@ declare class $ {
     /**
      * The version information for the current ExtendScript build. Read only.
      */
-    static build: string
+    static readonly build: string
 
     /**
      * The date the current JavaScript engine was built. Read only.
      */
-    static buildDate: Date
+    static readonly buildDate: Date
 
     /**
      * The character used in formatted numeric output for a decimal point, for
      * the current locale. Read only.
      */
-    static decimalPoint: string
+    static readonly decimalPoint: string
 
     /**
      * The name of the current JavaScript engine, if set. Read only.
      */
-    static engineName: string
+    static readonly engineName: string
 
     /**
      * The most recent run-time error information, contained in a JavaScript
@@ -41,7 +41,7 @@ declare class $ {
     /**
      * The file name of the current script. Read only.
      */
-    static fileName: string
+    static readonly fileName: string
 
     /**
      * Gets or sets low-level debug output flags. A logical AND of the following
@@ -76,12 +76,12 @@ declare class $ {
      * The property is thread-local; that is, the first access on a thread
      * returns the time needed to create and initialize that thread. Read only.
      */
-    static hiresTimer: number
+    static readonly hiresTimer: number
 
     /**
      * The path for include files for the current script. Read only.
      */
-    static includePath: string
+    static readonly includePath: string
 
     /**
      * The current debugging level, which enables or disables the JavaScript
@@ -90,13 +90,13 @@ declare class $ {
      * 1: Break on runtime errors
      * 2: Full debug mode
      */
-    static level: number
+    static readonly level: number
 
     /**
      * The current line of the currently executing script; the first line is
      * number 1. Read only.
      */
-    static line: number
+    static readonly line: number
 
     /**
      * Gets or sets the current locale. The string contains five characters in
@@ -123,7 +123,7 @@ declare class $ {
     /**
      * The current operating system version information. Read only.
      */
-    static os: string
+    static readonly os: string
 
     /**
      * An array of objects containing information about the display screens
@@ -153,7 +153,7 @@ declare class $ {
      * The version number of the JavaScript engine as a three-part number and
      * description; for example: "3.92.95 (debug)" Read only.
      */
-    static version: string
+    static readonly version: string
 
     /**
      * Displays the About box for the ExtendScript component, and returns the
