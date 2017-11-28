@@ -31,7 +31,7 @@ npm install --save-dev photoshop.d.ts
 2. Add a `tsconfig.json` to your project with the following recommended
 settings and modify it to your needs: 
 
-```json
+```js
 {
     "compilerOptions": {
         // Output config
@@ -63,7 +63,7 @@ settings and modify it to your needs:
 }
 ```
 
-<small>Note: If you want to use modules in ExtendScript, you need a module loader like <a href="https://github.com/requirejs/requirejs" target="_blank">requirejs</a> and set the module option to `"amd"`. The setup of requirejs for ExtendScript requires some configuration.</small>
+Note: If you want to use modules in ExtendScript, you need a module loader like <a href="https://github.com/requirejs/requirejs" target="_blank">requirejs</a> and set the module option to `"amd"`. The setup of requirejs for ExtendScript requires some configuration.
 
 ## ECMAScript version and JavaScript Polyfills
 
@@ -76,18 +76,18 @@ You can use ECMAScript 5 features by adding polyfills to your project. The <a hr
 JS polyfill library.
 2. Link the polyfill in the `files` section of your `tsconfig.json`: 
 
-```json
+```js
 {   
-    ...
+    // ...
     "files": [
         "./somefolder/es5.js"  // prepends ES5 polyfill to jsx output file
     ]
-    ...
+    // ...
 }
 ```
 
-<small>Note: You can also restrict your use of JS functions to an ES3 level in TypeScript and replace the built-in ES5 standard lib with an <a href="https://github.com/saschanaz/TypeScript/blob/es3-d-ts/src/lib/es3.d.ts" target="_blank">ES3 declaration file</a>
-manually.</small>
+Note: You can also restrict your use of JS functions to an ES3 level in TypeScript and replace the built-in ES5 standard lib with an <a href="https://github.com/saschanaz/TypeScript/blob/es3-d-ts/src/lib/es3.d.ts" target="_blank">ES3 declaration file</a>
+manually.
 
 # For developers
 
