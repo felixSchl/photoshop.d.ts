@@ -1,4 +1,3 @@
-/// <reference path="./lib.d.ts" />
 /// <reference path="./es.d.ts" />
 /// <reference path="./ps.types.d.ts" />
 
