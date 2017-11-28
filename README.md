@@ -82,7 +82,6 @@ JS polyfill library.
     "files": [
         "./somefolder/es5.js"  // prepends ES5 polyfill to jsx output file
     ]
-    // ...
 }
 ```
 
@@ -105,6 +104,6 @@ The [parsers][parsers] do a pretty good job, although some manual fix-ups need t
 
 [parsers]: https://github.com/felixSchl/photoshop.d.ts/tree/master/parsers
 
-## License
+# License
 
 This project is licensed under the [BSD 2-Clause License](LICENSE).
