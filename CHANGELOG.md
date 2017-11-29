@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.0
+
+- Remove included ES5 standard lib
+- Update README.md
+- Add CHANGELOG.md
+- Add LICENSE
+- Update test commands in package.json
+- Normalize line length to 80 characters
+
 ## 0.4.0
 
 - Add ExtendScript declarations from Tools Guide CC
