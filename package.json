@@ -5,11 +5,12 @@
   "main": "app.js",
   "scripts": {
     "build": "npm run compile ./app.ts",
-    "test:cc": "npm run compile ./dist/cc/**",
-    "test:cs6": "npm run compile ./dist/cs6/**",
+    "test:cc": "npm run compilelib ./dist/cc/**",
+    "test:cs6": "npm run compilelib ./dist/cs6/**",
     "test": "npm run test:cc && npm run test:cs6",
     "pretest": "npm run build",
     "compile": "tsc --target ES5 --module commonjs",
+    "compilelib": "tsc --target ES5 --module commonjs --lib es5",
     "start": "node app.js",
     "convert": "npm start cc && npm start cs6"
   },
