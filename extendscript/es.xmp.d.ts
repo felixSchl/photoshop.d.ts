@@ -6,7 +6,8 @@
 declare var XMPMeta: any
 
 /**
- * Provides convenient I/O access to the main, or document level, XMP for a file.
+ * Provides convenient I/O access to the main, or document level, XMP for a
+ * file.
  */
 declare var XMPFile: any
 
