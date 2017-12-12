@@ -85,12 +85,12 @@ declare class $ {
 
     /**
      * The current debugging level, which enables or disables the JavaScript
-     * debugger. Read only. One of:
+     * debugger. One of:
      * 0: No debugging
      * 1: Break on runtime errors
      * 2: Full debug mode
      */
-    static readonly level: number
+    static level: number
 
     /**
      * The current line of the currently executing script; the first line is
@@ -231,7 +231,7 @@ declare class $ {
      * @param text One or more strings to write, which are concatenated to form
      * a single string.
      */
-    static write(text: any,  ...texts: any[]): void
+    static write(text: any, ...texts: any[]): void
 
     /**
      * Writes the specified text to the JavaScript Console and appends a
@@ -240,5 +240,5 @@ declare class $ {
      * @param text One or more strings to write, which are concatenated to form
      * a single string.
      */
-    static writeln(text: any,  ...texts: any[]): void
+    static writeln(text: any, ...texts: any[]): void
 }
