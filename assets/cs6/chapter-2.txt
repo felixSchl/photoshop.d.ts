@@ -2145,9 +2145,7 @@ exportDocument
 [, options])
 File
 ExportType
-ExportOptionsIllustrator
-—or—
-ExportOptionsSaveForWeb
+ExportOptionsIllustrator|ExportOptionsSaveForWeb
 Exports the paths in the document to an
 Illustrator file, or exports the document to
 a file with Web or device viewing

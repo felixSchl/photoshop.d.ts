@@ -71,7 +71,7 @@ const typeBlacklist = [ 'Methods', 'File' ];
  */
 const identifier = parse.label('identifier'
     , text.letter.chain(first =>
-        parse.eager(parse.many(text.match(/[a-zA-Z_0-9]/))).chain(rest =>
+        parse.eager(parse.many(text.match(/[a-zA-Z_0-9|]/))).chain(rest =>
             parse.always(first + rest.join(''))
         )
     )

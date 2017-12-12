@@ -2391,12 +2391,12 @@ interface Document {
     duplicate(name?: string, mergeLayersOnly?: boolean): Document
 
     /**
-     * —or— ExportOptionsSaveForWeb Exports the paths in the document to an
-     * Illustrator file, or exports the document to a file with Web or device
-     * viewing optimizations. This is equivalent to choosing File > Export >
-     * Paths To Illustrator, or File > Save For Web and Devices.
+     * Exports the paths in the document to an Illustrator file, or exports the
+     * document to a file with Web or device viewing optimizations. This is
+     * equivalent to choosing File > Export > Paths To Illustrator, or File >
+     * Save For Web and Devices.
      */
-    exportDocument(exportIn: File, exportAs?: ExportType, options?: ExportOptionsIllustrator): void
+    exportDocument(exportIn: File, exportAs?: ExportType, options?: ExportOptionsIllustrator|ExportOptionsSaveForWeb): void
 
     /**
      * Flattens all layers in the document.
