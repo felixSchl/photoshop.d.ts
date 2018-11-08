@@ -172,7 +172,7 @@ declare function confirm(message: string, noAsDflt?: boolean, title?: string): b
  * Windows, this appears in the window’s frame, while on Mac OS it appears
  * above the message. The default title string is "Script Prompt."
  */
-declare function prompt(message: string, preset: string, title?: string): boolean
+declare function prompt(message: string, preset: string, title?: string): string
 
 
 //*** UnitValue ***//
