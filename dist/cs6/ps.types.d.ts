@@ -1210,8 +1210,8 @@ interface ArtLayer {
     /**
      * ArtLayer or LayerSet Creates a duplicate of the object on the screen.
      */
-    duplicate(relativeObject?: ArtLayer, insertionLocation?: ElementPlacement): void
-    duplicate(relativeObject?: LayerSet, insertionLocation?: ElementPlacement): void
+    duplicate(relativeObject?: ArtLayer, insertionLocation?: ElementPlacement): ArtLayer
+    duplicate(relativeObject?: LayerSet, insertionLocation?: ElementPlacement): ArtLayer
 
     /**
      * Redistributes the brightness values of pixels in an image to more evenly
@@ -2168,7 +2168,7 @@ interface Document {
     /**
      * The selected layer.
      */
-    activeLayer: ArtLayer
+    activeLayer: ArtLayer | LayerSet
 
     /**
      * The art layers collection.
